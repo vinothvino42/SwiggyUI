@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_ui/shared/app_theme.dart';
 
-import 'views/swiggy_screen.dart';
+import 'shared/app_theme.dart';
+import 'views/home_bottom_navigation_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'SwiggyUI',
       debugShowCheckedModeBanner: false,
       theme: appPrimaryTheme(),
-      home: SwiggyScreen(),
+      home: HomeBottomNavigationScreen(),
     );
   }
 }

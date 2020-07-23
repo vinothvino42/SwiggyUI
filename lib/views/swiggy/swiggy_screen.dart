@@ -3,6 +3,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
+import 'package:swiggy_ui/widgets/food_list_item_view.dart';
 
 class SwiggyScreen extends StatelessWidget {
   @override
@@ -33,6 +34,19 @@ class SwiggyScreen extends StatelessWidget {
                       CustomDividerView(),
                       _TopOffersViews(),
                       CustomDividerView(),
+                      _GenieView(),
+                      CustomDividerView(),
+                      PopularCategorieView(),
+                      CustomDividerView(),
+                      RestaurantVerticalListView(
+                        title: 'Popular Restaurants',
+                        count: 3,
+                      ),
+                      CustomDividerView(),
+                      RestaurantVerticalListView(
+                        title: 'All Restaurants Nearby',
+                        count: 5,
+                      ),
                     ],
                   ),
                 ),
@@ -1016,6 +1030,235 @@ class _TopOffersViews extends StatelessWidget {
 class _GenieView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Genie', style: Theme.of(context).textTheme.headline4),
+                  UIHelper.verticalSpaceSmall(),
+                  Text(
+                    'Anything you need, deliverd.\nPick-up, Drop or Buy anything,\nfrom anywhere in your city',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(color: Colors.grey),
+                  )
+                ],
+              ),
+              Spacer(),
+              UIHelper.horizontalSpaceMedium(),
+              Image.asset(
+                'assets/images/food2.jpg',
+                height: 90.0,
+                width: 90.0,
+              ),
+            ],
+          ),
+          UIHelper.verticalSpaceMedium(),
+          Container(
+            height: 8.0,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: 100,
+              itemBuilder: (context, index) => ClipOval(
+                child: Container(
+                  margin: const EdgeInsets.all(3.0),
+                  width: 2.0,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+          ),
+          UIHelper.verticalSpaceMedium(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              _buildGenieCardView(context),
+              _buildGenieCardView(context)
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Container _buildGenieCardView(BuildContext context) => Container(
+        padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey, width: 1.0),
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.white,
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: Colors.grey[200],
+              blurRadius: 2.0,
+              offset: Offset(1.0, 3.0),
+            )
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Buy\nAnything',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2
+                  .copyWith(fontSize: 22.0),
+            ),
+            UIHelper.verticalSpaceMedium(),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Stationery\nMedicine\nGrocery\n& more',
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                    UIHelper.verticalSpaceSmall(),
+                    ClipOval(
+                      child: Container(
+                        alignment: Alignment.center,
+                        color: swiggyOrange,
+                        height: 25.0,
+                        width: 25.0,
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          size: 12.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    UIHelper.verticalSpaceMedium(),
+                  ],
+                ),
+                UIHelper.horizontalSpaceMedium(),
+                Image.asset(
+                  'assets/images/food3.jpg',
+                  height: 80.0,
+                  width: 80.0,
+                  fit: BoxFit.cover,
+                ),
+              ],
+            )
+          ],
+        ),
+      );
+}
+
+class PopularCategorieView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.topLeft,
+      margin: const EdgeInsets.all(10.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'Popular Categories',
+            style:
+                Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
+          ),
+          UIHelper.verticalSpaceMedium(),
+          Container(
+            alignment: Alignment.center,
+            height: 140.0,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, index) => Container(
+                  margin: const EdgeInsets.all(10.0),
+                  height: 140.0,
+                  width: 80.0,
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(5.0),
+                        child: Container(
+                          height: 60.0,
+                          color: Colors.grey[200],
+                        ),
+                      ),
+                      Positioned(
+                        top: 20.0,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Image.asset(
+                              'assets/images/food4.jpg',
+                              height: 60.0,
+                              width: 40.0,
+                              fit: BoxFit.cover,
+                            ),
+                            UIHelper.verticalSpaceSmall(),
+                            Flexible(
+                              child: Text(
+                                'Cold\nBeverages',
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.bodyText1,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class RestaurantVerticalListView extends StatelessWidget {
+  final String title;
+  final int count;
+
+  const RestaurantVerticalListView({
+    Key key,
+    @required this.title,
+    @required this.count,
+  })  : assert(title != '', count != 0),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(10.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            title,
+            style:
+                Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
+          ),
+          UIHelper.verticalSpaceMedium(),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: count,
+            itemBuilder: (context, index) => FoodListItemView(),
+          )
+        ],
+      ),
+    );
   }
 }
