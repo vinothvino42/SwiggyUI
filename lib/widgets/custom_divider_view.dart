@@ -13,6 +13,7 @@ class CustomDividerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: dividerHeight,
+      width: double.infinity,
       color: Colors.grey[200],
     );
   }
