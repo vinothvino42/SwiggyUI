@@ -3,6 +3,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
+import 'package:swiggy_ui/widgets/dotted_seperator_view.dart';
 import 'package:swiggy_ui/widgets/food_list_item_view.dart';
 
 class SwiggyScreen extends StatelessWidget {
@@ -1062,21 +1063,7 @@ class _GenieView extends StatelessWidget {
             ],
           ),
           UIHelper.verticalSpaceMedium(),
-          Container(
-            height: 8.0,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: 100,
-              itemBuilder: (context, index) => ClipOval(
-                child: Container(
-                  margin: const EdgeInsets.all(3.0),
-                  width: 2.0,
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-          ),
+          DottedSeperatorView(),
           UIHelper.verticalSpaceMedium(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

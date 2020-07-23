@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
+import 'package:swiggy_ui/widgets/dotted_seperator_view.dart';
 
 class AccountScreen extends StatelessWidget {
   final List<String> titles = [
@@ -12,32 +13,46 @@ class AccountScreen extends StatelessWidget {
   ];
   final List<String> body = [
     'Address, Payments, Favourties, Referrals & Offers',
+    'You had a great savings run. Get SUPER again',
+    'Balance & Transactions',
+    'FAQ & Links',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            _AppBar(),
-            _ListItem(
-              title: 'My Account',
-              body: 'Address, Payments, Favourites' 'Referrals & Offers',
-            ),
-            _ListItem(
-              title: 'My Account',
-              body: 'Address, Payments, Favourites' 'Referrals & Offers',
-            ),
-            _ListItem(
-              title: 'My Account',
-              body: 'Address, Payments, Favourites' 'Referrals & Offers',
-            ),
-            _ListItem(
-              title: 'My Account',
-              body: 'Address, Payments, Favourites' 'Referrals & Offers',
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              _AppBar(),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: titles.length,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) => _ListItem(
+                  title: titles[index],
+                  body: body[index],
+                  isLastItem: (titles.length - 1) == index,
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.only(left: 15.0),
+                height: 50.0,
+                color: Colors.grey[200],
+                child: Text(
+                  'PAST ORDERS',
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2
+                      .copyWith(color: Colors.grey[700], fontSize: 12.0),
+                ),
+              ),
+              _PastOrderListView(),
+            ],
+          ),
         ),
       ),
     );
@@ -105,46 +120,270 @@ class _AppBar extends StatelessWidget {
 class _ListItem extends StatelessWidget {
   final String title;
   final String body;
+  final bool isLastItem;
 
   const _ListItem({
     Key key,
     @required this.title,
     @required this.body,
+    this.isLastItem = false,
   })  : assert(title != '', body != ''),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(15.0),
-      height: 100.0,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(
-                title,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6
-                    .copyWith(fontSize: 17.0),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        .copyWith(fontSize: 15.0),
+                  ),
+                  UIHelper.verticalSpaceExtraSmall(),
+                  Text(
+                    body,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(fontSize: 13.0, color: Colors.black),
+                  ),
+                ],
               ),
-              UIHelper.verticalSpaceExtraSmall(),
-              Text(
-                body,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1
-                    .copyWith(fontSize: 14.0, color: Colors.black),
-              ),
+              Spacer(),
+              UIHelper.horizontalSpaceSmall(),
+              Icon(Icons.keyboard_arrow_right)
             ],
           ),
-          Spacer(),
-          UIHelper.horizontalSpaceSmall(),
-          Icon(Icons.keyboard_arrow_right)
+          UIHelper.verticalSpaceLarge(),
+          isLastItem
+              ? SizedBox()
+              : CustomDividerView(
+                  dividerHeight: 0.8,
+                  color: Colors.black26,
+                ),
+        ],
+      ),
+    );
+  }
+}
+
+class _PastOrderListView extends StatelessWidget {
+  final List<String> restaurants = [
+    'Sea Emperor',
+    'Fireflies Restaurant',
+    'Chai Truck',
+  ];
+
+  final List<String> foods = [
+    'Pepper BBQ x 1',
+    'Chicken Noodles x 1',
+    'Milk Tea x 1'
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: restaurants.length,
+          physics: NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) => _PastOrdersListItemView(
+            restaurant: restaurants[index],
+            foodItem: foods[index],
+          ),
+        ),
+        FlatButton(
+          child: Text(
+            'VIEW MORE ORDERS',
+            style: Theme.of(context)
+                .textTheme
+                .subtitle2
+                .copyWith(color: darkOrange),
+          ),
+          onPressed: () {},
+        ),
+        UIHelper.verticalSpaceSmall(),
+        CustomDividerView(),
+        Row(
+          children: <Widget>[
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.only(left: 10.0),
+              height: 50.0,
+              child: Text(
+                'LOGOUT',
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2
+                    .copyWith(fontSize: 16.0),
+              ),
+            ),
+            Spacer(),
+            Icon(Icons.power_settings_new),
+            UIHelper.horizontalSpaceSmall(),
+          ],
+        ),
+        Container(
+          alignment: Alignment.topCenter,
+          padding: const EdgeInsets.only(top: 20.0),
+          height: 130.0,
+          color: Colors.grey[200],
+          child: Text(
+            'App Version v1.1.0',
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1
+                .copyWith(color: Colors.grey[700], fontSize: 13.0),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class _PastOrdersListItemView extends StatelessWidget {
+  final String restaurant;
+  final String foodItem;
+
+  const _PastOrdersListItemView({
+    Key key,
+    @required this.restaurant,
+    @required this.foodItem,
+  })  : assert(restaurant != '', foodItem != ''),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      restaurant,
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                    UIHelper.verticalSpaceExtraSmall(),
+                    Text(
+                      'Medavakkam',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
+                          .copyWith(fontSize: 12.0),
+                    ),
+                    UIHelper.verticalSpaceSmall(),
+                    Row(
+                      children: <Widget>[
+                        Text('Rs112'),
+                        UIHelper.horizontalSpaceExtraSmall(),
+                        Icon(Icons.keyboard_arrow_right,
+                            color: Colors.grey[600])
+                      ],
+                    )
+                  ],
+                ),
+                Spacer(),
+                Text('Delivered', style: Theme.of(context).textTheme.subtitle2),
+                UIHelper.horizontalSpaceSmall(),
+                ClipOval(
+                  child: Container(
+                    padding: const EdgeInsets.all(2.2),
+                    color: Colors.green,
+                    child: Icon(Icons.check, color: Colors.white, size: 14.0),
+                  ),
+                )
+              ],
+            ),
+          ),
+          UIHelper.verticalSpaceSmall(),
+          DottedSeperatorView(),
+          UIHelper.verticalSpaceMedium(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(foodItem),
+              UIHelper.verticalSpaceExtraSmall(),
+              Text('July 14, 2:11 AM'),
+              UIHelper.verticalSpaceSmall(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        OutlineButton(
+                          color: darkOrange,
+                          borderSide: BorderSide(width: 1.5, color: darkOrange),
+                          child: Text(
+                            'REORDER',
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle2
+                                .copyWith(color: darkOrange),
+                          ),
+                          onPressed: () {},
+                        ),
+                        UIHelper.verticalSpaceMedium(),
+                        Text('Delivery rating not\napplicable for this order')
+                      ],
+                    ),
+                  ),
+                  UIHelper.horizontalSpaceMedium(),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        OutlineButton(
+                          color: darkOrange,
+                          borderSide:
+                              BorderSide(width: 1.5, color: Colors.black),
+                          child: Text(
+                            'RATE FOOD',
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle2
+                                .copyWith(color: Colors.black),
+                          ),
+                          onPressed: () {},
+                        ),
+                        UIHelper.verticalSpaceMedium(),
+                        Text("You haven't rated\nthis food yet")
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              UIHelper.verticalSpaceMedium(),
+              CustomDividerView(dividerHeight: 1.5, color: Colors.black)
+            ],
+          )
         ],
       ),
     );
