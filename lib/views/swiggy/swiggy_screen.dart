@@ -6,6 +6,9 @@ import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 import 'package:swiggy_ui/widgets/dotted_seperator_view.dart';
 import 'package:swiggy_ui/widgets/food_list_item_view.dart';
 
+import 'genie_grocery_card_view.dart';
+import 'top_picks_for_you_view.dart';
+
 class SwiggyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class SwiggyScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       _FoodGroceriesAvailabilityView(),
-                      _TopPicksForYouView(),
+                      TopPicksForYouView(),
                       _OfferBannerView(),
                       CustomDividerView(),
                       _IndianFoodView(),
@@ -213,133 +216,22 @@ class _FoodGroceriesAvailabilityView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              _bulidCardView(context),
-              _bulidCardView(context),
-              _bulidCardView(context),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-
-  Expanded _bulidCardView(BuildContext context) => Expanded(
-        child: Column(
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(16.0),
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                padding: const EdgeInsets.only(top: 8.0),
-                decoration: BoxDecoration(
-                  color: swiggyOrange,
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 3.0,
-                      offset: Offset(1, 4),
-                    )
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Text(
-                      'Genie',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          .copyWith(color: Colors.white),
-                    ),
-                    UIHelper.verticalSpaceExtraSmall(),
-                    Flexible(
-                      child: Image.asset(
-                        'assets/images/food2.jpg',
-                        fit: BoxFit.fill,
-                      ),
-                    )
-                  ],
-                ),
+              GenieGroceryCardView(
+                title: 'Genie',
+                subtitle: 'Anything you need, delivered',
+                image: 'assets/images/genie.jpg',
               ),
-            ),
-            UIHelper.verticalSpaceMedium(),
-            Text('Anything you need, delivered', textAlign: TextAlign.center),
-          ],
-        ),
-      );
-}
-
-class _TopPicksForYouView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(15.0),
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Icon(Icons.thumb_up, size: 20.0),
-              UIHelper.horizontalSpaceSmall(),
-              Text(
-                'Top Picks For You',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    .copyWith(fontSize: 20.0),
-              )
-            ],
-          ),
-          UIHelper.verticalSpaceLarge(),
-          Container(
-            height: 165.0,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index) => Container(
-                margin: const EdgeInsets.all(10.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        boxShadow: <BoxShadow>[
-                          BoxShadow(
-                            color: Colors.grey,
-                            blurRadius: 2.0,
-                          )
-                        ],
-                      ),
-                      child: Image.asset(
-                        'assets/images/food2.jpg',
-                        width: 100.0,
-                        height: 100.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    UIHelper.verticalSpaceSmall(),
-                    Text(
-                      'Hotel Chennai',
-                      style: Theme.of(context).textTheme.subtitle2.copyWith(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w700,
-                          ),
-                    ),
-                    UIHelper.verticalSpaceExtraSmall(),
-                    Text(
-                      '34 min',
-                      style: Theme.of(context).textTheme.bodyText1.copyWith(
-                            color: Colors.grey[700],
-                            fontSize: 12.0,
-                          ),
-                    )
-                  ],
-                ),
+              GenieGroceryCardView(
+                title: 'Grocery',
+                subtitle: 'Esentials delivered in 2 Hrs',
+                image: 'assets/images/grocery.jpg',
               ),
-            ),
+              GenieGroceryCardView(
+                title: 'Meat',
+                subtitle: 'Fesh meat delivered safe',
+                image: 'assets/images/meat.jpg',
+              ),
+            ],
           )
         ],
       ),
