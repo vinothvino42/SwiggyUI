@@ -28,6 +28,11 @@ class SwiggyScreen extends StatelessWidget {
                       CustomDividerView(),
                       _PopularBrandsView(),
                       CustomDividerView(),
+                      _SwiggySafetyBannerView(),
+                      _BestInSafetyViews(),
+                      CustomDividerView(),
+                      _TopOffersViews(),
+                      CustomDividerView(),
                     ],
                   ),
                 ),
@@ -211,14 +216,16 @@ class _FoodGroceriesAvailabilityView extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 8.0),
                 padding: const EdgeInsets.only(top: 8.0),
-                decoration:
-                    BoxDecoration(color: swiggyOrange, boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 3.0,
-                    offset: Offset(1, 4),
-                  )
-                ]),
+                decoration: BoxDecoration(
+                  color: swiggyOrange,
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 3.0,
+                      offset: Offset(1, 4),
+                    )
+                  ],
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
@@ -502,7 +509,6 @@ class _InTheSpotlightView extends StatelessWidget {
                       .copyWith(color: Colors.red[900], fontSize: 13.0),
                 ),
                 UIHelper.verticalSpaceExtraSmall(),
-                // CustomDividerView(dividerHeight: 1.0),
                 Divider(),
                 UIHelper.verticalSpaceExtraSmall(),
                 Row(
@@ -610,4 +616,406 @@ class _PopularBrandsView extends StatelessWidget {
           ],
         ),
       );
+}
+
+class _SwiggySafetyBannerView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(15.0),
+      height: 200.0,
+      child: Column(
+        children: <Widget>[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.arrow_downward,
+                color: swiggyOrange,
+              ),
+              UIHelper.horizontalSpaceExtraSmall(),
+              Flexible(
+                child: Text(
+                  "SWIGGY's KEY MEASURES TO ENSURE SAFETY",
+                  style: Theme.of(context).textTheme.subtitle2.copyWith(
+                        color: swiggyOrange,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w700,
+                      ),
+                ),
+              ),
+              UIHelper.horizontalSpaceExtraSmall(),
+              Icon(
+                Icons.arrow_downward,
+                color: swiggyOrange,
+              ),
+            ],
+          ),
+          UIHelper.verticalSpaceMedium(),
+          Flexible(
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: 3,
+              itemBuilder: (context, index) => Container(
+                margin: const EdgeInsets.only(right: 10.0),
+                padding: const EdgeInsets.all(10.0),
+                width: MediaQuery.of(context).size.width / 1.2,
+                decoration: BoxDecoration(
+                  color: Colors.orange[100],
+                  border: Border.all(color: swiggyOrange, width: 2.0),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Flexible(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  'No-contact Delivery',
+                                  style: Theme.of(context).textTheme.headline6,
+                                ),
+                                UIHelper.verticalSpaceExtraSmall(),
+                                Text(
+                                  'Have your order dropped of at your door or gate for added safety',
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                ),
+                              ],
+                            ),
+                          ),
+                          UIHelper.verticalSpaceExtraSmall(),
+                          FlatButton(
+                            child: Text(
+                              'Know More',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  .copyWith(color: darkOrange),
+                            ),
+                            onPressed: () {},
+                          )
+                        ],
+                      ),
+                    ),
+                    UIHelper.horizontalSpaceSmall(),
+                    ClipOval(
+                      child: Image.asset(
+                        'assets/images/food3.jpg',
+                        height: 90.0,
+                        width: 90.0,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _BestInSafetyViews extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(10.0),
+      height: 330.0,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Icon(Icons.security),
+              UIHelper.horizontalSpaceExtraSmall(),
+              Text(
+                'Best in Safety',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(fontSize: 20.0),
+              ),
+              Spacer(),
+              Row(
+                children: <Widget>[
+                  Text(
+                    'SEE ALL',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  UIHelper.horizontalSpaceExtraSmall(),
+                  ClipOval(
+                    child: Container(
+                      alignment: Alignment.center,
+                      color: swiggyOrange,
+                      height: 25.0,
+                      width: 25.0,
+                      child: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 12.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+          UIHelper.verticalSpaceExtraSmall(),
+          Text(
+            'Restaurants with best safety standards',
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1
+                .copyWith(color: Colors.grey),
+          ),
+          Flexible(
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, index) => Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    _buildSpotlightFoodListItem(context),
+                    _buildSpotlightFoodListItem(context),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container _buildSpotlightFoodListItem(BuildContext context) => Container(
+        margin: const EdgeInsets.all(15.0),
+        child: Row(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.white,
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 2.0,
+                  )
+                ],
+              ),
+              child: Image.asset(
+                'assets/images/food2.jpg',
+                height: 100.0,
+                width: 100.0,
+                fit: BoxFit.cover,
+              ),
+            ),
+            UIHelper.horizontalSpaceSmall(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Breakfast Express',
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2
+                      .copyWith(fontSize: 18.0),
+                ),
+                Text('Continental, North Indian, South Indian',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(color: Colors.grey[800], fontSize: 13.5)),
+                UIHelper.verticalSpaceSmall(),
+                Text(
+                  '20 % off | Use JUMBO',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1
+                      .copyWith(color: Colors.red[900], fontSize: 13.0),
+                ),
+                UIHelper.verticalSpaceExtraSmall(),
+                Divider(),
+                UIHelper.verticalSpaceExtraSmall(),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      size: 14.0,
+                      color: Colors.grey[600],
+                    ),
+                    Text('4.1 - 45 mins - Rs200 for two')
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
+      );
+}
+
+class _TopOffersViews extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(10.0),
+      height: 330.0,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Icon(Icons.security),
+              UIHelper.horizontalSpaceExtraSmall(),
+              Text(
+                'Top Offers',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    .copyWith(fontSize: 20.0),
+              ),
+              Spacer(),
+              Row(
+                children: <Widget>[
+                  Text(
+                    'SEE ALL',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  UIHelper.horizontalSpaceExtraSmall(),
+                  ClipOval(
+                    child: Container(
+                      alignment: Alignment.center,
+                      color: swiggyOrange,
+                      height: 25.0,
+                      width: 25.0,
+                      child: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 12.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+          UIHelper.verticalSpaceExtraSmall(),
+          Text(
+            'Get 20-50% Off',
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1
+                .copyWith(color: Colors.grey),
+          ),
+          Flexible(
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, index) => Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    _buildSpotlightFoodListItem(context),
+                    _buildSpotlightFoodListItem(context),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container _buildSpotlightFoodListItem(BuildContext context) => Container(
+        margin: const EdgeInsets.all(15.0),
+        child: Row(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.white,
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 2.0,
+                  )
+                ],
+              ),
+              child: Image.asset(
+                'assets/images/food2.jpg',
+                height: 100.0,
+                width: 100.0,
+                fit: BoxFit.cover,
+              ),
+            ),
+            UIHelper.horizontalSpaceSmall(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Breakfast Express',
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2
+                      .copyWith(fontSize: 18.0),
+                ),
+                Text('Continental, North Indian, South Indian',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(color: Colors.grey[800], fontSize: 13.5)),
+                UIHelper.verticalSpaceSmall(),
+                Text(
+                  '20 % off | Use JUMBO',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1
+                      .copyWith(color: Colors.red[900], fontSize: 13.0),
+                ),
+                UIHelper.verticalSpaceExtraSmall(),
+                Divider(),
+                UIHelper.verticalSpaceExtraSmall(),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      size: 14.0,
+                      color: Colors.grey[600],
+                    ),
+                    Text('4.1 - 45 mins - Rs200 for two')
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
+      );
+}
+
+class _GenieView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
 }
