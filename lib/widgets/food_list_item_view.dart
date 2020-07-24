@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 
 class FoodListItemView extends StatelessWidget {
+  final SpotlightBestTopFood restaurant;
+
+  const FoodListItemView({
+    Key key,
+    @required this.restaurant,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,10 +28,10 @@ class FoodListItemView extends StatelessWidget {
               ],
             ),
             child: Image.asset(
-              'assets/images/food2.jpg',
+              restaurant.image,
               height: 100.0,
               width: 100.0,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
           UIHelper.horizontalSpaceSmall(),
@@ -32,20 +40,20 @@ class FoodListItemView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'Breakfast Express',
+                restaurant.name,
                 style: Theme.of(context)
                     .textTheme
                     .subtitle2
                     .copyWith(fontSize: 18.0),
               ),
-              Text('Continental, North Indian, South Indian',
+              Text(restaurant.desc,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1
                       .copyWith(color: Colors.grey[800], fontSize: 13.5)),
               UIHelper.verticalSpaceSmall(),
               Text(
-                '20 % off | Use JUMBO',
+                restaurant.coupon,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText1
@@ -61,7 +69,7 @@ class FoodListItemView extends StatelessWidget {
                     size: 14.0,
                     color: Colors.grey[600],
                   ),
-                  Text('4.1 - 45 mins - Rs200 for two')
+                  Text(restaurant.ratingTimePrice)
                 ],
               )
             ],

@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/food_list_item_view.dart';
+
+import '../../models/spotlight_best_top_food.dart';
+import '../../utils/ui_helper.dart';
+import '../../widgets/food_list_item_view.dart';
 
 class RestaurantVerticalListView extends StatelessWidget {
   final String title;
-  final int count;
+  final List<SpotlightBestTopFood> restaurants;
+  final bool isAllRestaurantNearby;
 
   const RestaurantVerticalListView({
     Key key,
     @required this.title,
-    @required this.count,
-  })  : assert(title != '', count != 0),
+    @required this.restaurants,
+    this.isAllRestaurantNearby = false,
+  })  : assert(title != ''),
         super(key: key);
 
   @override
@@ -26,13 +31,30 @@ class RestaurantVerticalListView extends StatelessWidget {
             style:
                 Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
           ),
+          isAllRestaurantNearby
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    UIHelper.verticalSpaceExtraSmall(),
+                    Text(
+                      'Discover unique tastes near you',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
+                          .copyWith(fontSize: 14.0),
+                    ),
+                  ],
+                )
+              : SizedBox(),
           UIHelper.verticalSpaceMedium(),
           ListView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            itemCount: count,
-            itemBuilder: (context, index) => FoodListItemView(),
-          )
+            itemCount: restaurants.length,
+            itemBuilder: (context, index) => FoodListItemView(
+              restaurant: restaurants[index],
+            ),
+          ),
         ],
       ),
     );

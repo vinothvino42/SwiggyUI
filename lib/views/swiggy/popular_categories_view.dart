@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/models/popular_category.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 
 class PopularCategoriesView extends StatelessWidget {
+  final categories = PopularCategory.getPopularCategories();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,22 +22,21 @@ class PopularCategoriesView extends StatelessWidget {
           UIHelper.verticalSpaceMedium(),
           Container(
             alignment: Alignment.center,
-            height: 140.0,
+            height: 124.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: categories.length,
               itemBuilder: (context, index) => Container(
                   margin: const EdgeInsets.all(10.0),
-                  height: 140.0,
-                  width: 80.0,
+                  width: 70.0,
                   child: Stack(
                     alignment: Alignment.topCenter,
                     children: <Widget>[
                       ClipRRect(
                         borderRadius: BorderRadius.circular(5.0),
                         child: Container(
-                          height: 60.0,
+                          height: 50.0,
                           color: Colors.grey[200],
                         ),
                       ),
@@ -44,15 +46,15 @@ class PopularCategoriesView extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
                             Image.asset(
-                              'assets/images/food4.jpg',
-                              height: 60.0,
+                              categories[index].image,
+                              height: 40.0,
                               width: 40.0,
                               fit: BoxFit.cover,
                             ),
                             UIHelper.verticalSpaceSmall(),
                             Flexible(
                               child: Text(
-                                'Cold\nBeverages',
+                                categories[index].name,
                                 maxLines: 2,
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context).textTheme.bodyText1,
