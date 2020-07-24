@@ -18,12 +18,14 @@ class GenieGroceryCardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(16.0),
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 8.0),
               padding: const EdgeInsets.only(top: 8.0),
+              height: 150.0,
               decoration: BoxDecoration(
                 color: swiggyOrange,
                 boxShadow: <BoxShadow>[
@@ -35,6 +37,7 @@ class GenieGroceryCardView extends StatelessWidget {
                 ],
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
@@ -45,11 +48,12 @@ class GenieGroceryCardView extends StatelessWidget {
                         .headline4
                         .copyWith(color: Colors.white),
                   ),
-                  UIHelper.verticalSpaceExtraSmall(),
+                  UIHelper.verticalSpaceSmall(),
                   Flexible(
                     child: Image.asset(
                       image,
-                      fit: BoxFit.fill,
+                      height: 150.0,
+                      fit: BoxFit.cover,
                     ),
                   )
                 ],
