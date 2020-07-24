@@ -3,6 +3,7 @@ import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/views/swiggy/swiggy_screen.dart';
 
 import 'account/account_screen.dart';
+import 'cart/cart_screen.dart';
 
 class HomeBottomNavigationScreen extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _HomeBottomNavigationScreenState
   final List<Widget> _children = [
     SwiggyScreen(),
     Container(),
-    Container(),
+    CartScreen(),
     AccountScreen(),
   ];
 

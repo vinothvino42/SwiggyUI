@@ -35,6 +35,14 @@ class PopularCategory {
         image: 'assets/icons/milkshake.png',
         name: 'Milkshakes',
       ),
+      PopularCategory(
+        image: 'assets/icons/kawaii-sushi.png',
+        name: 'Kawaii\n Sushi',
+      ),
+      PopularCategory(
+        image: 'assets/icons/bread.png',
+        name: 'Bread',
+      ),
     ];
   }
 }
