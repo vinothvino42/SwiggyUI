@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_ui/utils/app_colors.dart';
-import 'package:swiggy_ui/utils/ui_helper.dart';
+
+import '../../models/spotlight_best_top_food.dart';
+import '../../utils/app_colors.dart';
+import '../../utils/ui_helper.dart';
+import '../../widgets/spotlight_best_top_food_item.dart';
 
 class TopOffersViews extends StatelessWidget {
+  final restaurants = SpotlightBestTopFood.getTopRestaurants();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -58,17 +63,19 @@ class TopOffersViews extends StatelessWidget {
                 .bodyText1
                 .copyWith(color: Colors.grey),
           ),
+          UIHelper.verticalSpaceMedium(),
           Flexible(
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: restaurants.length,
               itemBuilder: (context, index) => Container(
+                width: MediaQuery.of(context).size.width / 1.1,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    _buildSpotlightFoodListItem(context),
-                    _buildSpotlightFoodListItem(context),
+                    SpotlightBestTopFoodItem(restaurant: restaurants[index][0]),
+                    SpotlightBestTopFoodItem(restaurant: restaurants[index][1])
                   ],
                 ),
               ),

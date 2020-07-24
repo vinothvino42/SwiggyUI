@@ -3,7 +3,7 @@ import 'package:swiggy_ui/models/top_picks_food.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 
 class TopPicksForYouView extends StatelessWidget {
-  final foods = TopPicksFood.getTopPicksfood();
+  final foods = TopPicksFood.getTopPicksfoods();
 
   @override
   Widget build(BuildContext context) {
@@ -67,10 +67,10 @@ class TopPicksForYouView extends StatelessWidget {
                     ),
                     UIHelper.verticalSpaceExtraSmall(),
                     Text(
-                      '34 min',
+                      foods[index].minutes,
                       style: Theme.of(context).textTheme.bodyText1.copyWith(
                             color: Colors.grey[700],
-                            fontSize: 12.0,
+                            fontSize: 13.0,
                           ),
                     )
                   ],

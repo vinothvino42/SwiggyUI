@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/models/indian_food.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 
 class IndianFoodView extends StatelessWidget {
+  final restaurants = IndianFood.getIndianRestaurants();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,7 +13,7 @@ class IndianFoodView extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: 10,
+        itemCount: restaurants.length,
         itemBuilder: (context, index) => Container(
           margin: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(
@@ -19,7 +22,7 @@ class IndianFoodView extends StatelessWidget {
             children: <Widget>[
               ClipOval(
                 child: Image.asset(
-                  'assets/images/food2.jpg',
+                  restaurants[index].image,
                   height: 80.0,
                   width: 80.0,
                   fit: BoxFit.cover,
@@ -27,7 +30,7 @@ class IndianFoodView extends StatelessWidget {
               ),
               UIHelper.verticalSpaceExtraSmall(),
               Text(
-                'South\nIndin',
+                restaurants[index].name,
                 style: Theme.of(context)
                     .textTheme
                     .subtitle2

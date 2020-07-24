@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/models/popular_brands.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 
 class PopularBrandsView extends StatelessWidget {
+  final brands = PopularBrands.getPopularBrands();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,6 +21,7 @@ class PopularBrandsView extends StatelessWidget {
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
+                itemCount: brands.length,
                 itemBuilder: (context, index) => Container(
                   margin: const EdgeInsets.only(right: 15.0),
                   child: Column(
@@ -33,7 +37,7 @@ class PopularBrandsView extends StatelessWidget {
                         ),
                         child: ClipOval(
                           child: Image.asset(
-                            'assets/images/food3.jpg',
+                            brands[index].image,
                             height: 80.0,
                             width: 80.0,
                             fit: BoxFit.cover,
@@ -42,7 +46,7 @@ class PopularBrandsView extends StatelessWidget {
                       ),
                       UIHelper.verticalSpaceSmall(),
                       Text(
-                        'Chai Kings',
+                        brands[index].name,
                         style: Theme.of(context)
                             .textTheme
                             .subtitle2
@@ -50,7 +54,7 @@ class PopularBrandsView extends StatelessWidget {
                       ),
                       UIHelper.verticalSpace(2.0),
                       Text(
-                        '34 mins',
+                        brands[index].minutes,
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1

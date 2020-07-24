@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class OfferBannerView extends StatelessWidget {
+  final List<String> images = [
+    'assets/images/banner1.jpg',
+    'assets/images/banner2.jpg',
+    'assets/images/banner3.jpg',
+    'assets/images/banner5.jpg',
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,9 +21,9 @@ class OfferBannerView extends StatelessWidget {
         duration: 500,
         itemWidth: double.infinity,
         pagination: SwiperPagination(),
-        itemCount: 8,
+        itemCount: images.length,
         itemBuilder: (BuildContext context, int index) => Image.asset(
-          'assets/images/banner1.jpg',
+          images[index],
           fit: BoxFit.cover,
         ),
         autoplay: true,

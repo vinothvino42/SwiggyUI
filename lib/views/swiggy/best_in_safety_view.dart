@@ -1,8 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
+import 'package:swiggy_ui/widgets/spotlight_best_top_food_item.dart';
 
 class BestInSafetyViews extends StatelessWidget {
+  final restaurants = SpotlightBestTopFood.getBestRestaurants();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -58,17 +64,19 @@ class BestInSafetyViews extends StatelessWidget {
                 .bodyText1
                 .copyWith(color: Colors.grey),
           ),
+          UIHelper.verticalSpaceMedium(),
           Flexible(
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: restaurants.length,
               itemBuilder: (context, index) => Container(
+                width: MediaQuery.of(context).size.width / 1.1,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    _buildSpotlightFoodListItem(context),
-                    _buildSpotlightFoodListItem(context),
+                    SpotlightBestTopFoodItem(restaurant: restaurants[index][0]),
+                    SpotlightBestTopFoodItem(restaurant: restaurants[index][1])
                   ],
                 ),
               ),
@@ -78,70 +86,4 @@ class BestInSafetyViews extends StatelessWidget {
       ),
     );
   }
-
-  Container _buildSpotlightFoodListItem(BuildContext context) => Container(
-        margin: const EdgeInsets.all(15.0),
-        child: Row(
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.white,
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 2.0,
-                  )
-                ],
-              ),
-              child: Image.asset(
-                'assets/images/food2.jpg',
-                height: 100.0,
-                width: 100.0,
-                fit: BoxFit.cover,
-              ),
-            ),
-            UIHelper.horizontalSpaceSmall(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Breakfast Express',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle2
-                      .copyWith(fontSize: 18.0),
-                ),
-                Text('Continental, North Indian, South Indian',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        .copyWith(color: Colors.grey[800], fontSize: 13.5)),
-                UIHelper.verticalSpaceSmall(),
-                Text(
-                  '20 % off | Use JUMBO',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1
-                      .copyWith(color: Colors.red[900], fontSize: 13.0),
-                ),
-                UIHelper.verticalSpaceExtraSmall(),
-                Divider(),
-                UIHelper.verticalSpaceExtraSmall(),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.star,
-                      size: 14.0,
-                      color: Colors.grey[600],
-                    ),
-                    Text('4.1 - 45 mins - Rs200 for two')
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
-      );
 }
