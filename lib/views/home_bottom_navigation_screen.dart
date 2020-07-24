@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_ui/utils/app_colors.dart';
-import 'package:swiggy_ui/views/swiggy/swiggy_screen.dart';
 
+import '../utils/app_colors.dart';
 import 'account/account_screen.dart';
 import 'cart/cart_screen.dart';
+import 'search/search_screen.dart';
+import 'swiggy/swiggy_screen.dart';
 
 class HomeBottomNavigationScreen extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _HomeBottomNavigationScreenState
     extends State<HomeBottomNavigationScreen> {
   final List<Widget> _children = [
     SwiggyScreen(),
-    Container(),
+    SearchScreen(),
     CartScreen(),
     AccountScreen(),
   ];
