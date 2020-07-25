@@ -130,7 +130,7 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              GestureDetector(
+              InkWell(
                 child: GenieGroceryCardView(
                   title: 'Genie',
                   subtitle: 'Anything you need,\ndelivered',
@@ -145,7 +145,7 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                   );
                 },
               ),
-              GestureDetector(
+              InkWell(
                 child: GenieGroceryCardView(
                   title: 'Grocery',
                   subtitle: 'Esentials delivered\nin 2 Hrs',
@@ -160,7 +160,7 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                   );
                 },
               ),
-              GestureDetector(
+              InkWell(
                 child: GenieGroceryCardView(
                   title: 'Meat',
                   subtitle: 'Fesh meat\ndelivered safe',

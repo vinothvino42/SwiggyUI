@@ -14,7 +14,7 @@ class GroceryScreen extends StatelessWidget {
             children: <Widget>[
               _GroceryHeaderView(),
               UIHelper.verticalSpaceMedium(),
-              _GroceryListView(),
+              GroceryListView(),
             ],
           ),
         ),
@@ -55,7 +55,7 @@ class _GroceryHeaderView extends StatelessWidget {
   }
 }
 
-class _GroceryListView extends StatelessWidget {
+class GroceryListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final restaurants = SpotlightBestTopFood.getTopGroceryRestaurants();
