@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
+import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 import 'package:swiggy_ui/widgets/food_list_item_view.dart';
 
 class OffersScreen extends StatelessWidget {
@@ -89,33 +90,68 @@ class _PaymentOffersCouponView extends StatelessWidget {
             child: Text('Available Coupons',
                 style: Theme.of(context).textTheme.subtitle2),
           ),
-          ListView.separated(
-            shrinkWrap: true,
-            itemCount: 6,
-            separatorBuilder: (context, index) => Divider(),
-            itemBuilder: (context, index) => Container(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height: 25.0,
-                    color: Colors.yellow[700],
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/images/food1.jpg',
-                          height: 10.0,
-                          width: 10.0,
-                          fit: BoxFit.cover,
-                        ),
-                        UIHelper.horizontalSpaceMedium(),
-                        Text('100INDUSIND',
-                            style: Theme.of(context).textTheme.subtitle2)
-                      ],
+          Expanded(
+            child: ListView.separated(
+              shrinkWrap: true,
+              itemCount: 6,
+              separatorBuilder: (context, index) => Divider(),
+              itemBuilder: (context, index) => Container(
+                margin: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      padding: const EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(
+                        color: Colors.orange[100],
+                        border: Border.all(color: Colors.grey[400]),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/food1.jpg',
+                            height: 10.0,
+                            width: 10.0,
+                            fit: BoxFit.cover,
+                          ),
+                          UIHelper.horizontalSpaceMedium(),
+                          Text('100INDUSLND',
+                              style: Theme.of(context).textTheme.subtitle2)
+                        ],
+                      ),
                     ),
-                  )
-                ],
+                    UIHelper.verticalSpaceSmall(),
+                    Text(
+                      'Get 20 % discount using Induslnd Bank Credit Cards',
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                    UIHelper.verticalSpaceMedium(),
+                    CustomDividerView(
+                      dividerHeight: 1.0,
+                      color: Colors.grey,
+                    ),
+                    UIHelper.verticalSpaceMedium(),
+                    Text(
+                      'Use code 100INDUSLND & get 20 % discount up to Rs100 on orders above Rs400',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
+                          .copyWith(fontSize: 13.0),
+                    ),
+                    UIHelper.verticalSpaceMedium(),
+                    InkWell(
+                      child: Text(
+                        '+ MORE',
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle2
+                            .copyWith(color: Colors.blue),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           )

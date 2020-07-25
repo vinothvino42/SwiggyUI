@@ -23,7 +23,7 @@ class GenieGroceryCardView extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(16.0),
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 8.0),
+              margin: const EdgeInsets.symmetric(horizontal: 4.0),
               padding: const EdgeInsets.only(top: 8.0),
               height: 150.0,
               decoration: BoxDecoration(

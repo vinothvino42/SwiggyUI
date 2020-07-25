@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
+import 'package:swiggy_ui/views/swiggy/genie/genie_screen.dart';
 
 import 'genie_grocery_card_view.dart';
+import 'groceries/grocery_screen.dart';
+import 'meat/meat_screen.dart';
 
 class FoodGroceriesAvailabilityView extends StatelessWidget {
   @override
@@ -124,23 +127,53 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
           ),
           UIHelper.verticalSpaceMedium(),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              GenieGroceryCardView(
-                title: 'Genie',
-                subtitle: 'Anything you need, delivered',
-                image: 'assets/images/food1.jpg',
+              GestureDetector(
+                child: GenieGroceryCardView(
+                  title: 'Genie',
+                  subtitle: 'Anything you need,\ndelivered',
+                  image: 'assets/images/food1.jpg',
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GenieScreen(),
+                    ),
+                  );
+                },
               ),
-              GenieGroceryCardView(
-                title: 'Grocery',
-                subtitle: 'Esentials delivered in 2 Hrs',
-                image: 'assets/images/food4.jpg',
+              GestureDetector(
+                child: GenieGroceryCardView(
+                  title: 'Grocery',
+                  subtitle: 'Esentials delivered\nin 2 Hrs',
+                  image: 'assets/images/food4.jpg',
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GroceryScreen(),
+                    ),
+                  );
+                },
               ),
-              GenieGroceryCardView(
-                title: 'Meat',
-                subtitle: 'Fesh meat delivered safe',
-                image: 'assets/images/food6.jpg',
+              GestureDetector(
+                child: GenieGroceryCardView(
+                  title: 'Meat',
+                  subtitle: 'Fesh meat\ndelivered safe',
+                  image: 'assets/images/food6.jpg',
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MeatScreen(),
+                    ),
+                  );
+                },
               ),
             ],
           )

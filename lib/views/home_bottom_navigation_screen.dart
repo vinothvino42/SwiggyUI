@@ -19,7 +19,7 @@ class HomeBottomNavigationScreen extends StatefulWidget {
 class _HomeBottomNavigationScreenState
     extends State<HomeBottomNavigationScreen> {
   final List<Widget> _children = [
-    OffersScreen(),
+    SwiggyScreen(),
     SearchScreen(),
     CartScreen(),
     AccountScreen(),

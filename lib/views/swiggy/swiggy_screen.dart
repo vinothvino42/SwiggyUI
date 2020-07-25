@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
+import 'package:swiggy_ui/views/swiggy/offers/offer_screen.dart';
 
 import '../../utils/ui_helper.dart';
 import '../../widgets/custom_divider_view.dart';
@@ -174,12 +175,25 @@ class SwiggyScreen extends StatelessWidget {
             Spacer(),
             Icon(Icons.local_offer),
             UIHelper.horizontalSpaceExtraSmall(),
-            Text(
-              'Offer',
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle2
-                  .copyWith(fontSize: 18.0),
+            InkWell(
+              child: Container(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  'Offer',
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2
+                      .copyWith(fontSize: 18.0),
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OffersScreen(),
+                  ),
+                );
+              },
             ),
           ],
         ),

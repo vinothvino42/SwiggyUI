@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
+import 'package:swiggy_ui/views/swiggy/genie/genie_screen.dart';
 import 'package:swiggy_ui/widgets/dotted_seperator_view.dart';
 
 class GenieView extends StatelessWidget {
@@ -43,15 +44,21 @@ class GenieView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              _GenieCardView(
-                title: 'Buy\nAnything',
-                desc: 'Stationery\nMedicine\nGrocery\n& more',
-                image: 'assets/images/delivery-boy.png',
+              InkWell(
+                child: _GenieCardView(
+                  title: 'Buy\nAnything',
+                  desc: 'Stationery\nMedicine\nGrocery\n& more',
+                  image: 'assets/images/delivery-boy.png',
+                ),
+                onTap: () {},
               ),
-              _GenieCardView(
-                title: 'Pickup &\nDrop',
-                desc: 'Lunchbox\nCharger\nDocuments\nClothes',
-                image: 'assets/images/pizza-delivery-boy.png',
+              InkWell(
+                child: _GenieCardView(
+                  title: 'Pickup &\nDrop',
+                  desc: 'Lunchbox\nCharger\nDocuments\nClothes',
+                  image: 'assets/images/pizza-delivery-boy.png',
+                ),
+                onTap: () {},
               )
             ],
           )
