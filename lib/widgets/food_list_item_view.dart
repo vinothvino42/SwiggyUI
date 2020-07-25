@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
-import 'package:swiggy_ui/utils/ui_helper.dart';
+
+import '../models/spotlight_best_top_food.dart';
+import '../utils/ui_helper.dart';
 
 class FoodListItemView extends StatelessWidget {
   final SpotlightBestTopFood restaurant;
@@ -13,7 +14,7 @@ class FoodListItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(15.0),
+      margin: const EdgeInsets.all(10.0),
       child: Row(
         children: <Widget>[
           Container(
@@ -29,12 +30,12 @@ class FoodListItemView extends StatelessWidget {
             ),
             child: Image.asset(
               restaurant.image,
-              height: 100.0,
-              width: 100.0,
+              height: 80.0,
+              width: 80.0,
               fit: BoxFit.fill,
             ),
           ),
-          UIHelper.horizontalSpaceSmall(),
+          UIHelper.horizontalSpaceMedium(),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +52,7 @@ class FoodListItemView extends StatelessWidget {
                       .textTheme
                       .bodyText1
                       .copyWith(color: Colors.grey[800], fontSize: 13.5)),
-              UIHelper.verticalSpaceSmall(),
+              UIHelper.verticalSpaceExtraSmall(),
               Text(
                 restaurant.coupon,
                 style: Theme.of(context)
@@ -59,9 +60,7 @@ class FoodListItemView extends StatelessWidget {
                     .bodyText1
                     .copyWith(color: Colors.red[900], fontSize: 13.0),
               ),
-              UIHelper.verticalSpaceExtraSmall(),
-              Divider(),
-              UIHelper.verticalSpaceExtraSmall(),
+              UIHelper.verticalSpaceSmall(),
               Row(
                 children: <Widget>[
                   Icon(

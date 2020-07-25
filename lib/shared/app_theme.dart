@@ -24,14 +24,16 @@ ThemeData appPrimaryTheme() => ThemeData(
       dividerColor: Colors.grey[300],
       dividerTheme: DividerThemeData(thickness: 0.5),
       tabBarTheme: TabBarTheme(
-        labelColor: appColor,
+        labelColor: Colors.black,
         unselectedLabelColor: Colors.grey,
         indicatorSize: TabBarIndicatorSize.tab,
         labelStyle: GoogleFonts.montserrat(
-          fontSize: 16.0,
+          fontSize: 12.0,
+          fontWeight: FontWeight.w700,
         ),
         unselectedLabelStyle: GoogleFonts.montserrat(
-          fontSize: 16.0,
+          fontSize: 12.0,
+          fontWeight: FontWeight.w500,
         ),
       ),
       textTheme: TextTheme(

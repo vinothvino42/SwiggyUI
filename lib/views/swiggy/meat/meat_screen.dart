@@ -12,12 +12,23 @@ class MeatScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               _buildAppBar(context),
               _SearchView(),
-              _MeatOfferBannerView(),
-              _CardView(),
-              _NearByStoresListView(),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      _MeatOfferBannerView(),
+                      _CardView(),
+                      _NearByStoresListView(),
+                      CustomDividerView(dividerHeight: 15.0),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -212,96 +223,123 @@ class _NearByStoresListView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _buildHeader(context),
+          _ListViewHeader(),
           UIHelper.verticalSpaceMedium(),
-          ListView.builder(
-            shrinkWrap: true,
-            itemBuilder: (context, index) => Container(
-              margin: const EdgeInsets.all(15.0),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.white,
-                      boxShadow: <BoxShadow>[
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 2.0,
-                        )
-                      ],
-                    ),
-                    child: Image.asset(
-                      'assets/image/food1.jpg',
-                      height: 100.0,
-                      width: 100.0,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  UIHelper.horizontalSpaceSmall(),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'restaurant.name',
-                        style: Theme.of(context)
-                            .textTheme
-                            .subtitle2
-                            .copyWith(fontSize: 18.0),
-                      ),
-                      Text('restaurant.desc',
-                          style: Theme.of(context).textTheme.bodyText1.copyWith(
-                              color: Colors.grey[800], fontSize: 13.5)),
-                      UIHelper.verticalSpaceSmall(),
-                      Text(
-                        'restaurant.coupon',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1
-                            .copyWith(color: Colors.red[900], fontSize: 13.0),
-                      ),
-                      UIHelper.verticalSpaceExtraSmall(),
-                      Divider(),
-                      UIHelper.verticalSpaceExtraSmall(),
-                      Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.star,
-                            size: 14.0,
-                            color: Colors.grey[600],
-                          ),
-                          Text('restaurant.ratingTimePrice')
-                        ],
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-          )
+          // Flexible(
+          //   child: ListView.builder(
+          //     shrinkWrap: true,
+          //     itemBuilder: (context, index) => Container(
+          //       height: 150.0,
+          //       margin: const EdgeInsets.all(15.0),
+          //       color: Colors.orange,
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );
   }
+}
 
-  Column _buildHeader(BuildContext context) => Column(
+// child: Row(
+//   children: <Widget>[
+//     Container(
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(10.0),
+//         color: Colors.white,
+//         boxShadow: <BoxShadow>[
+//           BoxShadow(
+//             color: Colors.grey,
+//             blurRadius: 2.0,
+//           )
+//         ],
+//       ),
+//       child: Image.asset(
+//         'assets/image/food1.jpg',
+//         height: 100.0,
+//         width: 100.0,
+//         fit: BoxFit.fill,
+//       ),
+//     ),
+//     UIHelper.horizontalSpaceSmall(),
+// Column(
+//   mainAxisAlignment: MainAxisAlignment.start,
+//   crossAxisAlignment: CrossAxisAlignment.start,
+//   mainAxisSize: MainAxisSize.min,
+//   children: <Widget>[
+//     Text(
+//       'restaurant.name',
+//       style: Theme.of(context)
+//           .textTheme
+//           .subtitle2
+//           .copyWith(fontSize: 18.0),
+//     ),
+//     Text('restaurant.desc',
+//         style: Theme.of(context).textTheme.bodyText1.copyWith(
+//             color: Colors.grey[800], fontSize: 13.5)),
+//     UIHelper.verticalSpaceSmall(),
+//     Text(
+//       'restaurant.coupon',
+//       style: Theme.of(context)
+//           .textTheme
+//           .bodyText1
+//           .copyWith(color: Colors.red[900], fontSize: 13.0),
+//     ),
+//     UIHelper.verticalSpaceExtraSmall(),
+//     Divider(),
+//     UIHelper.verticalSpaceExtraSmall(),
+//     Row(
+//       children: <Widget>[
+//         Icon(
+//           Icons.star,
+//           size: 14.0,
+//           color: Colors.grey[600],
+//         ),
+//         Text('restaurant.ratingTimePrice')
+//       ],
+//     )
+//   ],
+// )
+// ],
+// ),
+
+class _ListViewHeader extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Icon(
+              Icons.check_circle_outline,
+              color: Colors.blue[300],
+            ),
+            Text(
+              'Nearby Stores',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+          ],
+        ),
+        UIHelper.verticalSpaceExtraSmall(),
+        Text('Trusted for best buying experience')
+      ],
+    );
+  }
+}
+
+class _FarawayStoreListView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Icon(
-                Icons.check_circle_outline,
-                color: Colors.blue[300],
-              ),
-              Text(
-                'Nearby Stores',
-                style: Theme.of(context).textTheme.headline6,
-              ),
-            ],
-          ),
-          UIHelper.verticalSpaceExtraSmall(),
-          Text('Trusted for best buying experience')
+          _ListViewHeader(),
         ],
-      );
+      ),
+    );
+  }
 }
