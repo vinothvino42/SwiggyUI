@@ -4,6 +4,7 @@ import '../utils/app_colors.dart';
 import 'account/account_screen.dart';
 import 'cart/cart_screen.dart';
 import 'search/search_screen.dart';
+import 'swiggy/genie/genie_screen.dart';
 import 'swiggy/groceries/grocery_screen.dart';
 import 'swiggy/swiggy_screen.dart';
 
@@ -16,7 +17,7 @@ class HomeBottomNavigationScreen extends StatefulWidget {
 class _HomeBottomNavigationScreenState
     extends State<HomeBottomNavigationScreen> {
   final List<Widget> _children = [
-    GroceryScreen(),
+    GenieScreen(),
     SearchScreen(),
     CartScreen(),
     AccountScreen(),
