@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/views/swiggy/meat/meat_screen.dart';
 
 import '../utils/app_colors.dart';
 import 'account/account_screen.dart';
@@ -17,7 +18,7 @@ class HomeBottomNavigationScreen extends StatefulWidget {
 class _HomeBottomNavigationScreenState
     extends State<HomeBottomNavigationScreen> {
   final List<Widget> _children = [
-    GenieScreen(),
+    MeatScreen(),
     SearchScreen(),
     CartScreen(),
     AccountScreen(),
