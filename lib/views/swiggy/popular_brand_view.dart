@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_ui/models/popular_brands.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
+import 'package:swiggy_ui/views/swiggy/restaurants/restaurant_detail_screen.dart';
 
 class PopularBrandsView extends StatelessWidget {
   final brands = PopularBrands.getPopularBrands();
@@ -22,45 +23,55 @@ class PopularBrandsView extends StatelessWidget {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemCount: brands.length,
-                itemBuilder: (context, index) => Container(
-                  margin: const EdgeInsets.only(right: 15.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey[300],
-                            width: 3.0,
-                          ),
-                          borderRadius: BorderRadius.circular(40.0),
-                        ),
-                        child: ClipOval(
-                          child: Image.asset(
-                            brands[index].image,
-                            height: 80.0,
-                            width: 80.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                itemBuilder: (context, index) => InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RestaurantDetailScreen(),
                       ),
-                      UIHelper.verticalSpaceSmall(),
-                      Text(
-                        brands[index].name,
-                        style: Theme.of(context)
-                            .textTheme
-                            .subtitle2
-                            .copyWith(fontWeight: FontWeight.w500),
-                      ),
-                      UIHelper.verticalSpace(2.0),
-                      Text(
-                        brands[index].minutes,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1
-                            .copyWith(color: Colors.grey, fontSize: 13.0),
-                      )
-                    ],
+                    );
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(right: 15.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.grey[300],
+                              width: 3.0,
+                            ),
+                            borderRadius: BorderRadius.circular(40.0),
+                          ),
+                          child: ClipOval(
+                            child: Image.asset(
+                              brands[index].image,
+                              height: 80.0,
+                              width: 80.0,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        UIHelper.verticalSpaceSmall(),
+                        Text(
+                          brands[index].name,
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle2
+                              .copyWith(fontWeight: FontWeight.w500),
+                        ),
+                        UIHelper.verticalSpace(2.0),
+                        Text(
+                          brands[index].minutes,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              .copyWith(color: Colors.grey, fontSize: 13.0),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

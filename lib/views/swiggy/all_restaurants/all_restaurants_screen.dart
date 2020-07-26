@@ -7,7 +7,7 @@ import '../../../utils/ui_helper.dart';
 import '../../../widgets/custom_divider_view.dart';
 import '../../../widgets/search_food_list_item_view.dart';
 import '../groceries/grocery_screen.dart';
-import '../indian_delight_screen.dart';
+import '../indian_food/indian_delight_screen.dart';
 import '../offers/offer_screen.dart';
 
 class AllRestaurantsScreen extends StatelessWidget {
@@ -154,6 +154,8 @@ class AllRestaurantsScreen extends StatelessWidget {
 }
 
 class _FoodHorizontalListView extends StatelessWidget {
+  final restaurants = AllRestaurant.getPopularBrands();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -161,13 +163,13 @@ class _FoodHorizontalListView extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: 4,
+        itemCount: restaurants.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.all(10.0),
           child: Stack(
             children: <Widget>[
               Image.asset(
-                'assets/images/food1.jpg',
+                restaurants[index].image,
                 height: MediaQuery.of(context).size.height / 4,
                 width: MediaQuery.of(context).size.width / 2,
               ),
@@ -179,12 +181,18 @@ class _FoodHorizontalListView extends StatelessWidget {
                 child: Text('TRY NOW'),
               ),
               Positioned(
-                left: 10.0,
-                bottom: 10.0,
-                child: Text(
-                  'VEGGIE FRIENDLY\nEATERIES',
-                  style: Theme.of(context).textTheme.headline6.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                bottom: 1.0,
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  height: 70.0,
+                  color: Colors.black38,
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: Text(
+                    restaurants[index].name,
+                    style: Theme.of(context).textTheme.headline6.copyWith(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
                 ),
               )
             ],

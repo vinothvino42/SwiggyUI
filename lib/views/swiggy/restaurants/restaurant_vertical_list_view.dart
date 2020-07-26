@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_ui/widgets/food_list_item_view.dart';
 
-import '../../models/spotlight_best_top_food.dart';
-import '../../utils/ui_helper.dart';
-import '../../widgets/food_list_item_view.dart';
+import '../../../models/spotlight_best_top_food.dart';
+import '../../../utils/ui_helper.dart';
+import '../../../widgets/food_list_item_view.dart';
+import 'restaurant_detail_screen.dart';
 
 class RestaurantVerticalListView extends StatelessWidget {
   final String title;
@@ -51,8 +52,18 @@ class RestaurantVerticalListView extends StatelessWidget {
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemCount: restaurants.length,
-            itemBuilder: (context, index) => FoodListItemView(
-              restaurant: restaurants[index],
+            itemBuilder: (context, index) => InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RestaurantDetailScreen(),
+                  ),
+                );
+              },
+              child: FoodListItemView(
+                restaurant: restaurants[index],
+              ),
             ),
           ),
         ],

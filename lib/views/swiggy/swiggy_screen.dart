@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
-import 'package:swiggy_ui/utils/app_colors.dart';
-import 'package:swiggy_ui/views/swiggy/offers/offer_screen.dart';
 
+import '../../models/spotlight_best_top_food.dart';
+import '../../utils/app_colors.dart';
 import '../../utils/ui_helper.dart';
 import '../../widgets/custom_divider_view.dart';
+import 'all_restaurants/all_restaurants_screen.dart';
 import 'best_in_safety_view.dart';
 import 'food_groceries_availability_view.dart';
-import 'genie_view.dart';
+import 'genie/genie_view.dart';
 import 'in_the_spotlight_view.dart';
-import 'indian_food_view.dart';
-import 'offer_banner_view.dart';
+import 'indian_food/indian_food_view.dart';
+import 'offers/offer_banner_view.dart';
+import 'offers/offer_screen.dart';
 import 'popular_brand_view.dart';
 import 'popular_categories_view.dart';
-import 'restaurant_vertical_list_view.dart';
+import 'restaurants/restaurant_vertical_list_view.dart';
 import 'swiggy_safety_banner_view.dart';
 import 'top_offer_view.dart';
 import 'top_picks_for_you_view.dart';
@@ -78,7 +79,14 @@ class SwiggyScreen extends StatelessWidget {
                                 .subtitle2
                                 .copyWith(color: Colors.white, fontSize: 19.0),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AllRestaurantsScreen(),
+                              ),
+                            );
+                          },
                         ),
                       ),
                       Container(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/ui_helper.dart';
-import 'groceries/grocery_screen.dart';
+import '../../../utils/ui_helper.dart';
+import '../groceries/grocery_screen.dart';
 
 class IndianDelightScreen extends StatelessWidget {
   @override

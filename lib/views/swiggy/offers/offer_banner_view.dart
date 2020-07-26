@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-import 'groceries/grocery_screen.dart';
+import '../groceries/grocery_screen.dart';
 
 class OfferBannerView extends StatelessWidget {
   final List<String> images = [

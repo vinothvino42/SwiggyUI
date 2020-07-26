@@ -5,6 +5,8 @@ import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 import 'package:swiggy_ui/widgets/food_list_item_view.dart';
 
+import '../restaurants/restaurant_detail_screen.dart';
+
 class OffersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -63,8 +65,18 @@ class _RestaurantOfferView extends StatelessWidget {
               itemCount: 18,
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4.0),
-                child: FoodListItemView(
-                  restaurant: foods[index],
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RestaurantDetailScreen(),
+                      ),
+                    );
+                  },
+                  child: FoodListItemView(
+                    restaurant: foods[index],
+                  ),
                 ),
               ),
             ),

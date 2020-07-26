@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/models/restaurant_detail.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 import 'package:swiggy_ui/widgets/veg_badge_view.dart';
@@ -10,6 +11,7 @@ class RestaurantDetailScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          title: Text('Namma Veedu Vasanta Bhavan'),
           actions: <Widget>[
             Icon(Icons.favorite_border),
             UIHelper.horizontalSpaceSmall(),
@@ -125,7 +127,20 @@ class _OrderNowView extends StatelessWidget {
             ),
             _RecommendedFoodView(),
             CustomDividerView(dividerHeight: 15.0),
-            _BreakFastView()
+            _FoodListView(
+              title: 'Breakfast',
+              foods: RestaurantDetail.getBreakfast(),
+            ),
+            CustomDividerView(dividerHeight: 15.0),
+            _FoodListView(
+              title: 'All Time Favourite',
+              foods: RestaurantDetail.getAllTimeFavFoods(),
+            ),
+            CustomDividerView(dividerHeight: 15.0),
+            _FoodListView(
+              title: 'Kozhukattaiyum & Paniyarams',
+              foods: RestaurantDetail.getOtherDishes(),
+            )
           ],
         ),
       ),
@@ -179,6 +194,8 @@ class _OrderNowView extends StatelessWidget {
 }
 
 class _RecommendedFoodView extends StatelessWidget {
+  final foods = RestaurantDetail.getBreakfast();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -189,7 +206,7 @@ class _RecommendedFoodView extends StatelessWidget {
         childAspectRatio: 0.8,
         physics: NeverScrollableScrollPhysics(),
         children: List.generate(
-          5,
+          foods.length,
           (index) => Container(
             margin: const EdgeInsets.all(10.0),
             child: Column(
@@ -197,13 +214,13 @@ class _RecommendedFoodView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Image.asset(
-                  'assets/images/food1.jpg',
+                  foods[index].image,
                   height: 130.0,
                   fit: BoxFit.fill,
                 ),
                 UIHelper.verticalSpaceExtraSmall(),
                 Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
@@ -220,7 +237,7 @@ class _RecommendedFoodView extends StatelessWidget {
                         UIHelper.horizontalSpaceExtraSmall(),
                         Flexible(
                           child: Text(
-                            'Idly (2pc) with Chatney',
+                            foods[index].title,
                             style: Theme.of(context)
                                 .textTheme
                                 .subtitle2
@@ -230,10 +247,11 @@ class _RecommendedFoodView extends StatelessWidget {
                       ],
                     ),
                     UIHelper.verticalSpaceMedium(),
+                    // Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text('Rs48',
+                        Text(foods[index].price,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText1
@@ -273,46 +291,81 @@ class AddBtnView extends StatelessWidget {
   }
 }
 
-class _BreakFastView extends StatelessWidget {
+class _FoodListView extends StatelessWidget {
+  final String title;
+  final List<RestaurantDetail> foods;
+
+  const _FoodListView({
+    Key key,
+    @required this.title,
+    @required this.foods,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          UIHelper.verticalSpaceMedium(),
           Text(
-            'Breakfast',
+            title,
             style:
                 Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
           ),
           ListView.builder(
             shrinkWrap: true,
-            itemCount: 10,
+            itemCount: foods.length,
+            physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) => Container(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  UIHelper.verticalSpaceSmall(),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       VegBadgeView(),
-                      UIHelper.horizontalSpaceSmall(),
-                      Text(
-                        'Idly (2pc) Breakfast',
-                        style: Theme.of(context).textTheme.bodyText1,
+                      UIHelper.horizontalSpaceMedium(),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: <Widget>[
+                            Text(
+                              foods[index].title,
+                              style: Theme.of(context).textTheme.bodyText1,
+                            ),
+                            UIHelper.verticalSpaceSmall(),
+                            Text(
+                              foods[index].price,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  .copyWith(fontSize: 14.0),
+                            ),
+                            UIHelper.verticalSpaceMedium(),
+                            foods[index].desc != null
+                                ? Text(
+                                    foods[index].desc,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1
+                                        .copyWith(
+                                          fontSize: 12.0,
+                                          color: Colors.grey[500],
+                                        ),
+                                  )
+                                : SizedBox(),
+                          ],
+                        ),
                       ),
-                      Spacer(),
                       AddBtnView()
                     ],
-                  ),
-                  Text(
-                    'Rs 48',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        .copyWith(fontSize: 14.0),
                   ),
                 ],
               ),

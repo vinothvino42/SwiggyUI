@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_ui/utils/app_colors.dart';
-import 'package:swiggy_ui/utils/ui_helper.dart';
-import 'package:swiggy_ui/views/swiggy/genie/genie_screen.dart';
-import 'package:swiggy_ui/widgets/dotted_seperator_view.dart';
+
+import '../../../utils/app_colors.dart';
+import '../../../utils/ui_helper.dart';
+import '../../../widgets/dotted_seperator_view.dart';
 
 class GenieView extends StatelessWidget {
   @override

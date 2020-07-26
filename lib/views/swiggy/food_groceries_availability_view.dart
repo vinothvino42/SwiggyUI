@@ -4,7 +4,7 @@ import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/views/swiggy/genie/genie_screen.dart';
 
 import 'all_restaurants/all_restaurants_screen.dart';
-import 'genie_grocery_card_view.dart';
+import 'genie/genie_grocery_card_view.dart';
 import 'groceries/grocery_screen.dart';
 import 'meat/meat_screen.dart';
 
