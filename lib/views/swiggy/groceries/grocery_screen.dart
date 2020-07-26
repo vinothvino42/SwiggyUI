@@ -14,7 +14,9 @@ class GroceryScreen extends StatelessWidget {
             children: <Widget>[
               _GroceryHeaderView(),
               UIHelper.verticalSpaceMedium(),
-              GroceryListView(),
+              GroceryListView(
+                title: '156 RESTAURANTS NEARBY',
+              ),
             ],
           ),
         ),
@@ -56,6 +58,13 @@ class _GroceryHeaderView extends StatelessWidget {
 }
 
 class GroceryListView extends StatelessWidget {
+  final String title;
+
+  const GroceryListView({
+    Key key,
+    @required this.title,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final restaurants = SpotlightBestTopFood.getTopGroceryRestaurants();
@@ -63,7 +72,7 @@ class GroceryListView extends StatelessWidget {
     final headerStyle = Theme.of(context)
         .textTheme
         .bodyText1
-        .copyWith(fontWeight: FontWeight.w500, fontSize: 14.0);
+        .copyWith(fontWeight: FontWeight.w500, fontSize: 13.0);
 
     return Container(
       padding: const EdgeInsets.all(15.0),
@@ -77,7 +86,7 @@ class GroceryListView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  '156 RESTAURANTS NEARBY',
+                  title,
                   style: headerStyle,
                 ),
                 Spacer(),
@@ -87,6 +96,7 @@ class GroceryListView extends StatelessWidget {
               ],
             ),
           ),
+          UIHelper.verticalSpaceSmall(),
           ListView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),

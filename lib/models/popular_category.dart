@@ -13,7 +13,7 @@ class PopularCategory {
     return [
       PopularCategory(
         image: 'assets/icons/coffee.png',
-        name: 'Cold Beverages',
+        name: 'Cold\nBeverages',
       ),
       PopularCategory(
         image: 'assets/icons/natural-food.png',

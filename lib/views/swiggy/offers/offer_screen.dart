@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/models/available_coupon.dart';
 import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
@@ -53,7 +54,7 @@ class _RestaurantOfferView extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline6
-                .copyWith(fontWeight: FontWeight.bold),
+                .copyWith(fontWeight: FontWeight.bold, fontSize: 19.0),
           ),
           UIHelper.verticalSpaceMedium(),
           Expanded(
@@ -77,6 +78,8 @@ class _RestaurantOfferView extends StatelessWidget {
 class _PaymentOffersCouponView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final coupons = AvailableCoupon.getAvailableCoupons();
+
     return Container(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -93,7 +96,7 @@ class _PaymentOffersCouponView extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               shrinkWrap: true,
-              itemCount: 6,
+              itemCount: coupons.length,
               separatorBuilder: (context, index) => Divider(),
               itemBuilder: (context, index) => Container(
                 margin: const EdgeInsets.all(10.0),
@@ -117,14 +120,14 @@ class _PaymentOffersCouponView extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                           UIHelper.horizontalSpaceMedium(),
-                          Text('100INDUSLND',
+                          Text(coupons[index].coupon,
                               style: Theme.of(context).textTheme.subtitle2)
                         ],
                       ),
                     ),
                     UIHelper.verticalSpaceSmall(),
                     Text(
-                      'Get 20 % discount using Induslnd Bank Credit Cards',
+                      coupons[index].discount,
                       style: Theme.of(context).textTheme.subtitle2,
                     ),
                     UIHelper.verticalSpaceMedium(),
@@ -134,7 +137,7 @@ class _PaymentOffersCouponView extends StatelessWidget {
                     ),
                     UIHelper.verticalSpaceMedium(),
                     Text(
-                      'Use code 100INDUSLND & get 20 % discount up to Rs100 on orders above Rs400',
+                      coupons[index].desc,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1

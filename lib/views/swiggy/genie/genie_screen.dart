@@ -86,53 +86,47 @@ class GenieScreen extends StatelessWidget {
                           ),
                           UIHelper.verticalSpaceMedium(),
                           Container(
-                            height: 120.0,
+                            height: 80.0,
                             child: ListView.builder(
                               itemCount: services.length,
                               scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) => Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  Container(
-                                    height: 60.0,
-                                    width: 60.0,
-                                    margin: const EdgeInsets.all(10.0),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30.0),
-                                      color: Colors.white,
-                                      boxShadow: <BoxShadow>[
-                                        BoxShadow(
-                                          color: Colors.grey,
-                                          blurRadius: 3.0,
-                                          spreadRadius: 2.0,
-                                        )
-                                      ],
-                                    ),
-                                    child: Container(
-                                      height: 30.0,
-                                      width: 30.0,
-                                      padding: const EdgeInsets.all(30.0),
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(30.0),
-                                        color: Colors.red,
+                              itemBuilder: (context, index) => Container(
+                                width: 80.0,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    ClipOval(
+                                      child: Container(
+                                        padding: const EdgeInsets.all(10.0),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey[200],
+                                          boxShadow: <BoxShadow>[
+                                            BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius: 3.0,
+                                              spreadRadius: 2.0,
+                                            )
+                                          ],
+                                        ),
+                                        child: Image.asset(
+                                          services[index].image,
+                                          height: 30.0,
+                                          width: 30.0,
+                                          // fit: BoxFit.contain,
+                                        ),
                                       ),
-                                      // child: Image.asset(
-                                      //   services[index].image,
-                                      //   fit: BoxFit.contain,
-                                      // ),
                                     ),
-                                  ),
-                                  Text(
-                                    services[index].title,
-                                    textAlign: TextAlign.center,
-                                    maxLines: 2,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1
-                                        .copyWith(fontSize: 13.5),
-                                  )
-                                ],
+                                    Text(
+                                      services[index].title,
+                                      textAlign: TextAlign.center,
+                                      maxLines: 2,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1
+                                          .copyWith(fontSize: 13.5),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           )
@@ -148,7 +142,7 @@ class GenieScreen extends StatelessWidget {
                       ),
                       child: _HeaderView(
                         title: 'Buy Anything from any store',
-                        buttonTitle: 'ADD PICKUP DROP DETAILS',
+                        buttonTitle: 'FIND A STORE',
                       ),
                     ),
                   ],
@@ -178,8 +172,11 @@ class _HeaderView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Pickup or Drop any items',
-          style: Theme.of(context).textTheme.headline6,
+          title,
+          style: Theme.of(context).textTheme.headline6.copyWith(
+                fontSize: 17.0,
+                fontWeight: FontWeight.bold,
+              ),
         ),
         UIHelper.verticalSpaceMedium(),
         Container(
@@ -189,11 +186,11 @@ class _HeaderView extends StatelessWidget {
           child: RaisedButton(
             color: darkOrange,
             child: Text(
-              'ADD PICKUP DROP DETAILS',
+              buttonTitle,
               style: Theme.of(context)
                   .textTheme
                   .subtitle2
-                  .copyWith(color: Colors.white, fontSize: 16.0),
+                  .copyWith(color: Colors.white, fontSize: 14.0),
             ),
             onPressed: () {},
           ),
