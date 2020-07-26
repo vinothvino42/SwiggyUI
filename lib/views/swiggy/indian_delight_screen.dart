@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
-import 'package:swiggy_ui/utils/ui_helper.dart';
-import 'package:swiggy_ui/widgets/search_food_list_item_view.dart';
 
+import '../../utils/ui_helper.dart';
 import 'groceries/grocery_screen.dart';
 
 class IndianDelightScreen extends StatelessWidget {
@@ -36,7 +34,9 @@ class IndianDelightScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              GroceryListView(),
+              GroceryListView(
+                title: 'SEE ALL RESTAURANTS',
+              ),
             ],
           ),
         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
+import 'package:swiggy_ui/widgets/veg_badge_view.dart';
 
 class CartScreen extends StatelessWidget {
   @override
@@ -67,21 +68,7 @@ class _OrderViewState extends State<_OrderView> {
           UIHelper.verticalSpaceLarge(),
           Row(
             children: <Widget>[
-              Container(
-                padding: const EdgeInsets.all(2.0),
-                height: 15.0,
-                width: 15.0,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.green[800]),
-                ),
-                child: ClipOval(
-                  child: Container(
-                    height: 5.0,
-                    width: 5.0,
-                    color: Colors.green[800],
-                  ),
-                ),
-              ),
+              VegBadgeView(),
               UIHelper.horizontalSpaceSmall(),
               Flexible(
                 child: Text(

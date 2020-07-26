@@ -9,6 +9,7 @@ import 'swiggy/all_restaurants/all_restaurants_screen.dart';
 import 'swiggy/genie/genie_screen.dart';
 import 'swiggy/groceries/grocery_screen.dart';
 import 'swiggy/offers/offer_screen.dart';
+import 'swiggy/restaurant_detail_screen.dart';
 import 'swiggy/swiggy_screen.dart';
 
 class HomeBottomNavigationScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class HomeBottomNavigationScreen extends StatefulWidget {
 class _HomeBottomNavigationScreenState
     extends State<HomeBottomNavigationScreen> {
   final List<Widget> _children = [
-    AllRestaurants(),
+    RestaurantDetailScreen(),
     SearchScreen(),
     CartScreen(),
     AccountScreen(),

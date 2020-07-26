@@ -3,6 +3,7 @@ import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/views/swiggy/genie/genie_screen.dart';
 
+import 'all_restaurants/all_restaurants_screen.dart';
 import 'genie_grocery_card_view.dart';
 import 'groceries/grocery_screen.dart';
 import 'meat/meat_screen.dart';
@@ -54,61 +55,71 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
             children: <Widget>[
               ClipRRect(
                 borderRadius: BorderRadius.circular(10.0),
-                child: Container(
-                  height: 150.0,
-                  color: swiggyOrange,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              'Restaurants',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline4
-                                  .copyWith(color: Colors.white),
-                            ),
-                            UIHelper.verticalSpaceExtraSmall(),
-                            Text(
-                              'No-contact delivery available',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1
-                                  .copyWith(color: Colors.white),
-                            )
-                          ],
+                child: InkWell(
+                  child: Container(
+                    height: 150.0,
+                    color: swiggyOrange,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Restaurants',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline4
+                                    .copyWith(color: Colors.white),
+                              ),
+                              UIHelper.verticalSpaceExtraSmall(),
+                              Text(
+                                'No-contact delivery available',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    .copyWith(color: Colors.white),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Spacer(),
-                      Container(
-                        height: 45.0,
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        color: darkOrange,
-                        child: Row(
-                          children: <Widget>[
-                            Text(
-                              'View all',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1
-                                  .copyWith(
-                                      color: Colors.white, fontSize: 18.0),
-                            ),
-                            UIHelper.horizontalSpaceSmall(),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                              size: 18.0,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                        Spacer(),
+                        Container(
+                          height: 45.0,
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          color: darkOrange,
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                'View all',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    .copyWith(
+                                        color: Colors.white, fontSize: 18.0),
+                              ),
+                              UIHelper.horizontalSpaceSmall(),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                                size: 18.0,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AllRestaurantsScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
               Positioned(

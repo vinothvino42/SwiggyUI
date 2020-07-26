@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:swiggy_ui/models/all_restaurant.dart';
-import 'package:swiggy_ui/models/indian_food.dart';
-import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
-import 'package:swiggy_ui/utils/ui_helper.dart';
-import 'package:swiggy_ui/views/swiggy/groceries/grocery_screen.dart';
-import 'package:swiggy_ui/views/swiggy/offers/offer_screen.dart';
-import 'package:swiggy_ui/widgets/custom_divider_view.dart';
-import 'package:swiggy_ui/widgets/search_food_list_item_view.dart';
 
+import '../../../models/all_restaurant.dart';
+import '../../../models/indian_food.dart';
+import '../../../models/spotlight_best_top_food.dart';
+import '../../../utils/ui_helper.dart';
+import '../../../widgets/custom_divider_view.dart';
+import '../../../widgets/search_food_list_item_view.dart';
+import '../groceries/grocery_screen.dart';
 import '../indian_delight_screen.dart';
-import '../popular_categories_view.dart';
+import '../offers/offer_screen.dart';
 
-class AllRestaurants extends StatelessWidget {
+class AllRestaurantsScreen extends StatelessWidget {
   final restaurantListOne = AllRestaurant.getRestaurantListOne();
   final restaurantListTwo = AllRestaurant.getRestaurantListTwo();
   final restaurantListThree = AllRestaurant.getRestaurantListThree();
@@ -87,10 +86,17 @@ class AllRestaurants extends StatelessWidget {
   }
 
   Container _buildAppBar(BuildContext context) => Container(
-        margin: const EdgeInsets.symmetric(horizontal: 15.0),
+        margin: const EdgeInsets.only(left: 5.0, right: 15.0),
         height: 60.0,
         child: Row(
           children: <Widget>[
+            InkWell(
+              child: Icon(Icons.arrow_back, size: 18.0),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            UIHelper.horizontalSpaceSmall(),
             Text(
               'Now',
               style: Theme.of(context).textTheme.subtitle2.copyWith(
@@ -102,13 +108,13 @@ class AllRestaurants extends StatelessWidget {
             UIHelper.horizontalSpaceSmall(),
             Container(
               alignment: Alignment.center,
-              height: 30.0,
-              width: 30.0,
+              height: 25.0,
+              width: 25.0,
               decoration: BoxDecoration(
-                border: Border.all(),
+                border: Border.all(width: 1.3),
                 borderRadius: BorderRadius.circular(15.0),
               ),
-              child: Icon(Icons.arrow_forward_ios, size: 16.0),
+              child: Icon(Icons.arrow_forward_ios, size: 13.0),
             ),
             UIHelper.horizontalSpaceSmall(),
             Text(
