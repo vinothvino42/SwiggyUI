@@ -14,6 +14,7 @@ import '../popular_categories_view.dart';
 class AllRestaurants extends StatelessWidget {
   final restaurantListOne = AllRestaurant.getRestaurantListOne();
   final restaurantListTwo = AllRestaurant.getRestaurantListTwo();
+  final restaurantListThree = AllRestaurant.getRestaurantListThree();
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +49,33 @@ class AllRestaurants extends StatelessWidget {
                   ),
                   _RestaurantListView(
                     restaurants: restaurantListTwo,
+                  ),
+                  _LargeRestaurantBannerView(
+                    title: 'BEST IN SAFETY',
+                    desc:
+                        'SAFEST RESTAURANTS WITH BEST IN CLASS\nSAFETY STANDARDS',
+                    restaurants:
+                        LargeRestaurantBanner.getBestInSafetyRestaurants(),
+                  ),
+                  _RestaurantListView(
+                    restaurants: restaurantListOne,
+                  ),
+                  _LargeRestaurantBannerView(
+                    title: 'PEPSI SAVE OUR RESTAURANTS',
+                    desc:
+                        'ORDER ANY SOFT DRINK & PEPSI WILL DONATE A\NMEAL TO A RESTAURANT WORKER',
+                    restaurants:
+                        LargeRestaurantBanner.getPepsiSaveOurRestaurants(),
+                  ),
+                  _RestaurantListView(
+                    restaurants: restaurantListThree,
+                  ),
+                  _RestaurantHorizontalListView(
+                    title: 'Popular Brands',
+                    restaurants: AllRestaurant.getPopularBrands(),
+                  ),
+                  _RestaurantListView(
+                    restaurants: restaurantListOne,
                   ),
                 ],
               ),
@@ -316,6 +344,87 @@ class _RestaurantListView extends StatelessWidget {
         itemBuilder: (context, index) => SearchFoodListItemView(
           food: restaurants[index],
         ),
+      ),
+    );
+  }
+}
+
+class _LargeRestaurantBannerView extends StatelessWidget {
+  final String title;
+  final String desc;
+  final List<LargeRestaurantBanner> restaurants;
+
+  const _LargeRestaurantBannerView({
+    Key key,
+    @required this.title,
+    @required this.desc,
+    @required this.restaurants,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+      color: Colors.blueGrey[50],
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          UIHelper.verticalSpaceMedium(),
+          Text(
+            title,
+            style:
+                Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+          ),
+          UIHelper.verticalSpaceSmall(),
+          Text(
+            desc,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyText1.copyWith(
+                  color: Colors.grey,
+                  fontSize: 12.0,
+                ),
+          ),
+          UIHelper.verticalSpaceSmall(),
+          Container(
+            height: 300.0,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: restaurants.length,
+              itemBuilder: (context, index) => Container(
+                padding: const EdgeInsets.all(10.0),
+                width: 160.0,
+                child: Column(
+                  children: <Widget>[
+                    UIHelper.verticalSpaceMedium(),
+                    Image.asset(
+                      restaurants[index].image,
+                      height: 160.0,
+                      fit: BoxFit.cover,
+                    ),
+                    UIHelper.verticalSpaceMedium(),
+                    Text(
+                      restaurants[index].title,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.subtitle2.copyWith(
+                          fontWeight: FontWeight.bold, fontSize: 13.0),
+                    ),
+                    UIHelper.verticalSpaceMedium(),
+                    Container(
+                      height: 2.0,
+                      width: 50.0,
+                      color: Colors.grey[400],
+                    ),
+                    UIHelper.verticalSpaceSmall(),
+                    Text(restaurants[index].subtitle,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyText1),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
