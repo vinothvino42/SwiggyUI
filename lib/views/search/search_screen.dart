@@ -11,8 +11,7 @@ class SearchScreen extends StatefulWidget {
   _SearchScreenState createState() => _SearchScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen>
-    with SingleTickerProviderStateMixin {
+class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderStateMixin {
   TabController _tabController;
 
   @override
@@ -31,8 +30,7 @@ class _SearchScreenState extends State<SearchScreen>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding:
-                    const EdgeInsets.only(left: 15.0, top: 2.0, bottom: 2.0),
+                padding: const EdgeInsets.only(left: 15.0, top: 2.0, bottom: 2.0),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey[400]),
                   borderRadius: BorderRadius.circular(2.0),
@@ -43,12 +41,11 @@ class _SearchScreenState extends State<SearchScreen>
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Search for restaurants and food',
-                          hintStyle:
-                              Theme.of(context).textTheme.subtitle2.copyWith(
-                                    color: Colors.grey,
-                                    fontSize: 17.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                          hintStyle: Theme.of(context).textTheme.subtitle2.copyWith(
+                                color: Colors.grey,
+                                fontSize: 17.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                           border: InputBorder.none,
                         ),
                       ),
@@ -62,31 +59,25 @@ class _SearchScreenState extends State<SearchScreen>
                 ),
               ),
               UIHelper.verticalSpaceExtraSmall(),
-              Container(
-                width: MediaQuery.of(context).size.width / 1.6,
-                child: TabBar(
-                  unselectedLabelColor: Colors.grey,
-                  labelColor: Colors.black,
-                  controller: _tabController,
-                  indicatorColor: darkOrange,
-                  labelStyle: Theme.of(context)
-                      .textTheme
-                      .subtitle2
-                      .copyWith(fontSize: 18.0, color: darkOrange),
-                  unselectedLabelStyle: Theme.of(context)
-                      .textTheme
-                      .subtitle2
-                      .copyWith(fontSize: 18.0, color: Colors.grey[200]),
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  tabs: [
-                    Tab(
-                      child: Text('Restaurant'),
+              TabBar(
+                unselectedLabelColor: Colors.grey,
+                labelColor: Colors.black,
+                controller: _tabController,
+                indicatorColor: darkOrange,
+                labelStyle: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0, color: darkOrange),
+                unselectedLabelStyle: Theme.of(context).textTheme.subtitle2.copyWith(
+                      fontSize: 18.0,
+                      color: Colors.grey[200],
                     ),
-                    Tab(
-                      child: Text('Dishes'),
-                    ),
-                  ],
-                ),
+                indicatorSize: TabBarIndicatorSize.tab,
+                tabs: [
+                  Tab(
+                    child: Text('Restaurant'),
+                  ),
+                  Tab(
+                    child: Text('Dishes'),
+                  ),
+                ],
               ),
               UIHelper.verticalSpaceSmall(),
               CustomDividerView(dividerHeight: 8.0),
@@ -100,8 +91,7 @@ class _SearchScreenState extends State<SearchScreen>
 }
 
 class _SearchListView extends StatelessWidget {
-  final List<SpotlightBestTopFood> foods =
-      SpotlightBestTopFood.getPopularAllRestaurants();
+  final List<SpotlightBestTopFood> foods = SpotlightBestTopFood.getPopularAllRestaurants();
 
   @override
   Widget build(BuildContext context) {

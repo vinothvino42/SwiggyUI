@@ -32,6 +32,7 @@ dependencies:
   google_fonts: ^1.1.0
   flutter_rating_bar: ^3.0.1+1
   flutter_swiper: ^1.1.6
+  device_preview: ^0.5.5
 
 dev_dependencies:
   flutter_test:

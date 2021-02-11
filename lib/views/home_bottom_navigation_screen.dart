@@ -8,12 +8,10 @@ import 'swiggy/swiggy_screen.dart';
 
 class HomeBottomNavigationScreen extends StatefulWidget {
   @override
-  _HomeBottomNavigationScreenState createState() =>
-      _HomeBottomNavigationScreenState();
+  _HomeBottomNavigationScreenState createState() => _HomeBottomNavigationScreenState();
 }
 
-class _HomeBottomNavigationScreenState
-    extends State<HomeBottomNavigationScreen> {
+class _HomeBottomNavigationScreenState extends State<HomeBottomNavigationScreen> {
   final List<Widget> _children = [
     SwiggyScreen(),
     SearchScreen(),
@@ -25,8 +23,7 @@ class _HomeBottomNavigationScreenState
 
   @override
   Widget build(BuildContext context) {
-    final labelTextStyle =
-        Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 11.0);
+    final labelTextStyle = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 11.0);
     return Scaffold(
       body: _children[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
