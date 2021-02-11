@@ -10,6 +10,7 @@ class OfferBannerView extends StatelessWidget {
     'assets/images/banner3.jpg',
     'assets/images/banner5.jpg',
   ];
+
   @override
   Widget build(BuildContext context) {
     return InkWell(

@@ -12,7 +12,6 @@ class TopOffersViews extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0),
-      height: 350.0,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -63,7 +62,8 @@ class TopOffersViews extends StatelessWidget {
             ),
           ),
           UIHelper.verticalSpaceMedium(),
-          Flexible(
+          LimitedBox(
+            maxHeight: 270.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,

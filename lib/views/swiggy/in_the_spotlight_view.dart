@@ -10,14 +10,14 @@ class InTheSpotlightView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 15.0),
-      height: 340.0,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           UIHelper.verticalSpaceSmall(),
           _buildSpotlightHeaderView(context),
           UIHelper.verticalSpaceMedium(),
-          Flexible(
+          LimitedBox(
+            maxHeight: 270.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,

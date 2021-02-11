@@ -5,9 +5,10 @@ import 'package:swiggy_ui/utils/ui_helper.dart';
 class SwiggySafetyBannerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cardWidth = MediaQuery.of(context).size.width / 1.2;
+
     return Container(
       margin: const EdgeInsets.all(15.0),
-      height: 210.0,
       child: Column(
         children: <Widget>[
           Row(
@@ -36,7 +37,8 @@ class SwiggySafetyBannerView extends StatelessWidget {
             ],
           ),
           UIHelper.verticalSpaceMedium(),
-          Flexible(
+          LimitedBox(
+            maxHeight: 220.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -44,7 +46,7 @@ class SwiggySafetyBannerView extends StatelessWidget {
               itemBuilder: (context, index) => Container(
                 margin: const EdgeInsets.only(right: 10.0),
                 padding: const EdgeInsets.all(10.0),
-                width: MediaQuery.of(context).size.width / 1.2,
+                width: cardWidth,
                 decoration: BoxDecoration(
                   color: Colors.orange[100],
                   border: Border.all(color: swiggyOrange, width: 2.0),

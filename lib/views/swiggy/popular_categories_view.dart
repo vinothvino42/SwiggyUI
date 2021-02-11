@@ -16,13 +16,11 @@ class PopularCategoriesView extends StatelessWidget {
         children: <Widget>[
           Text(
             'Popular Categories',
-            style:
-                Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
+            style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
           ),
           UIHelper.verticalSpaceMedium(),
-          Container(
-            alignment: Alignment.center,
-            height: 124.0,
+          LimitedBox(
+            maxHeight: 124.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -52,13 +50,10 @@ class PopularCategoriesView extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                             UIHelper.verticalSpaceSmall(),
-                            Flexible(
-                              child: Text(
-                                categories[index].name,
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.bodyText1,
-                              ),
+                            Text(
+                              categories[index].name,
+                              maxLines: 2,
+                              textAlign: TextAlign.center,
                             )
                           ],
                         ),

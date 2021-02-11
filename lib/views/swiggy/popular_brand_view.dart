@@ -9,14 +9,14 @@ class PopularBrandsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 230.0,
       margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           UIHelper.verticalSpaceSmall(),
           _buildPopularHeader(context),
-          Flexible(
+          LimitedBox(
+            maxHeight: 170.0,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: ListView.builder(
@@ -57,18 +57,12 @@ class PopularBrandsView extends StatelessWidget {
                         UIHelper.verticalSpaceSmall(),
                         Text(
                           brands[index].name,
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle2
-                              .copyWith(fontWeight: FontWeight.w500),
+                          style: Theme.of(context).textTheme.subtitle2.copyWith(fontWeight: FontWeight.w500),
                         ),
                         UIHelper.verticalSpace(2.0),
                         Text(
                           brands[index].minutes,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1
-                              .copyWith(color: Colors.grey, fontSize: 13.0),
+                          style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey, fontSize: 13.0),
                         )
                       ],
                     ),
@@ -88,18 +82,12 @@ class PopularBrandsView extends StatelessWidget {
           children: <Widget>[
             Text(
               'Popular Brands',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline4
-                  .copyWith(fontSize: 20.0),
+              style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
             ),
             UIHelper.verticalSpaceExtraSmall(),
             Text(
               'Most ordered from around your locality',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1
-                  .copyWith(color: Colors.grey),
+              style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
             ),
           ],
         ),

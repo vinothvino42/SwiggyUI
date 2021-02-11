@@ -23,8 +23,8 @@ class TopPicksForYouView extends StatelessWidget {
             ],
           ),
           UIHelper.verticalSpaceLarge(),
-          Container(
-            height: 188.0,
+          LimitedBox(
+            maxHeight: 188.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
