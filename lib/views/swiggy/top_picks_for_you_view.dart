@@ -18,16 +18,13 @@ class TopPicksForYouView extends StatelessWidget {
               UIHelper.horizontalSpaceSmall(),
               Text(
                 'Top Picks For You',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-                    .copyWith(fontSize: 20.0),
+                style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
               )
             ],
           ),
           UIHelper.verticalSpaceLarge(),
           Container(
-            height: 175.0,
+            height: 188.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -69,6 +66,7 @@ class TopPicksForYouView extends StatelessWidget {
                       Flexible(
                         child: Text(
                           foods[index].name,
+                          maxLines: 2,
                           style: Theme.of(context).textTheme.subtitle2.copyWith(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.w600,
@@ -78,6 +76,7 @@ class TopPicksForYouView extends StatelessWidget {
                       UIHelper.verticalSpaceExtraSmall(),
                       Text(
                         foods[index].minutes,
+                        maxLines: 1,
                         style: Theme.of(context).textTheme.bodyText1.copyWith(
                               color: Colors.grey[700],
                               fontSize: 13.0,

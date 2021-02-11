@@ -7,7 +7,7 @@ class SwiggySafetyBannerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(15.0),
-      height: 200.0,
+      height: 210.0,
       child: Column(
         children: <Widget>[
           Row(
@@ -58,8 +58,7 @@ class SwiggySafetyBannerView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,10 +79,7 @@ class SwiggySafetyBannerView extends StatelessWidget {
                           FlatButton(
                             child: Text(
                               'Know More',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6
-                                  .copyWith(color: darkOrange),
+                              style: Theme.of(context).textTheme.headline6.copyWith(color: darkOrange),
                             ),
                             onPressed: () {},
                           )

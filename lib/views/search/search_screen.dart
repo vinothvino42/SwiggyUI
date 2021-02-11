@@ -21,6 +21,12 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -81,7 +87,15 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
               ),
               UIHelper.verticalSpaceSmall(),
               CustomDividerView(dividerHeight: 8.0),
-              _SearchListView(),
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    _SearchListView(),
+                    _SearchListView(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -96,14 +110,13 @@ class _SearchListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     foods.addAll(SpotlightBestTopFood.getPopularAllRestaurants());
+    foods.shuffle();
 
-    return Expanded(
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: foods.length,
-        itemBuilder: (context, index) => SearchFoodListItemView(
-          food: foods[index],
-        ),
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: foods.length,
+      itemBuilder: (context, index) => SearchFoodListItemView(
+        food: foods[index],
       ),
     );
   }

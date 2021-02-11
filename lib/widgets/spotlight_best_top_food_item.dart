@@ -4,12 +4,12 @@ import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/views/swiggy/restaurants/restaurant_detail_screen.dart';
 
 class SpotlightBestTopFoodItem extends StatelessWidget {
-  final SpotlightBestTopFood restaurant;
-
   const SpotlightBestTopFoodItem({
     Key key,
     @required this.restaurant,
   }) : super(key: key);
+
+  final SpotlightBestTopFood restaurant;
 
   @override
   Widget build(BuildContext context) {
@@ -45,45 +45,42 @@ class SpotlightBestTopFoodItem extends StatelessWidget {
               ),
             ),
             UIHelper.horizontalSpaceSmall(),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  restaurant.name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle2
-                      .copyWith(fontSize: 18.0),
-                ),
-                Text(restaurant.desc,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        .copyWith(color: Colors.grey[800], fontSize: 13.5)),
-                UIHelper.verticalSpaceSmall(),
-                Text(
-                  restaurant.coupon,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1
-                      .copyWith(color: Colors.red[900], fontSize: 13.0),
-                ),
-                UIHelper.verticalSpaceExtraSmall(),
-                Divider(),
-                UIHelper.verticalSpaceExtraSmall(),
-                Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.star,
-                      size: 14.0,
-                      color: Colors.grey[600],
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    restaurant.name,
+                    maxLines: 1,
+                    style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+                  ),
+                  Text(
+                    restaurant.desc,
+                    maxLines: 2,
+                    style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey[800], fontSize: 13.5),
+                  ),
+                  UIHelper.verticalSpaceSmall(),
+                  Text(
+                    restaurant.coupon,
+                    style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.red[900], fontSize: 13.0),
+                  ),
+                  Divider(),
+                  FittedBox(
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.star,
+                          size: 14.0,
+                          color: Colors.grey[600],
+                        ),
+                        Text(restaurant.ratingTimePrice, style: TextStyle(fontSize: 12.0))
+                      ],
                     ),
-                    Text(restaurant.ratingTimePrice)
-                  ],
-                )
-              ],
+                  )
+                ],
+              ),
             )
           ],
         ),

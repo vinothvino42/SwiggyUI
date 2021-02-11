@@ -12,7 +12,7 @@ class TopOffersViews extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0),
-      height: 330.0,
+      height: 350.0,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -27,20 +27,14 @@ class TopOffersViews extends StatelessWidget {
                     UIHelper.horizontalSpaceExtraSmall(),
                     Text(
                       'Top Offers',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          .copyWith(fontSize: 20.0),
+                      style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
                     ),
                     Spacer(),
                     Row(
                       children: <Widget>[
                         Text(
                           'SEE ALL',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1
-                              .copyWith(fontWeight: FontWeight.bold),
+                          style: Theme.of(context).textTheme.bodyText1.copyWith(fontWeight: FontWeight.bold),
                         ),
                         UIHelper.horizontalSpaceExtraSmall(),
                         ClipOval(
@@ -63,10 +57,7 @@ class TopOffersViews extends StatelessWidget {
                 UIHelper.verticalSpaceExtraSmall(),
                 Text(
                   'Get 20-50% Off',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1
-                      .copyWith(color: Colors.grey),
+                  style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
                 ),
               ],
             ),

@@ -34,124 +34,62 @@ class SwiggyScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      FoodGroceriesAvailabilityView(),
+                      // FoodGroceriesAvailabilityView(),
                       TopPicksForYouView(),
-                      OfferBannerView(),
-                      CustomDividerView(),
-                      IndianFoodView(),
+                      // OfferBannerView(),
+                      // CustomDividerView(),
+                      // IndianFoodView(),
                       CustomDividerView(),
                       InTheSpotlightView(),
                       CustomDividerView(),
-                      PopularBrandsView(),
-                      CustomDividerView(),
-                      SwiggySafetyBannerView(),
-                      BestInSafetyViews(),
-                      CustomDividerView(),
-                      TopOffersViews(),
-                      CustomDividerView(),
-                      GenieView(),
-                      CustomDividerView(),
-                      PopularCategoriesView(),
-                      CustomDividerView(),
-                      RestaurantVerticalListView(
-                        title: 'Popular Restaurants',
-                        restaurants:
-                            SpotlightBestTopFood.getPopularAllRestaurants(),
-                      ),
-                      CustomDividerView(),
-                      RestaurantVerticalListView(
-                        title: 'All Restaurants Nearby',
-                        restaurants:
-                            SpotlightBestTopFood.getPopularAllRestaurants(),
-                        isAllRestaurantNearby: true,
-                      ),
-                      UIHelper.verticalSpaceMedium(),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                        height: 50.0,
-                        width: double.infinity,
-                        child: RaisedButton(
-                          color: darkOrange,
-                          child: Text(
-                            'See all restaurants',
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle2
-                                .copyWith(color: Colors.white, fontSize: 19.0),
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => AllRestaurantsScreen(),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(top: 20.0),
-                        padding: const EdgeInsets.all(15.0),
-                        height: 400.0,
-                        color: Colors.grey[200],
-                        child: Stack(
-                          children: <Widget>[
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  'LIVE\nFOR\nFOOD',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4
-                                      .copyWith(
-                                        color: Colors.grey[400],
-                                        fontSize: 80.0,
-                                        letterSpacing: 0.2,
-                                        height: 0.8,
-                                      ),
-                                ),
-                                UIHelper.verticalSpaceLarge(),
-                                Text(
-                                  'MADE BY FOOD LOVERS',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .copyWith(color: Colors.grey),
-                                ),
-                                Text(
-                                  'SWIGGY HQ, BANGALORE',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .copyWith(color: Colors.grey),
-                                ),
-                                UIHelper.verticalSpaceExtraLarge(),
-                                Row(
-                                  children: <Widget>[
-                                    Container(
-                                      height: 1.0,
-                                      width:
-                                          MediaQuery.of(context).size.width / 4,
-                                      color: Colors.grey,
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                            Positioned(
-                              left: 140.0,
-                              top: 90.0,
-                              child: Image.asset(
-                                'assets/images/burger.png',
-                                height: 80.0,
-                                width: 80.0,
-                              ),
-                            )
-                          ],
-                        ),
-                      )
+                      // PopularBrandsView(),
+                      // CustomDividerView(),
+                      // SwiggySafetyBannerView(),
+                      // BestInSafetyViews(),
+                      // CustomDividerView(),
+                      // TopOffersViews(),
+                      // CustomDividerView(),
+                      // GenieView(),
+                      // CustomDividerView(),
+                      // PopularCategoriesView(),
+                      // CustomDividerView(),
+                      // RestaurantVerticalListView(
+                      //   title: 'Popular Restaurants',
+                      //   restaurants:
+                      //       SpotlightBestTopFood.getPopularAllRestaurants(),
+                      // ),
+                      // CustomDividerView(),
+                      // RestaurantVerticalListView(
+                      //   title: 'All Restaurants Nearby',
+                      //   restaurants:
+                      //       SpotlightBestTopFood.getPopularAllRestaurants(),
+                      //   isAllRestaurantNearby: true,
+                      // ),
+                      // UIHelper.verticalSpaceMedium(),
+                      // Container(
+                      //   padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      //   height: 50.0,
+                      //   width: double.infinity,
+                      //   child: RaisedButton(
+                      //     color: darkOrange,
+                      //     child: Text(
+                      //       'See all restaurants',
+                      //       style: Theme.of(context)
+                      //           .textTheme
+                      //           .subtitle2
+                      //           .copyWith(color: Colors.white, fontSize: 19.0),
+                      //     ),
+                      //     onPressed: () {
+                      //       Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //           builder: (context) => AllRestaurantsScreen(),
+                      //         ),
+                      //       );
+                      //     },
+                      //   ),
+                      // ),
+                      // _LiveForFoodView()
                     ],
                   ),
                 ),
@@ -170,10 +108,7 @@ class SwiggyScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Other',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline4
-                  .copyWith(fontSize: 21.0),
+              style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 21.0),
             ),
             UIHelper.horizontalSpaceExtraSmall(),
             Padding(
@@ -188,10 +123,7 @@ class SwiggyScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
                   'Offer',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle2
-                      .copyWith(fontSize: 18.0),
+                  style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
                 ),
               ),
               onTap: () {
@@ -206,4 +138,67 @@ class SwiggyScreen extends StatelessWidget {
           ],
         ),
       );
+}
+
+class _LiveForFoodView extends StatelessWidget {
+  const _LiveForFoodView({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 20.0),
+      padding: const EdgeInsets.all(15.0),
+      height: 400.0,
+      color: Colors.grey[200],
+      child: Stack(
+        children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'LIVE\nFOR\nFOOD',
+                style: Theme.of(context).textTheme.headline4.copyWith(
+                      color: Colors.grey[400],
+                      fontSize: 80.0,
+                      letterSpacing: 0.2,
+                      height: 0.8,
+                    ),
+              ),
+              UIHelper.verticalSpaceLarge(),
+              Text(
+                'MADE BY FOOD LOVERS',
+                style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
+              ),
+              Text(
+                'SWIGGY HQ, BANGALORE',
+                style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
+              ),
+              UIHelper.verticalSpaceExtraLarge(),
+              Row(
+                children: <Widget>[
+                  Container(
+                    height: 1.0,
+                    width: MediaQuery.of(context).size.width / 4,
+                    color: Colors.grey,
+                  ),
+                ],
+              )
+            ],
+          ),
+          Positioned(
+            left: 140.0,
+            top: 90.0,
+            child: Image.asset(
+              'assets/images/burger.png',
+              height: 80.0,
+              width: 80.0,
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }
