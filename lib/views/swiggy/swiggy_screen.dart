@@ -34,7 +34,7 @@ class SwiggyScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      // FoodGroceriesAvailabilityView(),
+                      FoodGroceriesAvailabilityView(),
                       TopPicksForYouView(),
                       OfferBannerView(),
                       CustomDividerView(),
@@ -52,44 +52,19 @@ class SwiggyScreen extends StatelessWidget {
                       GenieView(),
                       CustomDividerView(),
                       PopularCategoriesView(),
-                      // CustomDividerView(),
-                      // RestaurantVerticalListView(
-                      //   title: 'Popular Restaurants',
-                      //   restaurants:
-                      //       SpotlightBestTopFood.getPopularAllRestaurants(),
-                      // ),
-                      // CustomDividerView(),
-                      // RestaurantVerticalListView(
-                      //   title: 'All Restaurants Nearby',
-                      //   restaurants:
-                      //       SpotlightBestTopFood.getPopularAllRestaurants(),
-                      //   isAllRestaurantNearby: true,
-                      // ),
-                      // UIHelper.verticalSpaceMedium(),
-                      // Container(
-                      //   padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                      //   height: 50.0,
-                      //   width: double.infinity,
-                      //   child: RaisedButton(
-                      //     color: darkOrange,
-                      //     child: Text(
-                      //       'See all restaurants',
-                      //       style: Theme.of(context)
-                      //           .textTheme
-                      //           .subtitle2
-                      //           .copyWith(color: Colors.white, fontSize: 19.0),
-                      //     ),
-                      //     onPressed: () {
-                      //       Navigator.push(
-                      //         context,
-                      //         MaterialPageRoute(
-                      //           builder: (context) => AllRestaurantsScreen(),
-                      //         ),
-                      //       );
-                      //     },
-                      //   ),
-                      // ),
-                      // _LiveForFoodView()
+                      CustomDividerView(),
+                      RestaurantVerticalListView(
+                        title: 'Popular Restaurants',
+                        restaurants: SpotlightBestTopFood.getPopularAllRestaurants(),
+                      ),
+                      CustomDividerView(),
+                      RestaurantVerticalListView(
+                        title: 'All Restaurants Nearby',
+                        restaurants: SpotlightBestTopFood.getPopularAllRestaurants(),
+                        isAllRestaurantNearby: true,
+                      ),
+                      _SeeAllRestaurantBtn(),
+                      _LiveForFoodView()
                     ],
                   ),
                 ),
@@ -138,6 +113,37 @@ class SwiggyScreen extends StatelessWidget {
           ],
         ),
       );
+}
+
+class _SeeAllRestaurantBtn extends StatelessWidget {
+  const _SeeAllRestaurantBtn({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 15.0),
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      height: 50.0,
+      width: double.infinity,
+      child: RaisedButton(
+        color: darkOrange,
+        child: Text(
+          'See all restaurants',
+          style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.white, fontSize: 19.0),
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AllRestaurantsScreen(),
+            ),
+          );
+        },
+      ),
+    );
+  }
 }
 
 class _LiveForFoodView extends StatelessWidget {

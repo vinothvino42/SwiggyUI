@@ -36,34 +36,30 @@ class SearchFoodListItemView extends StatelessWidget {
             ),
           ),
           UIHelper.horizontalSpaceSmall(),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                food.name,
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle2
-                    .copyWith(fontSize: 15.0),
-              ),
-              Text(food.desc,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1
-                      .copyWith(color: Colors.grey[600], fontSize: 13.5)),
-              UIHelper.verticalSpaceSmall(),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    Icons.star,
-                    size: 14.0,
-                    color: Colors.grey[600],
-                  ),
-                  Text(food.ratingTimePrice)
-                ],
-              )
-            ],
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  food.name,
+                  style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 15.0),
+                ),
+                Text(food.desc,
+                    style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey[600], fontSize: 13.5)),
+                UIHelper.verticalSpaceSmall(),
+                Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      size: 14.0,
+                      color: Colors.grey[600],
+                    ),
+                    Text(food.ratingTimePrice)
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),

@@ -23,39 +23,42 @@ class _HomeBottomNavigationScreenState extends State<HomeBottomNavigationScreen>
 
   @override
   Widget build(BuildContext context) {
-    final labelTextStyle = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 11.0);
+    final labelTextStyle = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 8.0);
     return Scaffold(
       body: _children[selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: darkOrange,
-        unselectedItemColor: Colors.grey,
-        currentIndex: selectedIndex,
-        selectedLabelStyle: labelTextStyle,
-        unselectedLabelStyle: labelTextStyle,
-        onTap: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('SWIGGY'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            title: Text('SEARCH'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_shopping_cart),
-            title: Text('CART'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            title: Text('ACCOUNT'),
-          ),
-        ],
+      bottomNavigationBar: SizedBox(
+        height: 50.0,
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: darkOrange,
+          unselectedItemColor: Colors.grey,
+          currentIndex: selectedIndex,
+          selectedLabelStyle: labelTextStyle,
+          unselectedLabelStyle: labelTextStyle,
+          onTap: (index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'SWIGGY',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'SEARCH',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_shopping_cart),
+              label: 'CART',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline),
+              label: 'ACCOUNT',
+            ),
+          ],
+        ),
       ),
     );
   }

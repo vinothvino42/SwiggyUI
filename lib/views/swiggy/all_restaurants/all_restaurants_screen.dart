@@ -25,60 +25,57 @@ class AllRestaurantsScreen extends StatelessWidget {
           children: <Widget>[
             _buildAppBar(context),
             Expanded(
-                child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  _FoodHorizontalListView(),
-                  CategoriesView(),
-                  GroceryListView(
-                    title: 'ALL RESTAURANTS',
-                  ),
-                  _RestaurantHorizontalListView(
-                    title: 'Indian Restaurants',
-                    restaurants: AllRestaurant.getIndianRestaurants(),
-                  ),
-                  _RestaurantListView(
-                    restaurants: restaurantListOne,
-                  ),
-                  _RestaurantHorizontalListView(
-                    title: 'Popular Brands',
-                    restaurants: AllRestaurant.getPopularBrands(),
-                  ),
-                  _RestaurantListView(
-                    restaurants: restaurantListTwo,
-                  ),
-                  _LargeRestaurantBannerView(
-                    title: 'BEST IN SAFETY',
-                    desc:
-                        'SAFEST RESTAURANTS WITH BEST IN CLASS\nSAFETY STANDARDS',
-                    restaurants:
-                        LargeRestaurantBanner.getBestInSafetyRestaurants(),
-                  ),
-                  _RestaurantListView(
-                    restaurants: restaurantListOne,
-                  ),
-                  _LargeRestaurantBannerView(
-                    title: 'PEPSI SAVE OUR RESTAURANTS',
-                    desc:
-                        'ORDER ANY SOFT DRINK & PEPSI WILL DONATE A\NMEAL TO A RESTAURANT WORKER',
-                    restaurants:
-                        LargeRestaurantBanner.getPepsiSaveOurRestaurants(),
-                  ),
-                  _RestaurantListView(
-                    restaurants: restaurantListThree,
-                  ),
-                  _RestaurantHorizontalListView(
-                    title: 'Popular Brands',
-                    restaurants: AllRestaurant.getPopularBrands(),
-                  ),
-                  _RestaurantListView(
-                    restaurants: restaurantListOne,
-                  ),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    _FoodHorizontalListView(),
+                    _CategoriesView(),
+                    GroceryListView(
+                      title: 'ALL RESTAURANTS',
+                    ),
+                    _RestaurantHorizontalListView(
+                      title: 'Indian Restaurants',
+                      restaurants: AllRestaurant.getIndianRestaurants(),
+                    ),
+                    _RestaurantListView(
+                      restaurants: restaurantListOne,
+                    ),
+                    _RestaurantHorizontalListView(
+                      title: 'Popular Brands',
+                      restaurants: AllRestaurant.getPopularBrands(),
+                    ),
+                    _RestaurantListView(
+                      restaurants: restaurantListTwo,
+                    ),
+                    _LargeRestaurantBannerView(
+                      title: 'BEST IN SAFETY',
+                      desc: 'SAFEST RESTAURANTS WITH BEST IN CLASS\nSAFETY STANDARDS',
+                      restaurants: LargeRestaurantBanner.getBestInSafetyRestaurants(),
+                    ),
+                    _RestaurantListView(
+                      restaurants: restaurantListOne,
+                    ),
+                    _LargeRestaurantBannerView(
+                      title: 'PEPSI SAVE OUR RESTAURANTS',
+                      desc: 'ORDER ANY SOFT DRINK & PEPSI WILL DONATE A\NMEAL TO A RESTAURANT WORKER',
+                      restaurants: LargeRestaurantBanner.getPepsiSaveOurRestaurants(),
+                    ),
+                    _RestaurantListView(
+                      restaurants: restaurantListThree,
+                    ),
+                    _RestaurantHorizontalListView(
+                      title: 'Popular Brands',
+                      restaurants: AllRestaurant.getPopularBrands(),
+                    ),
+                    _RestaurantListView(
+                      restaurants: restaurantListOne,
+                    ),
+                  ],
+                ),
               ),
-            ))
+            )
           ],
         )),
       ),
@@ -119,10 +116,7 @@ class AllRestaurantsScreen extends StatelessWidget {
             UIHelper.horizontalSpaceSmall(),
             Text(
               'Other',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline4
-                  .copyWith(fontSize: 21.0),
+              style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 21.0),
             ),
             UIHelper.horizontalSpaceExtraSmall(),
             Spacer(),
@@ -133,10 +127,7 @@ class AllRestaurantsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
                   'Offer',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle2
-                      .copyWith(fontSize: 18.0),
+                  style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
                 ),
               ),
               onTap: () {
@@ -175,8 +166,7 @@ class _FoodHorizontalListView extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.all(10.0),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
+                padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
                 color: Colors.white,
                 child: Text('TRY NOW'),
               ),
@@ -190,8 +180,10 @@ class _FoodHorizontalListView extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 2,
                   child: Text(
                     restaurants[index].name,
-                    style: Theme.of(context).textTheme.headline6.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
               )
@@ -203,22 +195,21 @@ class _FoodHorizontalListView extends StatelessWidget {
   }
 }
 
-class CategoriesView extends StatelessWidget {
+class _CategoriesView extends StatelessWidget {
   final categories = AllRestaurant.getPopularTypes();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      height: 104.0,
+      height: 115.0,
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
         itemBuilder: (context, index) => Container(
-            margin:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-            width: 50.0,
+            margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+            width: 60.0,
             child: Stack(
               alignment: Alignment.topCenter,
               children: <Widget>[
@@ -246,10 +237,7 @@ class CategoriesView extends StatelessWidget {
                           categories[index].name,
                           maxLines: 2,
                           textAlign: TextAlign.center,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1
-                              .copyWith(fontSize: 13.0),
+                          style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 13.0),
                         ),
                       )
                     ],
@@ -285,8 +273,7 @@ class _RestaurantHorizontalListView extends StatelessWidget {
           UIHelper.verticalSpaceSmall(),
           Text(
             title,
-            style:
-                Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+            style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
           ),
           UIHelper.verticalSpaceSmall(),
           Flexible(
@@ -312,10 +299,7 @@ class _RestaurantHorizontalListView extends StatelessWidget {
                       UIHelper.verticalSpaceExtraSmall(),
                       Text(
                         restaurants[index].name,
-                        style: Theme.of(context)
-                            .textTheme
-                            .subtitle2
-                            .copyWith(color: Colors.grey[700]),
+                        style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.grey[700]),
                       )
                     ],
                   ),
@@ -340,12 +324,12 @@ class _RestaurantHorizontalListView extends StatelessWidget {
 }
 
 class _RestaurantListView extends StatelessWidget {
-  final List<SpotlightBestTopFood> restaurants;
-
   const _RestaurantListView({
     Key key,
     @required this.restaurants,
   }) : super(key: key);
+
+  final List<SpotlightBestTopFood> restaurants;
 
   @override
   Widget build(BuildContext context) {
@@ -364,16 +348,16 @@ class _RestaurantListView extends StatelessWidget {
 }
 
 class _LargeRestaurantBannerView extends StatelessWidget {
-  final String title;
-  final String desc;
-  final List<LargeRestaurantBanner> restaurants;
-
   const _LargeRestaurantBannerView({
     Key key,
     @required this.title,
     @required this.desc,
     @required this.restaurants,
   }) : super(key: key);
+
+  final String title;
+  final String desc;
+  final List<LargeRestaurantBanner> restaurants;
 
   @override
   Widget build(BuildContext context) {
@@ -386,8 +370,7 @@ class _LargeRestaurantBannerView extends StatelessWidget {
           UIHelper.verticalSpaceMedium(),
           Text(
             title,
-            style:
-                Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+            style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
           ),
           UIHelper.verticalSpaceSmall(),
           Text(
@@ -399,8 +382,8 @@ class _LargeRestaurantBannerView extends StatelessWidget {
                 ),
           ),
           UIHelper.verticalSpaceSmall(),
-          Container(
-            height: 300.0,
+          LimitedBox(
+            maxHeight: 310.0,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -419,9 +402,12 @@ class _LargeRestaurantBannerView extends StatelessWidget {
                     UIHelper.verticalSpaceMedium(),
                     Text(
                       restaurants[index].title,
+                      maxLines: 2,
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.subtitle2.copyWith(
-                          fontWeight: FontWeight.bold, fontSize: 13.0),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13.0,
+                          ),
                     ),
                     UIHelper.verticalSpaceMedium(),
                     Container(
@@ -430,9 +416,12 @@ class _LargeRestaurantBannerView extends StatelessWidget {
                       color: Colors.grey[400],
                     ),
                     UIHelper.verticalSpaceSmall(),
-                    Text(restaurants[index].subtitle,
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyText1),
+                    Text(
+                      restaurants[index].subtitle,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ],
                 ),
               ),

@@ -62,27 +62,27 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'Restaurants',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline4
-                                    .copyWith(color: Colors.white),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: FractionallySizedBox(
+                            widthFactor: 0.7,
+                            child: Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    'Restaurants',
+                                    style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white),
+                                  ),
+                                  UIHelper.verticalSpaceExtraSmall(),
+                                  Text(
+                                    'No-contact delivery available',
+                                    style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
+                                  )
+                                ],
                               ),
-                              UIHelper.verticalSpaceExtraSmall(),
-                              Text(
-                                'No-contact delivery available',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .copyWith(color: Colors.white),
-                              )
-                            ],
+                            ),
                           ),
                         ),
                         Spacer(),
@@ -94,11 +94,8 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 'View all',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1
-                                    .copyWith(
-                                        color: Colors.white, fontSize: 18.0),
+                                style:
+                                    Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white, fontSize: 18.0),
                               ),
                               UIHelper.horizontalSpaceSmall(),
                               Icon(
@@ -123,14 +120,14 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: -5.0,
+                top: -10.0,
                 right: -10.0,
                 child: ClipOval(
                   child: Image.asset(
                     'assets/images/food1.jpg',
-                    width: 160.0,
-                    height: 160.0,
-                    fit: BoxFit.fill,
+                    width: 130.0,
+                    height: 130.0,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -138,15 +135,12 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
           ),
           UIHelper.verticalSpaceMedium(),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              InkWell(
-                child: GenieGroceryCardView(
-                  title: 'Genie',
-                  subtitle: 'Anything you need,\ndelivered',
-                  image: 'assets/images/food1.jpg',
-                ),
+              GenieGroceryCardView(
+                title: 'Genie',
+                subtitle: 'Anything you need,\ndelivered',
+                image: 'assets/images/food1.jpg',
                 onTap: () {
                   Navigator.push(
                     context,
@@ -156,27 +150,23 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                   );
                 },
               ),
-              InkWell(
-                child: GenieGroceryCardView(
-                  title: 'Grocery',
-                  subtitle: 'Esentials delivered\nin 2 Hrs',
-                  image: 'assets/images/food4.jpg',
-                ),
+              GenieGroceryCardView(
+                title: 'Grocery',
+                subtitle: 'Esentials delivered\nin 2 Hrs',
+                image: 'assets/images/food4.jpg',
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => GroceryScreen(),
+                      builder: (context) => GenieScreen(),
                     ),
                   );
                 },
               ),
-              InkWell(
-                child: GenieGroceryCardView(
-                  title: 'Meat',
-                  subtitle: 'Fesh meat\ndelivered safe',
-                  image: 'assets/images/food6.jpg',
-                ),
+              GenieGroceryCardView(
+                title: 'Meat',
+                subtitle: 'Fesh meat\ndelivered safe',
+                image: 'assets/images/food6.jpg',
                 onTap: () {
                   Navigator.push(
                     context,

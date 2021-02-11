@@ -60,21 +60,18 @@ class _GroceryHeaderView extends StatelessWidget {
 }
 
 class GroceryListView extends StatelessWidget {
-  final String title;
-
   const GroceryListView({
     Key key,
     @required this.title,
   }) : super(key: key);
 
+  final String title;
+
   @override
   Widget build(BuildContext context) {
     final restaurants = SpotlightBestTopFood.getTopGroceryRestaurants();
 
-    final headerStyle = Theme.of(context)
-        .textTheme
-        .bodyText1
-        .copyWith(fontWeight: FontWeight.w500, fontSize: 13.0);
+    final headerStyle = Theme.of(context).textTheme.bodyText1.copyWith(fontWeight: FontWeight.w500, fontSize: 13.0);
 
     return Container(
       padding: const EdgeInsets.all(15.0),
