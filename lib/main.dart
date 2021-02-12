@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'shared/app_theme.dart';
-import 'views/home_bottom_navigation_screen.dart';
+import 'views/tab_desktop/desktop_screen.dart';
+import 'views/mobile/mobile_screen.dart';
+import 'widgets/responsive.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +16,11 @@ class MyApp extends StatelessWidget {
       title: 'SwiggyUI',
       debugShowCheckedModeBanner: false,
       theme: appPrimaryTheme(),
-      home: HomeBottomNavigationScreen(),
+      home: Responsive(
+        mobile: MobileScreen(),
+        tablet: MobileScreen(),
+        desktop: DesktopScreen(),
+      ),
     );
   }
 }

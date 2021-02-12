@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';
+
+class HomeView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 4,
+      child: Container(
+        color: Colors.blue,
+      ),
+    );
+  }
+}
