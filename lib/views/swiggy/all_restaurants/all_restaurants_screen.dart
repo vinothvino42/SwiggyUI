@@ -87,9 +87,9 @@ class AllRestaurantsScreen extends StatelessWidget {
         height: 60.0,
         child: Row(
           children: <Widget>[
-            InkWell(
-              child: Icon(Icons.arrow_back, size: 18.0),
-              onTap: () {
+            IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
                 Navigator.pop(context);
               },
             ),
