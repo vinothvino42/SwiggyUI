@@ -7,35 +7,17 @@ class Menu {
     @required this.title,
   });
 
-  final Icon icon;
+  final IconData icon;
   final String title;
 
   static List<Menu> getMenus() {
     return const [
-      Menu(
-        icon: Icon(Icons.home_outlined),
-        title: 'Home',
-      ),
-      Menu(
-        icon: Icon(Icons.search),
-        title: 'Search',
-      ),
-      Menu(
-        icon: Icon(Icons.shopping_bag_outlined),
-        title: 'Orders',
-      ),
-      Menu(
-        icon: Icon(Icons.shopping_bag_outlined),
-        title: 'Offers',
-      ),
-      Menu(
-        icon: Icon(Icons.person_outline),
-        title: 'Profile',
-      ),
-      Menu(
-        icon: Icon(Icons.more_horiz),
-        title: 'More',
-      ),
+      Menu(icon: Icons.home_outlined, title: 'Home'),
+      Menu(icon: Icons.search, title: 'Search'),
+      Menu(icon: Icons.shopping_bag_outlined, title: 'Orders'),
+      Menu(icon: Icons.local_offer_outlined, title: 'Offers'),
+      Menu(icon: Icons.person_outline, title: 'Profile'),
+      Menu(icon: Icons.more_horiz, title: 'More'),
     ];
   }
 }

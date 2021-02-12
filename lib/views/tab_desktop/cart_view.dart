@@ -6,7 +6,7 @@ class CartView extends StatelessWidget {
     return Expanded(
       flex: 2,
       child: Container(
-        color: Colors.green,
+        color: Colors.grey[50],
       ),
     );
   }
