@@ -226,7 +226,7 @@ class _PastOrderListView extends StatelessWidget {
           height: 130.0,
           color: Colors.grey[200],
           child: Text(
-            'App Version v1.1.0',
+            'App Version v1.0.1',
             style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey[700], fontSize: 13.0),
           ),
         )
