@@ -1,16 +1,16 @@
 import 'package:flutter/foundation.dart';
 
 class IndianFood {
-  final String image;
-  final String name;
-
-  IndianFood({
+  const IndianFood({
     @required this.image,
     @required this.name,
   });
 
+  final String image;
+  final String name;
+
   static List<IndianFood> getIndianRestaurants() {
-    return [
+    return const [
       IndianFood(image: 'assets/images/food3.jpg', name: 'South\nIndian'),
       IndianFood(image: 'assets/images/food5.jpg', name: 'Indian\nChai'),
       IndianFood(image: 'assets/images/food1.jpg', name: 'North \nIndian'),

@@ -1,13 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 class SpotlightBestTopFood {
-  final String image;
-  final String name;
-  final String desc;
-  final String coupon;
-  final String ratingTimePrice;
-
-  SpotlightBestTopFood({
+  const SpotlightBestTopFood({
     @required this.image,
     @required this.name,
     @required this.desc,
@@ -15,8 +9,14 @@ class SpotlightBestTopFood {
     @required this.ratingTimePrice,
   });
 
+  final String image;
+  final String name;
+  final String desc;
+  final String coupon;
+  final String ratingTimePrice;
+
   static List<List<SpotlightBestTopFood>> getSpotlightRestaurants() {
-    return [
+    return const [
       [
         SpotlightBestTopFood(
           image: 'assets/images/food1.jpg',

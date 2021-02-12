@@ -1,26 +1,25 @@
 import 'package:flutter/foundation.dart';
 
 class RestaurantDetail {
-  final String title;
-  final String price;
-  final String image;
-  final String desc;
-
-  RestaurantDetail({
+  const RestaurantDetail({
     @required this.title,
     @required this.price,
     this.image = '',
     this.desc = '',
   });
 
+  final String title;
+  final String price;
+  final String image;
+  final String desc;
+
   static List<RestaurantDetail> getBreakfast() {
-    return [
+    return const [
       RestaurantDetail(
         title: 'Idly(2Pcs) (Breakfast)',
         price: 'Rs48',
         image: 'assets/images/food1.jpg',
-        desc:
-            'A healthy breakfast item and an authentic south indian delicacy! Steamed and fluffy rice cake..more',
+        desc: 'A healthy breakfast item and an authentic south indian delicacy! Steamed and fluffy rice cake..more',
       ),
       RestaurantDetail(
         title: 'Sambar Idly (2Pcs)',
@@ -31,8 +30,7 @@ class RestaurantDetail {
         title: 'Ghee Pongal',
         image: 'assets/images/food3.jpg',
         price: 'Rs85',
-        desc:
-            'Cute, button idlis with authentic. South Indian sambar and coconut chutney gives the per..more',
+        desc: 'Cute, button idlis with authentic. South Indian sambar and coconut chutney gives the per..more',
       ),
       RestaurantDetail(
         title: 'Boori (1Set)',
@@ -48,8 +46,7 @@ class RestaurantDetail {
         title: 'Mini Idly with Sambar',
         image: 'assets/images/food6.jpg',
         price: 'Rs85',
-        desc:
-            'Cute, button idlis with authentic. South Indian sambar and coconut chutney gives the per..more',
+        desc: 'Cute, button idlis with authentic. South Indian sambar and coconut chutney gives the per..more',
       ),
     ];
   }
@@ -59,8 +56,7 @@ class RestaurantDetail {
       RestaurantDetail(
         title: 'Plain Dosa',
         price: 'Rs30',
-        desc:
-            'A healthy breakfast item and an authentic south indian delicacy!',
+        desc: 'A healthy breakfast item and an authentic south indian delicacy!',
       ),
       RestaurantDetail(
         title: 'Rava Dosa',
@@ -69,8 +65,7 @@ class RestaurantDetail {
       RestaurantDetail(
         title: 'Onion Dosa',
         price: 'Rs85',
-        desc:
-            'Cute, button dosas with authentic. South Indian sambar and coconut chutney gives the per..more',
+        desc: 'Cute, button dosas with authentic. South Indian sambar and coconut chutney gives the per..more',
       ),
       RestaurantDetail(
         title: 'Onion Uttapam',

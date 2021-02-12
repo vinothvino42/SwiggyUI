@@ -1,16 +1,16 @@
 import 'package:flutter/foundation.dart';
 
 class PopularCategory {
-  final String image;
-  final String name;
-
-  PopularCategory({
+  const PopularCategory({
     @required this.image,
     @required this.name,
   });
 
+  final String image;
+  final String name;
+
   static List<PopularCategory> getPopularCategories() {
-    return [
+    return const [
       PopularCategory(
         image: 'assets/icons/coffee.png',
         name: 'Cold\nBeverages',

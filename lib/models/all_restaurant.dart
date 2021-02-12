@@ -4,16 +4,16 @@ import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'indian_food.dart';
 
 class AllRestaurant {
-  final String image;
-  final String name;
-
-  AllRestaurant({
+  const AllRestaurant({
     @required this.image,
     @required this.name,
   });
 
+  final String image;
+  final String name;
+
   static List<AllRestaurant> getPopularTypes() {
-    return [
+    return const [
       AllRestaurant(
         image: 'assets/icons/offer.png',
         name: 'Offers\nNear You',
@@ -50,7 +50,7 @@ class AllRestaurant {
   }
 
   static List<SpotlightBestTopFood> getRestaurantListOne() {
-    return [
+    return const [
       SpotlightBestTopFood(
         image: 'assets/images/food2.jpg',
         name: 'Shiva Bhavan',
@@ -83,7 +83,7 @@ class AllRestaurant {
   }
 
   static List<SpotlightBestTopFood> getRestaurantListTwo() {
-    return [
+    return const [
       SpotlightBestTopFood(
         image: 'assets/images/food4.jpg',
         name: 'Biryani Expresss',
@@ -163,7 +163,7 @@ class AllRestaurant {
   }
 
   static List<IndianFood> getIndianRestaurants() {
-    return [
+    return const [
       IndianFood(image: 'assets/images/food3.jpg', name: 'South\nIndian'),
       IndianFood(image: 'assets/images/food5.jpg', name: 'Indian\nChai'),
       IndianFood(image: 'assets/images/food1.jpg', name: 'North \nndian'),
@@ -174,7 +174,7 @@ class AllRestaurant {
   }
 
   static List<IndianFood> getPopularBrands() {
-    return [
+    return const [
       IndianFood(image: 'assets/images/food3.jpg', name: 'Sangeetha'),
       IndianFood(image: 'assets/images/food5.jpg', name: 'Indian\nChai'),
       IndianFood(image: 'assets/images/food1.jpg', name: 'Chai\nKings'),
@@ -186,18 +186,18 @@ class AllRestaurant {
 }
 
 class LargeRestaurantBanner {
-  final String image;
-  final String title;
-  final String subtitle;
-
-  LargeRestaurantBanner({
+  const LargeRestaurantBanner({
     @required this.image,
     @required this.title,
     @required this.subtitle,
   });
 
+  final String image;
+  final String title;
+  final String subtitle;
+
   static List<LargeRestaurantBanner> getBestInSafetyRestaurants() {
-    return [
+    return const [
       LargeRestaurantBanner(
         image: 'assets/images/food8.jpg',
         title: 'Namma Veedu Vasanta\n Bhavan',
@@ -249,9 +249,10 @@ class LargeRestaurantBanner {
         subtitle: 'Chicken, Fried Chickent, Tandoori Chicken',
       ),
       LargeRestaurantBanner(
-          image: 'assets/images/food3.jpg',
-          title: 'OMB Biryani',
-          subtitle: 'Biryani'),
+        image: 'assets/images/food3.jpg',
+        title: 'OMB Biryani',
+        subtitle: 'Biryani',
+      ),
     ];
   }
 }
