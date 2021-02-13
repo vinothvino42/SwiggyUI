@@ -63,8 +63,8 @@ class SwiggyScreen extends StatelessWidget {
                         restaurants: SpotlightBestTopFood.getPopularAllRestaurants(),
                         isAllRestaurantNearby: true,
                       ),
-                      _SeeAllRestaurantBtn(),
-                      _LiveForFoodView()
+                      SeeAllRestaurantBtn(),
+                      LiveForFoodView(),
                     ],
                   ),
                 ),
@@ -115,8 +115,8 @@ class SwiggyScreen extends StatelessWidget {
       );
 }
 
-class _SeeAllRestaurantBtn extends StatelessWidget {
-  const _SeeAllRestaurantBtn({
+class SeeAllRestaurantBtn extends StatelessWidget {
+  const SeeAllRestaurantBtn({
     Key key,
   }) : super(key: key);
 
@@ -146,8 +146,8 @@ class _SeeAllRestaurantBtn extends StatelessWidget {
   }
 }
 
-class _LiveForFoodView extends StatelessWidget {
-  const _LiveForFoodView({
+class LiveForFoodView extends StatelessWidget {
+  const LiveForFoodView({
     Key key,
   }) : super(key: key);
 

@@ -8,48 +8,53 @@ import 'genie/genie_grocery_card_view.dart';
 import 'meat/meat_screen.dart';
 
 class FoodGroceriesAvailabilityView extends StatelessWidget {
+  final bool isDesktop;
+
+  const FoodGroceriesAvailabilityView({Key key, this.isDesktop = false}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
       child: Column(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(8.0),
-                  bottomRight: Radius.circular(8.0),
+          if (!isDesktop)
+            Row(
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(8.0),
+                    bottomRight: Radius.circular(8.0),
+                  ),
+                  child: Container(
+                    width: 10.0,
+                    height: 140.0,
+                    color: swiggyOrange,
+                  ),
                 ),
-                child: Container(
-                  width: 10.0,
-                  height: 140.0,
-                  color: swiggyOrange,
-                ),
-              ),
-              UIHelper.horizontalSpaceMedium(),
-              Flexible(
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      'We are now deliverying food groceries and other essentials.',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                    UIHelper.verticalSpaceSmall(),
-                    Text(
-                      'Food & Genie service (Mon-Sat)-6:00 am to 9:00pm. Groceries & Meat (Mon-Sat)-6:00 am to 6:00pm. Dairy (Mon-Sat)-6:00 am to 6:00pm (Sun)-6:00 am to 12:00 pm',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyText1.copyWith(
-                            fontSize: 16.0,
-                            color: Colors.grey[800],
-                          ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-          UIHelper.verticalSpaceLarge(),
+                UIHelper.horizontalSpaceMedium(),
+                Flexible(
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        'We are now deliverying food groceries and other essentials.',
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                      UIHelper.verticalSpaceSmall(),
+                      Text(
+                        'Food & Genie service (Mon-Sat)-6:00 am to 9:00pm. Groceries & Meat (Mon-Sat)-6:00 am to 6:00pm. Dairy (Mon-Sat)-6:00 am to 6:00pm (Sun)-6:00 am to 12:00 pm',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyText1.copyWith(
+                              fontSize: 16.0,
+                              color: Colors.grey[800],
+                            ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          if (!isDesktop) UIHelper.verticalSpaceLarge(),
           Stack(
             children: <Widget>[
               ClipRRect(

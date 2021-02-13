@@ -14,7 +14,7 @@ class OfferBannerView extends StatelessWidget {
     'assets/images/banner1.jpg',
     'assets/images/banner2.jpg',
     'assets/images/banner3.jpg',
-    'assets/images/banner5.jpg',
+    'assets/images/banner4.jpg',
   ];
 
   @override

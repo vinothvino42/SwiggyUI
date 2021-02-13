@@ -8,7 +8,7 @@ class DottedSeperatorView extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: 100,
+        itemCount: 400,
         itemBuilder: (context, index) => ClipOval(
           child: Container(
             margin: const EdgeInsets.all(3.0),

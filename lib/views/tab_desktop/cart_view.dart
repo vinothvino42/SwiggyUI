@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/models/tab_desktop/order_menu.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 
@@ -63,7 +64,7 @@ class _UserHeader extends StatelessWidget {
                       'assets/images/user.jpg',
                       height: 50.0,
                       width: 50.0,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   UIHelper.horizontalSpaceMedium(),
@@ -98,6 +99,8 @@ class _UserHeader extends StatelessWidget {
 class _MyOrdersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cartItems = OrderMenu.getCartItems();
+
     return Expanded(
       flex: 4,
       child: Container(
@@ -117,7 +120,7 @@ class _MyOrdersList extends StatelessWidget {
               child: ListView(
                 shrinkWrap: true,
                 children: List.generate(
-                  5,
+                  cartItems.length,
                   (index) => Container(
                     margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 4.0),
                     padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
@@ -134,7 +137,7 @@ class _MyOrdersList extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(18.0),
                           child: Image.asset(
-                            'assets/images/food1.jpg',
+                            cartItems[index].image,
                             height: 70.0,
                             width: 80.0,
                             fit: BoxFit.fill,
@@ -145,7 +148,7 @@ class _MyOrdersList extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Chicken Biryani \n with onion and jam',
+                              Text(cartItems[index].title,
                                   style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 14.0)),
                               UIHelper.verticalSpaceMedium(),
                               Row(
@@ -162,7 +165,7 @@ class _MyOrdersList extends StatelessWidget {
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text('2'),
+                                        Text('${cartItems[index].quantity}'),
                                         Icon(Icons.keyboard_arrow_down_outlined),
                                       ],
                                     ),
@@ -173,7 +176,7 @@ class _MyOrdersList extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '\$42',
+                          'Rs ${cartItems[index].price}',
                           style: Theme.of(context)
                               .textTheme
                               .headline6
@@ -207,12 +210,12 @@ class _Checkout extends StatelessWidget {
           ListTile(
             dense: true,
             title: Text('Item Total', style: listTileStyle),
-            trailing: Text('\$235', style: amountStyle),
+            trailing: Text('Rs 235', style: amountStyle),
           ),
           ListTile(
             dense: true,
             title: Text('Delivery Fee', style: listTileStyle),
-            trailing: Text('\$235', style: amountStyle),
+            trailing: Text('Rs 305', style: amountStyle),
           ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 15.0),
@@ -244,8 +247,8 @@ class _Checkout extends StatelessWidget {
           const Divider(),
           ListTile(
             dense: true,
-            title: Text('Total', style: listTileStyle),
-            trailing: Text('\$232', style: amountStyle),
+            title: Text('To Pay', style: listTileStyle),
+            trailing: Text('Rs 540', style: amountStyle),
           ),
           UIHelper.verticalSpaceMedium(),
           SizedBox(

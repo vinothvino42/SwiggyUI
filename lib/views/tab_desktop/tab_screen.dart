@@ -14,7 +14,6 @@ class TabScreen extends StatelessWidget {
           children: [
             MenuView(isTab: true, expandFlex: 1),
             HomeView(expandFlex: 5),
-            CartView(),
           ],
         ),
       ),
