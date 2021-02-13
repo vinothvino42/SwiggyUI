@@ -21,14 +21,14 @@ class Responsive extends StatelessWidget {
   }
 
   static bool isDesktop(BuildContext context) {
-    return MediaQuery.of(context).size.width >= 1200;
+    return MediaQuery.of(context).size.width >= 1100;
   }
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth >= 1200) {
+        if (constraints.maxWidth >= 1100) {
           return desktop;
         } else if (constraints.maxWidth >= 650) {
           return tablet;

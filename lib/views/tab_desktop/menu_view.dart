@@ -16,11 +16,10 @@ class MenuView extends StatelessWidget {
     return Expanded(
       flex: expandFlex,
       child: Container(
-        alignment: Alignment.centerRight,
-        padding: const EdgeInsets.only(left: 40.0, top: 40.0, right: 40.0, bottom: 20.0),
         color: Colors.grey[50],
+        alignment: Alignment.center,
+        padding: EdgeInsets.only(left: isTab ? 20.0 : 40.0, top: 40.0, right: isTab ? 20.0 : 40.0, bottom: 20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListView(
               shrinkWrap: true,
@@ -39,17 +38,20 @@ class MenuView extends StatelessWidget {
                     iconSize: 30.0,
                     onPressed: () {},
                   )
-                : SizedBox(
-                    height: 50.0,
-                    width: 150.0,
-                    child: ElevatedButton(
-                      child: Text('Logout'),
-                      onPressed: () => print("it's pressed"),
-                      style: ElevatedButton.styleFrom(
-                        primary: swiggyOrange,
-                        onPrimary: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32.0),
+                : FractionallySizedBox(
+                    widthFactor: 0.5,
+                    child: SizedBox(
+                      height: 52.0,
+                      child: OutlinedButton.icon(
+                        icon: Icon(Icons.exit_to_app),
+                        label: Text('Logout'),
+                        onPressed: () => print("it's pressed"),
+                        style: ElevatedButton.styleFrom(
+                          onPrimary: swiggyOrange,
+                          side: BorderSide(width: 2.0, color: swiggyOrange),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32.0),
+                          ),
                         ),
                       ),
                     ),
@@ -78,17 +80,19 @@ class __MenuItemState extends State<_MenuItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.centerLeft,
-      margin: const EdgeInsets.symmetric(vertical: 5.0),
-      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+      alignment: Alignment.center,
+      margin: isTab ? EdgeInsets.zero : const EdgeInsets.symmetric(vertical: 5.0),
+      padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: isTab ? 0.0 : 10.0),
       child: InkWell(
         onTap: () {
           print('Tapped');
         },
         onHover: (value) {
-          setState(() {
-            isHovered = value;
-          });
+          if (!isTab) {
+            setState(() {
+              isHovered = value;
+            });
+          }
         },
         child: Container(
           decoration: isHovered
@@ -98,10 +102,14 @@ class __MenuItemState extends State<_MenuItem> {
                 )
               : null,
           padding: isTab
-              ? const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0)
+              ? const EdgeInsets.symmetric(vertical: 10.0)
               : const EdgeInsets.only(left: 15.0, top: 10.0, right: 25.0, bottom: 10.0),
           child: isTab
-              ? Icon(widget.menu.icon, color: isHovered ? swiggyOrange : Colors.black, size: 30.0)
+              ? IconButton(
+                  icon: Icon(widget.menu.icon, color: isHovered ? swiggyOrange : Colors.black),
+                  iconSize: 30.0,
+                  onPressed: () {},
+                )
               : Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
