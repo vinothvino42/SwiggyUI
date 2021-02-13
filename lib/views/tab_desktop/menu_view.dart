@@ -16,7 +16,7 @@ class MenuView extends StatelessWidget {
     return Expanded(
       flex: expandFlex,
       child: Container(
-        color: Colors.grey[50],
+        color: Colors.white,
         alignment: Alignment.center,
         padding: EdgeInsets.only(left: isTab ? 20.0 : 40.0, top: 40.0, right: isTab ? 20.0 : 40.0, bottom: 20.0),
         child: Column(

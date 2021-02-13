@@ -3,9 +3,13 @@ import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 
 class SwiggySafetyBannerView extends StatelessWidget {
+  SwiggySafetyBannerView({Key key, this.isDesktop = false}) : super(key: key);
+
+  final bool isDesktop;
+
   @override
   Widget build(BuildContext context) {
-    final cardWidth = MediaQuery.of(context).size.width / 1.2;
+    final cardWidth = MediaQuery.of(context).size.width / (isDesktop ? 3.8 : 1.2);
 
     return Container(
       margin: const EdgeInsets.all(15.0),

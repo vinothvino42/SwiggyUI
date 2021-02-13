@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
+import 'package:swiggy_ui/views/mobile/swiggy/best_in_safety_view.dart';
+import 'package:swiggy_ui/views/mobile/swiggy/in_the_spotlight_view.dart';
 import 'package:swiggy_ui/views/mobile/swiggy/offers/offer_banner_view.dart';
+import 'package:swiggy_ui/views/mobile/swiggy/popular_brand_view.dart';
+import 'package:swiggy_ui/views/mobile/swiggy/popular_categories_view.dart';
+import 'package:swiggy_ui/views/mobile/swiggy/swiggy_safety_banner_view.dart';
+import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key key, this.expandFlex = 4}) : super(key: key);
@@ -12,17 +18,13 @@ class HomeView extends StatelessWidget {
     return Expanded(
       flex: expandFlex,
       child: Container(
-        padding: EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0, bottom: 20.0),
-        color: Colors.white,
+        padding: EdgeInsets.only(left: 20.0, top: 40.0, right: 20.0, bottom: 20.0),
+        color: Colors.grey[50],
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _Header(),
-            Expanded(
-              child: Container(
-                color: Colors.blue[50],
-              ),
-            )
+            _Search(),
+            _Body(),
           ],
         ),
       ),
@@ -30,16 +32,26 @@ class HomeView extends StatelessWidget {
   }
 }
 
-class _Header extends StatelessWidget {
+class _Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _Search(),
-          OfferBannerView(isDesktop: true),
-        ],
+    return Expanded(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            OfferBannerView(isDesktop: true),
+            PopularBrandsView(),
+            CustomDividerView(),
+            PopularCategoriesView(),
+            CustomDividerView(),
+            InTheSpotlightView(isDesktop: true),
+            CustomDividerView(),
+            SwiggySafetyBannerView(isDesktop: true),
+            BestInSafetyViews(isDesktop: true),
+            CustomDividerView(),
+          ],
+        ),
       ),
     );
   }
@@ -49,10 +61,9 @@ class _Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20.0),
       padding: const EdgeInsets.symmetric(vertical: 17.0, horizontal: 20.0),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: Colors.white,
         borderRadius: BorderRadius.circular(13.0),
       ),
       child: Row(
@@ -64,6 +75,7 @@ class _Search extends StatelessWidget {
               'What would you like to eat?',
               style: Theme.of(context).textTheme.subtitle1.copyWith(
                     color: Colors.grey[700],
+                    fontWeight: FontWeight.bold,
                   ),
             ),
           ),
@@ -72,12 +84,5 @@ class _Search extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class _Banner extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

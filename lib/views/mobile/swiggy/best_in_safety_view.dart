@@ -5,10 +5,15 @@ import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/mobile/spotlight_best_top_food_item.dart';
 
 class BestInSafetyViews extends StatelessWidget {
+  BestInSafetyViews({Key key, this.isDesktop = false}) : super(key: key);
+
+  final bool isDesktop;
   final restaurants = SpotlightBestTopFood.getBestRestaurants();
 
   @override
   Widget build(BuildContext context) {
+    final customWidth = MediaQuery.of(context).size.width / (isDesktop ? 3.8 : 1.1);
+
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0),
       child: Column(
@@ -68,7 +73,7 @@ class BestInSafetyViews extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: restaurants.length,
               itemBuilder: (context, index) => Container(
-                width: MediaQuery.of(context).size.width / 1.1,
+                width: customWidth,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[

@@ -12,13 +12,13 @@ class CartView extends StatelessWidget {
     return Expanded(
       flex: 2,
       child: Container(
-        color: Colors.grey[50],
+        color: Colors.white,
         alignment: Alignment.center,
         padding: EdgeInsets.only(left: isTab ? 20.0 : 40.0, top: 40.0, right: isTab ? 20.0 : 40.0, bottom: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _Address(),
+            _UserHeader(),
             _MyOrdersList(),
             _Checkout(),
           ],
@@ -28,61 +28,65 @@ class CartView extends StatelessWidget {
   }
 }
 
-class _Address extends StatelessWidget {
+class _UserHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 1,
       child: Container(
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
-              'My Orders',
-              style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 18.0),
-            ),
-            UIHelper.verticalSpaceLarge(),
-            Text(
-              'Delivery address',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1
-                  .copyWith(color: Colors.grey[600], fontWeight: FontWeight.w700, fontSize: 14.0),
-            ),
-            UIHelper.verticalSpaceSmall(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '2/145 South Street',
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                Icon(Icons.keyboard_arrow_down_sharp, size: 25.0)
-              ],
-            ),
-            UIHelper.verticalSpaceSmall(),
-            Row(
-              children: [
-                Icon(Icons.timer_outlined, color: Colors.grey, size: 15.0),
-                UIHelper.horizontalSpaceSmall(),
-                Text(
-                  '42 mins',
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(
-                        color: Colors.grey,
-                        fontSize: 13.0,
+            Container(
+              alignment: Alignment.topRight,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25.0),
+                      color: Colors.grey[100],
+                    ),
+                    height: 50.0,
+                    width: 50.0,
+                    child: Icon(
+                      Icons.notifications_outlined,
+                    ),
+                  ),
+                  UIHelper.horizontalSpaceMedium(),
+                  ClipOval(
+                    child: Image.asset(
+                      'assets/images/user.jpg',
+                      height: 50.0,
+                      width: 50.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  UIHelper.horizontalSpaceMedium(),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Vinoth',
+                        style:
+                            Theme.of(context).textTheme.headline6.copyWith(fontSize: 17.0, fontWeight: FontWeight.bold),
                       ),
-                ),
-                UIHelper.horizontalSpaceLarge(),
-                Icon(Icons.location_on, color: Colors.grey, size: 15.0),
-                UIHelper.horizontalSpaceSmall(),
-                Text(
-                  '4 kms',
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(
-                        color: Colors.grey,
-                        fontSize: 13.0,
+                      UIHelper.verticalSpaceExtraSmall(),
+                      Text(
+                        'User',
+                        style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey, fontSize: 13.0),
                       ),
-                ),
-              ],
+                    ],
+                  ),
+                  UIHelper.horizontalSpaceMedium(),
+                  Icon(Icons.keyboard_arrow_down_outlined),
+                ],
+              ),
             ),
           ],
         ),
@@ -95,75 +99,93 @@ class _MyOrdersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 3,
+      flex: 4,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 15.0),
-        child: ListView(
-          shrinkWrap: true,
-          children: List.generate(
-            5,
-            (index) => Container(
-              margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 4.0),
-              padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18.0),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(color: Colors.grey),
-                ],
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(18.0),
-                    child: Image.asset(
-                      'assets/images/food1.jpg',
-                      height: 70.0,
-                      width: 80.0,
-                      fit: BoxFit.fill,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Text('Order Menu', style: Theme.of(context).textTheme.headline6),
+                Spacer(),
+                Text('See all', style: Theme.of(context).textTheme.subtitle1.copyWith(color: swiggyOrange)),
+              ],
+            ),
+            UIHelper.verticalSpaceSmall(),
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                children: List.generate(
+                  5,
+                  (index) => Container(
+                    margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 4.0),
+                    padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18.0),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(color: Colors.grey),
+                      ],
                     ),
-                  ),
-                  UIHelper.horizontalSpaceSmall(),
-                  Expanded(
-                    child: Column(
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Chicken Biryani \n with onion and jam',
-                            style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 14.0)),
-                        UIHelper.verticalSpaceMedium(),
-                        Row(
-                          children: [
-                            Icon(Icons.close, size: 18.0),
-                            UIHelper.horizontalSpaceMedium(),
-                            Container(
-                              padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey[300]),
-                                borderRadius: BorderRadius.circular(8.0),
-                                color: Colors.grey[100],
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(18.0),
+                          child: Image.asset(
+                            'assets/images/food1.jpg',
+                            height: 70.0,
+                            width: 80.0,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        UIHelper.horizontalSpaceSmall(),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Chicken Biryani \n with onion and jam',
+                                  style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 14.0)),
+                              UIHelper.verticalSpaceMedium(),
+                              Row(
                                 children: [
-                                  Text('2'),
-                                  Icon(Icons.keyboard_arrow_down_outlined),
+                                  Icon(Icons.close, size: 18.0),
+                                  UIHelper.horizontalSpaceMedium(),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.grey[300]),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      color: Colors.grey[100],
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text('2'),
+                                        Icon(Icons.keyboard_arrow_down_outlined),
+                                      ],
+                                    ),
+                                  ),
                                 ],
-                              ),
-                            ),
-                          ],
-                        )
+                              )
+                            ],
+                          ),
+                        ),
+                        Text(
+                          '\$42',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6
+                              .copyWith(fontSize: 16.0, fontWeight: FontWeight.w800),
+                        ),
                       ],
                     ),
                   ),
-                  Text(
-                    '\$42',
-                    style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 16.0, fontWeight: FontWeight.w800),
-                  ),
-                ],
+                ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -212,6 +234,7 @@ class _Checkout extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       onPrimary: Colors.white,
                       primary: swiggyOrange,
+                      elevation: 0.0,
                     ),
                   ),
                 ),
@@ -224,6 +247,7 @@ class _Checkout extends StatelessWidget {
             title: Text('Total', style: listTileStyle),
             trailing: Text('\$232', style: amountStyle),
           ),
+          UIHelper.verticalSpaceMedium(),
           SizedBox(
             height: 45.0,
             width: double.infinity,
