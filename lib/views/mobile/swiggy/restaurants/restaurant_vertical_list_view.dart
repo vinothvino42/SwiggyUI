@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/mobile/food_list_item_view.dart';
+import 'package:swiggy_ui/widgets/responsive.dart';
 
 import 'restaurant_detail_screen.dart';
 
@@ -20,6 +21,8 @@ class RestaurantVerticalListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTabletDesktop = Responsive.isTabletDesktop(context);
+
     return Container(
       margin: const EdgeInsets.all(10.0),
       child: Column(
@@ -48,14 +51,16 @@ class RestaurantVerticalListView extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             itemCount: restaurants.length,
             itemBuilder: (context, index) => InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => RestaurantDetailScreen(),
-                  ),
-                );
-              },
+              onTap: isTabletDesktop
+                  ? () {}
+                  : () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RestaurantDetailScreen(),
+                        ),
+                      );
+                    },
               child: FoodListItemView(
                 restaurant: restaurants[index],
               ),

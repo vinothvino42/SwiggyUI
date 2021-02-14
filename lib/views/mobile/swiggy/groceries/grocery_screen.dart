@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/mobile/search_food_list_item_view.dart';
+import 'package:swiggy_ui/widgets/responsive.dart';
 
 class GroceryScreen extends StatelessWidget {
   @override
@@ -32,6 +33,8 @@ class _GroceryHeaderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTabletDesktop = Responsive.isTabletDesktop(context);
+
     return Stack(
       children: <Widget>[
         Image.asset(
@@ -40,20 +43,21 @@ class _GroceryHeaderView extends StatelessWidget {
           width: double.infinity,
           fit: BoxFit.cover,
         ),
-        Positioned(
-          top: 40.0,
-          left: 0.4,
-          child: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              size: 28.0,
-              color: Colors.white,
+        if (!isTabletDesktop)
+          Positioned(
+            top: 40.0,
+            left: 0.4,
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                size: 28.0,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        )
+          )
       ],
     );
   }

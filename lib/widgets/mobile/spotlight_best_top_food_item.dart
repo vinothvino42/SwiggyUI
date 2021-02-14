@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/views/mobile/swiggy/restaurants/restaurant_detail_screen.dart';
+import 'package:swiggy_ui/widgets/responsive.dart';
 
 class SpotlightBestTopFoodItem extends StatelessWidget {
   const SpotlightBestTopFoodItem({
@@ -13,15 +14,19 @@ class SpotlightBestTopFoodItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTabletDesktop = Responsive.isTabletDesktop(context);
+
     return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => RestaurantDetailScreen(),
-          ),
-        );
-      },
+      onTap: isTabletDesktop
+          ? () {}
+          : () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RestaurantDetailScreen(),
+                ),
+              );
+            },
       child: Container(
         margin: const EdgeInsets.all(15.0),
         child: Row(

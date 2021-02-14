@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:swiggy_ui/models/popular_brands.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/views/mobile/swiggy/restaurants/restaurant_detail_screen.dart';
+import 'package:swiggy_ui/widgets/responsive.dart';
 
 class PopularBrandsView extends StatelessWidget {
   final brands = PopularBrands.getPopularBrands();
 
   @override
   Widget build(BuildContext context) {
+    final isTabletDesktop = Responsive.isTabletDesktop(context);
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
       child: Column(
@@ -24,14 +27,16 @@ class PopularBrandsView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: brands.length,
                 itemBuilder: (context, index) => InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RestaurantDetailScreen(),
-                      ),
-                    );
-                  },
+                  onTap: isTabletDesktop
+                      ? () {}
+                      : () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RestaurantDetailScreen(),
+                            ),
+                          );
+                        },
                   child: Container(
                     margin: const EdgeInsets.only(right: 15.0),
                     child: Column(

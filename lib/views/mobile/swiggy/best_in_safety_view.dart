@@ -3,16 +3,15 @@ import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/mobile/spotlight_best_top_food_item.dart';
+import 'package:swiggy_ui/widgets/responsive.dart';
 
 class BestInSafetyViews extends StatelessWidget {
-  BestInSafetyViews({Key key, this.isDesktop = false}) : super(key: key);
-
-  final bool isDesktop;
   final restaurants = SpotlightBestTopFood.getBestRestaurants();
 
   @override
   Widget build(BuildContext context) {
-    final customWidth = MediaQuery.of(context).size.width / (isDesktop ? 3.8 : 1.1);
+    final isTabletDesktop = Responsive.isTabletDesktop(context);
+    final customWidth = MediaQuery.of(context).size.width / (isTabletDesktop ? 3.8 : 1.1);
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0),

@@ -3,6 +3,7 @@ import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
+import 'package:swiggy_ui/widgets/responsive.dart';
 
 import 'all_restaurants/all_restaurants_screen.dart';
 import 'best_in_safety_view.dart';
@@ -122,6 +123,8 @@ class SeeAllRestaurantBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTabletDesktop = Responsive.isTabletDesktop(context);
+
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 15.0),
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -133,14 +136,16 @@ class SeeAllRestaurantBtn extends StatelessWidget {
           'See all restaurants',
           style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.white, fontSize: 19.0),
         ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => AllRestaurantsScreen(),
-            ),
-          );
-        },
+        onPressed: isTabletDesktop
+            ? () {}
+            : () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AllRestaurantsScreen(),
+                  ),
+                );
+              },
       ),
     );
   }

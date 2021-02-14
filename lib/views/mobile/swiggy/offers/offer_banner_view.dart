@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:swiggy_ui/widgets/responsive.dart';
 
 import '../groceries/grocery_screen.dart';
 
 class OfferBannerView extends StatelessWidget {
-  OfferBannerView({
-    Key key,
-    this.isDesktop = false,
-  }) : super(key: key);
-
-  final bool isDesktop;
   final List<String> images = [
     'assets/images/banner1.jpg',
     'assets/images/banner2.jpg',
@@ -19,12 +14,14 @@ class OfferBannerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isTabletDesktop = Responsive.isTabletDesktop(context);
+
     return InkWell(
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 15.0),
-        height: isDesktop ? 260.0 : 180.0,
+        height: isTabletDesktop ? 260.0 : 180.0,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(isDesktop ? 13.0 : 10.0),
+          borderRadius: BorderRadius.circular(isTabletDesktop ? 13.0 : 10.0),
         ),
         child: Swiper(
           itemHeight: 100,

@@ -2,23 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/views/mobile/swiggy/genie/genie_screen.dart';
+import 'package:swiggy_ui/widgets/responsive.dart';
 
 import 'all_restaurants/all_restaurants_screen.dart';
 import 'genie/genie_grocery_card_view.dart';
 import 'meat/meat_screen.dart';
 
 class FoodGroceriesAvailabilityView extends StatelessWidget {
-  final bool isDesktop;
-
-  const FoodGroceriesAvailabilityView({Key key, this.isDesktop = false}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final isTabletDesktop = Responsive.isTabletDesktop(context);
+
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
       child: Column(
         children: <Widget>[
-          if (!isDesktop)
+          if (!isTabletDesktop)
             Row(
               children: <Widget>[
                 ClipRRect(
@@ -54,7 +53,7 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                 )
               ],
             ),
-          if (!isDesktop) UIHelper.verticalSpaceLarge(),
+          if (!isTabletDesktop) UIHelper.verticalSpaceLarge(),
           Stack(
             children: <Widget>[
               ClipRRect(
@@ -113,14 +112,16 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AllRestaurantsScreen(),
-                      ),
-                    );
-                  },
+                  onTap: isTabletDesktop
+                      ? () {}
+                      : () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AllRestaurantsScreen(),
+                            ),
+                          );
+                        },
                 ),
               ),
               Positioned(
@@ -145,40 +146,46 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                 title: 'Genie',
                 subtitle: 'Anything you need,\ndelivered',
                 image: 'assets/images/food1.jpg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => GenieScreen(),
-                    ),
-                  );
-                },
+                onTap: isTabletDesktop
+                    ? () {}
+                    : () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => GenieScreen(),
+                          ),
+                        );
+                      },
               ),
               GenieGroceryCardView(
                 title: 'Grocery',
                 subtitle: 'Esentials delivered\nin 2 Hrs',
                 image: 'assets/images/food4.jpg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => GenieScreen(),
-                    ),
-                  );
-                },
+                onTap: isTabletDesktop
+                    ? () {}
+                    : () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => GenieScreen(),
+                          ),
+                        );
+                      },
               ),
               GenieGroceryCardView(
                 title: 'Meat',
                 subtitle: 'Fesh meat\ndelivered safe',
                 image: 'assets/images/food6.jpg',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MeatScreen(),
-                    ),
-                  );
-                },
+                onTap: isTabletDesktop
+                    ? () {}
+                    : () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MeatScreen(),
+                          ),
+                        );
+                      },
               ),
             ],
           )

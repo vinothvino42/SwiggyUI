@@ -45,6 +45,24 @@ class OrderMenu {
         quantity: 4,
         price: 10,
       ),
+      OrderMenu(
+        image: 'assets/images/food8.jpg',
+        title: 'Thalappakatti',
+        quantity: 1,
+        price: 130,
+      ),
+      OrderMenu(
+        image: 'assets/images/food9.jpg',
+        title: 'Eat & Meet',
+        quantity: 6,
+        price: 200,
+      ),
+      OrderMenu(
+        image: 'assets/images/food6.jpg',
+        title: 'Anjapar Restaurant',
+        quantity: 4,
+        price: 190,
+      ),
     ];
   }
 }
