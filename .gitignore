@@ -44,4 +44,5 @@ app.*.map.json
 
 # Flutter Web
 .firebase/
+.firebaserc
 firebase.json
