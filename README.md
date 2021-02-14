@@ -11,9 +11,9 @@ SwiggyUI App is a UI clone of a famous food ordering app called [Swiggy](https:/
 <a href="https://www.linkedin.com/in/vinothvino42/">
     <img src="https://img.shields.io/badge/Support-Recommend%2FEndorse%20me%20on%20Linkedin-blue?style=for-the-badge&logo=linkedin" alt="Support me on LinkedIn" /></a>
     
-Mobile - [Download APK](https://drive.google.com/file/d/1vm2yXWsWalOZc7jDGZwaObV_9GCs4ewh/view?usp=sharing)
-Web - https://swiggyuiclone.web.app
-App Flow - https://youtu.be/qB_p8MSlpuQ
+Mobile - [Download APK](https://drive.google.com/file/d/1vm2yXWsWalOZc7jDGZwaObV_9GCs4ewh/view?usp=sharing)  
+Web - https://swiggyuiclone.web.app  
+App Flow - https://youtu.be/qB_p8MSlpuQ  
 
 ## Screenshots
 
