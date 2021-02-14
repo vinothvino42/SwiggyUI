@@ -1,6 +1,6 @@
 # SwiggyUI
 
-SwiggyUI App is a UI clone of famous food ordering app called [Swiggy](https://play.google.com/store/apps/details?id=in.swiggy.android) built using Flutter. Show some ❤️ and star ⭐ the repo if you liked it, it makes me to share more open source flutter projects.
+SwiggyUI App is a UI clone of a famous food ordering app called [Swiggy](https://play.google.com/store/apps/details?id=in.swiggy.android) built using Flutter. Show some ❤️ and star ⭐ the repo if you liked it, it makes me to share more open source flutter projects.
 
 ![Github Followers](https://img.shields.io/github/followers/vinothvino42?label=Follow&style=social)
 ![GitHub stars](https://img.shields.io/github/stars/vinothvino42/SwiggyUI?style=social)
@@ -11,8 +11,19 @@ SwiggyUI App is a UI clone of famous food ordering app called [Swiggy](https://p
 <a href="https://www.linkedin.com/in/vinothvino42/">
     <img src="https://img.shields.io/badge/Support-Recommend%2FEndorse%20me%20on%20Linkedin-blue?style=for-the-badge&logo=linkedin" alt="Support me on LinkedIn" /></a>
     
+Mobile - [Download APK](https://drive.google.com/file/d/1vm2yXWsWalOZc7jDGZwaObV_9GCs4ewh/view?usp=sharing)
+Web - https://swiggyuiclone.web.app
+App Flow - https://youtu.be/qB_p8MSlpuQ
+
 ## Screenshots
-### Swiggy
+
+### Web UI
+![](screenshots/swiggy_web_ui.png)
+
+### Tablet UI
+![](screenshots/swiggy_tablet_ui.png)
+
+### Mobile UI
 
 - Initial Views
 
