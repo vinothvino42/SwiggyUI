@@ -44,7 +44,10 @@ class AccountScreen extends StatelessWidget {
                 color: Colors.grey[200],
                 child: Text(
                   'PAST ORDERS',
-                  style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.grey[700], fontSize: 12.0),
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2
+                      .copyWith(color: Colors.grey[700], fontSize: 12.0),
                 ),
               ),
               _PastOrderListView(),
@@ -70,12 +73,18 @@ class _AppBar extends StatelessWidget {
             children: <Widget>[
               Text(
                 'VINOTH',
-                style: Theme.of(context).textTheme.headline6.copyWith(fontWeight: FontWeight.bold, fontSize: 18.0),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: 18.0),
               ),
               InkWell(
                 child: Text(
                   'EDIT',
-                  style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 17.0, color: darkOrange),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline6
+                      .copyWith(fontSize: 17.0, color: darkOrange),
                 ),
                 onTap: () {},
               )
@@ -139,12 +148,18 @@ class _ListItem extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       title,
-                      style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 15.0),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6
+                          .copyWith(fontSize: 15.0),
                     ),
                     UIHelper.verticalSpaceExtraSmall(),
                     Text(
                       body,
-                      style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 13.0, color: Colors.black),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
+                          .copyWith(fontSize: 13.0, color: Colors.black),
                     ),
                   ],
                 ),
@@ -195,10 +210,13 @@ class _PastOrderListView extends StatelessWidget {
             foodItem: foods[index],
           ),
         ),
-        FlatButton(
+        TextButton(
           child: Text(
             'VIEW MORE ORDERS',
-            style: Theme.of(context).textTheme.subtitle2.copyWith(color: darkOrange),
+            style: Theme.of(context)
+                .textTheme
+                .subtitle2
+                .copyWith(color: darkOrange),
           ),
           onPressed: () {},
         ),
@@ -212,7 +230,10 @@ class _PastOrderListView extends StatelessWidget {
               height: 50.0,
               child: Text(
                 'LOGOUT',
-                style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 16.0),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2
+                    .copyWith(fontSize: 16.0),
               ),
             ),
             Spacer(),
@@ -226,8 +247,11 @@ class _PastOrderListView extends StatelessWidget {
           height: 130.0,
           color: Colors.grey[200],
           child: Text(
-            'App Version v1.0.1',
-            style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey[700], fontSize: 13.0),
+            'App Version v3.0.0',
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1
+                .copyWith(color: Colors.grey[700], fontSize: 13.0),
           ),
         )
       ],
@@ -270,14 +294,18 @@ class _PastOrdersListItemView extends StatelessWidget {
                     UIHelper.verticalSpaceExtraSmall(),
                     Text(
                       'Medavakkam',
-                      style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 12.0),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
+                          .copyWith(fontSize: 12.0),
                     ),
                     UIHelper.verticalSpaceSmall(),
                     Row(
                       children: <Widget>[
                         Text('Rs112'),
                         UIHelper.horizontalSpaceExtraSmall(),
-                        Icon(Icons.keyboard_arrow_right, color: Colors.grey[600])
+                        Icon(Icons.keyboard_arrow_right,
+                            color: Colors.grey[600])
                       ],
                     )
                   ],
@@ -312,17 +340,22 @@ class _PastOrdersListItemView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                        OutlineButton(
-                          color: darkOrange,
-                          borderSide: BorderSide(width: 1.5, color: darkOrange),
+                        OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            side: BorderSide(width: 1.5, color: darkOrange),
+                          ),
                           child: Text(
                             'REORDER',
-                            style: Theme.of(context).textTheme.subtitle2.copyWith(color: darkOrange),
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle2
+                                .copyWith(color: darkOrange),
                           ),
                           onPressed: () {},
                         ),
                         UIHelper.verticalSpaceMedium(),
-                        Text('Delivery rating not\napplicable for this order', maxLines: 2)
+                        Text('Delivery rating not\napplicable for this order',
+                            maxLines: 2)
                       ],
                     ),
                   ),
@@ -331,12 +364,16 @@ class _PastOrdersListItemView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                        OutlineButton(
-                          color: darkOrange,
-                          borderSide: BorderSide(width: 1.5, color: Colors.black),
+                        OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            side: BorderSide(width: 1.5, color: Colors.black),
+                          ),
                           child: Text(
                             'RATE FOOD',
-                            style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.black),
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle2
+                                .copyWith(color: Colors.black),
                           ),
                           onPressed: () {},
                         ),

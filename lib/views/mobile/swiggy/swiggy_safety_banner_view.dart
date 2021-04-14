@@ -7,7 +7,8 @@ class SwiggySafetyBannerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isTabletDesktop = Responsive.isTabletDesktop(context);
-    final cardWidth = MediaQuery.of(context).size.width / (isTabletDesktop ? 3.8 : 1.2);
+    final cardWidth =
+        MediaQuery.of(context).size.width / (isTabletDesktop ? 3.8 : 1.2);
 
     return Container(
       margin: const EdgeInsets.all(15.0),
@@ -62,7 +63,8 @@ class SwiggySafetyBannerView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,10 +82,13 @@ class SwiggySafetyBannerView extends StatelessWidget {
                             ),
                           ),
                           UIHelper.verticalSpaceExtraSmall(),
-                          FlatButton(
+                          TextButton(
                             child: Text(
                               'Know More',
-                              style: Theme.of(context).textTheme.headline6.copyWith(color: darkOrange),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  .copyWith(color: darkOrange),
                             ),
                             onPressed: () {},
                           )

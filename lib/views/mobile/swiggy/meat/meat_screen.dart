@@ -50,7 +50,9 @@ class MeatScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context)),
+            IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () => Navigator.pop(context)),
             UIHelper.horizontalSpaceSmall(),
             Container(
               height: 32.0,
@@ -195,10 +197,13 @@ class _CardView extends StatelessWidget {
                   ),
                 ),
                 UIHelper.verticalSpaceExtraSmall(),
-                FlatButton(
+                TextButton(
                   child: Text(
                     'Know More',
-                    style: Theme.of(context).textTheme.headline6.copyWith(color: darkOrange),
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        .copyWith(color: darkOrange),
                   ),
                   onPressed: () {},
                 )
@@ -286,15 +291,21 @@ class _StoresListView extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         foods[index].name,
-                        style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 16.0),
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle2
+                            .copyWith(fontSize: 16.0),
                       ),
                       Text(foods[index].desc,
-                          style:
-                              Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey[800], fontSize: 13.5)),
+                          style: Theme.of(context).textTheme.bodyText1.copyWith(
+                              color: Colors.grey[800], fontSize: 13.5)),
                       UIHelper.verticalSpaceSmall(),
                       Text(
                         foods[index].coupon,
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.red[900], fontSize: 13.0),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(color: Colors.red[900], fontSize: 13.0),
                       ),
                       Divider(),
                       Row(

@@ -11,7 +11,6 @@ class GenieScreen extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        top: false,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
           color: Colors.indigo,
@@ -40,7 +39,10 @@ class GenieScreen extends StatelessWidget {
                             children: <Widget>[
                               Text(
                                 'Genie',
-                                style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline4
+                                    .copyWith(color: Colors.white),
                               ),
                               UIHelper.horizontalSpaceSmall(),
                               Image.asset(
@@ -53,10 +55,11 @@ class GenieScreen extends StatelessWidget {
                           UIHelper.verticalSpaceExtraSmall(),
                           Text(
                             'Anything you need, delivered',
-                            style: Theme.of(context).textTheme.bodyText1.copyWith(
-                                  color: Colors.grey[200],
-                                  fontSize: 17.0,
-                                ),
+                            style:
+                                Theme.of(context).textTheme.bodyText1.copyWith(
+                                      color: Colors.grey[200],
+                                      fontSize: 17.0,
+                                    ),
                           )
                         ],
                       ),
@@ -78,7 +81,10 @@ class GenieScreen extends StatelessWidget {
                             UIHelper.verticalSpaceMedium(),
                             Text(
                               'Some things we can pick or drop for you',
-                              style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 14.0),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  .copyWith(fontSize: 14.0),
                             ),
                             UIHelper.verticalSpaceMedium(),
                             LimitedBox(
@@ -116,7 +122,10 @@ class GenieScreen extends StatelessWidget {
                                         services[index].title,
                                         textAlign: TextAlign.center,
                                         maxLines: 2,
-                                        style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 13.5),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1
+                                            .copyWith(fontSize: 13.5),
                                       )
                                     ],
                                   ),
@@ -177,11 +186,14 @@ class _HeaderView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
           height: 50.0,
           width: double.infinity,
-          child: RaisedButton(
-            color: darkOrange,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(primary: darkOrange),
             child: Text(
               buttonTitle,
-              style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.white, fontSize: 14.0),
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2
+                  .copyWith(color: Colors.white, fontSize: 14.0),
             ),
             onPressed: () {},
           ),

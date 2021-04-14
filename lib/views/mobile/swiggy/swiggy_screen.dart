@@ -56,12 +56,14 @@ class SwiggyScreen extends StatelessWidget {
                       CustomDividerView(),
                       RestaurantVerticalListView(
                         title: 'Popular Restaurants',
-                        restaurants: SpotlightBestTopFood.getPopularAllRestaurants(),
+                        restaurants:
+                            SpotlightBestTopFood.getPopularAllRestaurants(),
                       ),
                       CustomDividerView(),
                       RestaurantVerticalListView(
                         title: 'All Restaurants Nearby',
-                        restaurants: SpotlightBestTopFood.getPopularAllRestaurants(),
+                        restaurants:
+                            SpotlightBestTopFood.getPopularAllRestaurants(),
                         isAllRestaurantNearby: true,
                       ),
                       SeeAllRestaurantBtn(),
@@ -84,7 +86,10 @@ class SwiggyScreen extends StatelessWidget {
           children: <Widget>[
             Text(
               'Other',
-              style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 21.0),
+              style: Theme.of(context)
+                  .textTheme
+                  .headline4
+                  .copyWith(fontSize: 21.0),
             ),
             UIHelper.horizontalSpaceExtraSmall(),
             Padding(
@@ -99,7 +104,10 @@ class SwiggyScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
                   'Offer',
-                  style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2
+                      .copyWith(fontSize: 18.0),
                 ),
               ),
               onTap: () {
@@ -130,11 +138,14 @@ class SeeAllRestaurantBtn extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       height: 50.0,
       width: double.infinity,
-      child: RaisedButton(
-        color: darkOrange,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(primary: darkOrange),
         child: Text(
           'See all restaurants',
-          style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.white, fontSize: 19.0),
+          style: Theme.of(context)
+              .textTheme
+              .subtitle2
+              .copyWith(color: Colors.white, fontSize: 19.0),
         ),
         onPressed: isTabletDesktop
             ? () {}
@@ -181,11 +192,17 @@ class LiveForFoodView extends StatelessWidget {
               UIHelper.verticalSpaceLarge(),
               Text(
                 'MADE BY FOOD LOVERS',
-                style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1
+                    .copyWith(color: Colors.grey),
               ),
               Text(
                 'SWIGGY HQ, BANGALORE',
-                style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1
+                    .copyWith(color: Colors.grey),
               ),
               UIHelper.verticalSpaceExtraLarge(),
               Row(

@@ -3,7 +3,6 @@ import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/views/mobile/swiggy/best_in_safety_view.dart';
 import 'package:swiggy_ui/views/mobile/swiggy/food_groceries_availability_view.dart';
-import 'package:swiggy_ui/views/mobile/swiggy/genie/genie_view.dart';
 import 'package:swiggy_ui/views/mobile/swiggy/in_the_spotlight_view.dart';
 import 'package:swiggy_ui/views/mobile/swiggy/offers/offer_banner_view.dart';
 import 'package:swiggy_ui/views/mobile/swiggy/popular_brand_view.dart';

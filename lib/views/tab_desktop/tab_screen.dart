@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'cart_view.dart';
 import 'home_view.dart';
 import 'menu_view.dart';
 
