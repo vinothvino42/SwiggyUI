@@ -45,7 +45,7 @@ class PopularBrandsView extends StatelessWidget {
                         Container(
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Colors.grey[300],
+                              color: Colors.grey[300]!,
                               width: 3.0,
                             ),
                             borderRadius: BorderRadius.circular(40.0),
@@ -62,12 +62,12 @@ class PopularBrandsView extends StatelessWidget {
                         UIHelper.verticalSpaceSmall(),
                         Text(
                           brands[index].name,
-                          style: Theme.of(context).textTheme.subtitle2.copyWith(fontWeight: FontWeight.w500),
+                          style: Theme.of(context).textTheme.subtitle2!.copyWith(fontWeight: FontWeight.w500),
                         ),
                         UIHelper.verticalSpace(2.0),
                         Text(
                           brands[index].minutes,
-                          style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey, fontSize: 13.0),
+                          style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey, fontSize: 13.0),
                         )
                       ],
                     ),
@@ -87,12 +87,12 @@ class PopularBrandsView extends StatelessWidget {
           children: <Widget>[
             Text(
               'Popular Brands',
-              style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
+              style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
             ),
             UIHelper.verticalSpaceExtraSmall(),
             Text(
               'Most ordered from around your locality',
-              style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
+              style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey),
             ),
           ],
         ),

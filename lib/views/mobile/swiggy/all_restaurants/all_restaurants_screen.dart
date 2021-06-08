@@ -96,7 +96,7 @@ class AllRestaurantsScreen extends StatelessWidget {
             UIHelper.horizontalSpaceSmall(),
             Text(
               'Now',
-              style: Theme.of(context).textTheme.subtitle2.copyWith(
+              style: Theme.of(context).textTheme.subtitle2!.copyWith(
                     fontSize: 18.0,
                     color: Colors.grey,
                     fontWeight: FontWeight.bold,
@@ -116,7 +116,7 @@ class AllRestaurantsScreen extends StatelessWidget {
             UIHelper.horizontalSpaceSmall(),
             Text(
               'Other',
-              style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 21.0),
+              style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 21.0),
             ),
             UIHelper.horizontalSpaceExtraSmall(),
             Spacer(),
@@ -127,7 +127,7 @@ class AllRestaurantsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
                   'Offer',
-                  style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+                  style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 18.0),
                 ),
               ),
               onTap: () {
@@ -182,7 +182,7 @@ class _FoodHorizontalListView extends StatelessWidget {
                     restaurants[index].name,
                     style: Theme.of(context)
                         .textTheme
-                        .headline6
+                        .headline6!
                         .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -237,7 +237,7 @@ class _CategoriesView extends StatelessWidget {
                           categories[index].name,
                           maxLines: 2,
                           textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 13.0),
+                          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 13.0),
                         ),
                       )
                     ],
@@ -255,9 +255,9 @@ class _RestaurantHorizontalListView extends StatelessWidget {
   final List<IndianFood> restaurants;
 
   const _RestaurantHorizontalListView({
-    Key key,
-    @required this.title,
-    @required this.restaurants,
+    Key? key,
+    required this.title,
+    required this.restaurants,
   }) : super(key: key);
 
   @override
@@ -273,7 +273,7 @@ class _RestaurantHorizontalListView extends StatelessWidget {
           UIHelper.verticalSpaceSmall(),
           Text(
             title,
-            style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+            style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 18.0),
           ),
           UIHelper.verticalSpaceSmall(),
           Flexible(
@@ -299,7 +299,7 @@ class _RestaurantHorizontalListView extends StatelessWidget {
                       UIHelper.verticalSpaceExtraSmall(),
                       Text(
                         restaurants[index].name,
-                        style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.grey[700]),
+                        style: Theme.of(context).textTheme.subtitle2!.copyWith(color: Colors.grey[700]),
                       )
                     ],
                   ),
@@ -325,8 +325,8 @@ class _RestaurantHorizontalListView extends StatelessWidget {
 
 class _RestaurantListView extends StatelessWidget {
   const _RestaurantListView({
-    Key key,
-    @required this.restaurants,
+    Key? key,
+    required this.restaurants,
   }) : super(key: key);
 
   final List<SpotlightBestTopFood> restaurants;
@@ -349,10 +349,10 @@ class _RestaurantListView extends StatelessWidget {
 
 class _LargeRestaurantBannerView extends StatelessWidget {
   const _LargeRestaurantBannerView({
-    Key key,
-    @required this.title,
-    @required this.desc,
-    @required this.restaurants,
+    Key? key,
+    required this.title,
+    required this.desc,
+    required this.restaurants,
   }) : super(key: key);
 
   final String title;
@@ -370,13 +370,13 @@ class _LargeRestaurantBannerView extends StatelessWidget {
           UIHelper.verticalSpaceMedium(),
           Text(
             title,
-            style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+            style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 18.0),
           ),
           UIHelper.verticalSpaceSmall(),
           Text(
             desc,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyText1.copyWith(
+            style: Theme.of(context).textTheme.bodyText1!.copyWith(
                   color: Colors.grey,
                   fontSize: 12.0,
                 ),
@@ -404,7 +404,7 @@ class _LargeRestaurantBannerView extends StatelessWidget {
                       restaurants[index].title,
                       maxLines: 2,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.subtitle2.copyWith(
+                      style: Theme.of(context).textTheme.subtitle2!.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 13.0,
                           ),

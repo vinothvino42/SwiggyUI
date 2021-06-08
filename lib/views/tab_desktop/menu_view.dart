@@ -4,7 +4,7 @@ import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 
 class MenuView extends StatelessWidget {
-  const MenuView({Key key, this.expandFlex = 2, this.isTab = false}) : super(key: key);
+  const MenuView({Key? key, this.expandFlex = 2, this.isTab = false}) : super(key: key);
 
   final int expandFlex;
   final bool isTab;
@@ -48,7 +48,7 @@ class MenuView extends StatelessWidget {
                         onPressed: () => print("it's pressed"),
                         style: ElevatedButton.styleFrom(
                           onPrimary: swiggyOrange,
-                          side: BorderSide(width: 2.0, color: swiggyOrange),
+                          side: BorderSide(width: 2.0, color: swiggyOrange!),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(32.0),
                           ),
@@ -64,7 +64,7 @@ class MenuView extends StatelessWidget {
 }
 
 class _MenuItem extends StatefulWidget {
-  const _MenuItem({Key key, @required this.menu, this.isTab = false}) : super(key: key);
+  const _MenuItem({Key? key, required this.menu, this.isTab = false}) : super(key: key);
 
   final Menu menu;
   final bool isTab;
@@ -119,7 +119,7 @@ class __MenuItemState extends State<_MenuItem> {
                     UIHelper.horizontalSpaceMedium(),
                     Text(
                       widget.menu.title,
-                      style: Theme.of(context).textTheme.headline6.copyWith(
+                      style: Theme.of(context).textTheme.headline6!.copyWith(
                             color: isHovered ? swiggyOrange : Colors.black,
                           ),
                     ),

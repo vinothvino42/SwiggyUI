@@ -43,7 +43,7 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                       Text(
                         'Food & Genie service (Mon-Sat)-6:00 am to 9:00pm. Groceries & Meat (Mon-Sat)-6:00 am to 6:00pm. Dairy (Mon-Sat)-6:00 am to 6:00pm (Sun)-6:00 am to 12:00 pm',
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               fontSize: 16.0,
                               color: Colors.grey[800],
                             ),
@@ -76,12 +76,12 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                                 children: <Widget>[
                                   Text(
                                     'Restaurants',
-                                    style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white),
+                                    style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.white),
                                   ),
                                   UIHelper.verticalSpaceExtraSmall(),
                                   Text(
                                     'No-contact delivery available',
-                                    style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
+                                    style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.white),
                                   )
                                 ],
                               ),
@@ -98,7 +98,7 @@ class FoodGroceriesAvailabilityView extends StatelessWidget {
                               Text(
                                 'View all',
                                 style:
-                                    Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white, fontSize: 18.0),
+                                    Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.white, fontSize: 18.0),
                               ),
                               UIHelper.horizontalSpaceSmall(),
                               Icon(

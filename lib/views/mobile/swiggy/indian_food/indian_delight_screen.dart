@@ -28,7 +28,7 @@ class IndianDelightScreen extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           'SOUTH INDIAN DELIGHTS',
-                          style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 19.0),
+                          style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 19.0),
                         ),
                         UIHelper.verticalSpaceSmall(),
                         Text('Feast on authentic South Indian fare from top restaurants near you'),

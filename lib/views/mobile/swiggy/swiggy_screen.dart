@@ -88,7 +88,7 @@ class SwiggyScreen extends StatelessWidget {
               'Other',
               style: Theme.of(context)
                   .textTheme
-                  .headline4
+                  .headline4!
                   .copyWith(fontSize: 21.0),
             ),
             UIHelper.horizontalSpaceExtraSmall(),
@@ -106,7 +106,7 @@ class SwiggyScreen extends StatelessWidget {
                   'Offer',
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle2
+                      .subtitle2!
                       .copyWith(fontSize: 18.0),
                 ),
               ),
@@ -126,7 +126,7 @@ class SwiggyScreen extends StatelessWidget {
 
 class SeeAllRestaurantBtn extends StatelessWidget {
   const SeeAllRestaurantBtn({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -144,7 +144,7 @@ class SeeAllRestaurantBtn extends StatelessWidget {
           'See all restaurants',
           style: Theme.of(context)
               .textTheme
-              .subtitle2
+              .subtitle2!
               .copyWith(color: Colors.white, fontSize: 19.0),
         ),
         onPressed: isTabletDesktop
@@ -164,7 +164,7 @@ class SeeAllRestaurantBtn extends StatelessWidget {
 
 class LiveForFoodView extends StatelessWidget {
   const LiveForFoodView({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -182,7 +182,7 @@ class LiveForFoodView extends StatelessWidget {
             children: <Widget>[
               Text(
                 'LIVE\nFOR\nFOOD',
-                style: Theme.of(context).textTheme.headline4.copyWith(
+                style: Theme.of(context).textTheme.headline4!.copyWith(
                       color: Colors.grey[400],
                       fontSize: 80.0,
                       letterSpacing: 0.2,
@@ -194,14 +194,14 @@ class LiveForFoodView extends StatelessWidget {
                 'MADE BY FOOD LOVERS',
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText1
+                    .bodyText1!
                     .copyWith(color: Colors.grey),
               ),
               Text(
                 'SWIGGY HQ, BANGALORE',
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText1
+                    .bodyText1!
                     .copyWith(color: Colors.grey),
               ),
               UIHelper.verticalSpaceExtraLarge(),

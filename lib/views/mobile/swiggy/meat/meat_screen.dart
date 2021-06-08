@@ -1,5 +1,5 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:swiggy_ui/models/spotlight_best_top_food.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
@@ -88,12 +88,12 @@ class _SearchView extends StatelessWidget {
           padding: const EdgeInsets.only(left: 15.0, top: 2.0, bottom: 2.0),
           margin: const EdgeInsets.symmetric(horizontal: 15.0),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey[400]),
+            border: Border.all(color: Colors.grey[400]!),
             borderRadius: BorderRadius.circular(2.0),
             color: Colors.white,
             boxShadow: <BoxShadow>[
               BoxShadow(
-                color: Colors.grey[200],
+                color: Colors.grey[200]!,
                 blurRadius: 3.0,
                 spreadRadius: 5.0,
               )
@@ -105,7 +105,7 @@ class _SearchView extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Search for restaurants and food',
-                    hintStyle: Theme.of(context).textTheme.subtitle2.copyWith(
+                    hintStyle: Theme.of(context).textTheme.subtitle2!.copyWith(
                           color: Colors.grey,
                           fontSize: 17.0,
                           fontWeight: FontWeight.w600,
@@ -168,7 +168,7 @@ class _CardView extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         color: Colors.orange[100],
-        border: Border.all(color: swiggyOrange, width: 2.0),
+        border: Border.all(color: swiggyOrange!, width: 2.0),
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: Row(
@@ -202,7 +202,7 @@ class _CardView extends StatelessWidget {
                     'Know More',
                     style: Theme.of(context)
                         .textTheme
-                        .headline6
+                        .headline6!
                         .copyWith(color: darkOrange),
                   ),
                   onPressed: () {},
@@ -232,9 +232,9 @@ class _StoresListView extends StatelessWidget {
   final foods = SpotlightBestTopFood.getPopularAllRestaurants();
 
   _StoresListView({
-    Key key,
-    @required this.title,
-    @required this.desc,
+    Key? key,
+    required this.title,
+    required this.desc,
     this.isRemoveItems = false,
   }) : super(key: key);
 
@@ -293,18 +293,18 @@ class _StoresListView extends StatelessWidget {
                         foods[index].name,
                         style: Theme.of(context)
                             .textTheme
-                            .subtitle2
+                            .subtitle2!
                             .copyWith(fontSize: 16.0),
                       ),
                       Text(foods[index].desc,
-                          style: Theme.of(context).textTheme.bodyText1.copyWith(
+                          style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Colors.grey[800], fontSize: 13.5)),
                       UIHelper.verticalSpaceSmall(),
                       Text(
                         foods[index].coupon,
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1
+                            .bodyText1!
                             .copyWith(color: Colors.red[900], fontSize: 13.0),
                       ),
                       Divider(),
@@ -336,9 +336,9 @@ class _ListViewHeader extends StatelessWidget {
   final String desc;
 
   const _ListViewHeader({
-    Key key,
-    @required this.title,
-    @required this.desc,
+    Key? key,
+    required this.title,
+    required this.desc,
   }) : super(key: key);
 
   @override
@@ -356,7 +356,7 @@ class _ListViewHeader extends StatelessWidget {
             UIHelper.horizontalSpaceSmall(),
             Text(
               title,
-              style: Theme.of(context).textTheme.subtitle2.copyWith(
+              style: Theme.of(context).textTheme.subtitle2!.copyWith(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                   ),

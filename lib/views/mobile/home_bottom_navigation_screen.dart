@@ -23,7 +23,7 @@ class _HomeBottomNavigationScreenState extends State<HomeBottomNavigationScreen>
 
   @override
   Widget build(BuildContext context) {
-    final labelTextStyle = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 8.0);
+    final labelTextStyle = Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 8.0);
     return Scaffold(
       body: _children[selectedIndex],
       bottomNavigationBar: SizedBox(

@@ -46,7 +46,7 @@ class AccountScreen extends StatelessWidget {
                   'PAST ORDERS',
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle2
+                      .subtitle2!
                       .copyWith(color: Colors.grey[700], fontSize: 12.0),
                 ),
               ),
@@ -75,7 +75,7 @@ class _AppBar extends StatelessWidget {
                 'VINOTH',
                 style: Theme.of(context)
                     .textTheme
-                    .headline6
+                    .headline6!
                     .copyWith(fontWeight: FontWeight.bold, fontSize: 18.0),
               ),
               InkWell(
@@ -83,7 +83,7 @@ class _AppBar extends StatelessWidget {
                   'EDIT',
                   style: Theme.of(context)
                       .textTheme
-                      .headline6
+                      .headline6!
                       .copyWith(fontSize: 17.0, color: darkOrange),
                 ),
                 onTap: () {},
@@ -119,9 +119,9 @@ class _AppBar extends StatelessWidget {
 
 class _ListItem extends StatelessWidget {
   const _ListItem({
-    Key key,
-    @required this.title,
-    @required this.body,
+    Key? key,
+    required this.title,
+    required this.body,
     this.isLastItem = false,
   })  : assert(title != '', body != ''),
         super(key: key);
@@ -150,7 +150,7 @@ class _ListItem extends StatelessWidget {
                       title,
                       style: Theme.of(context)
                           .textTheme
-                          .headline6
+                          .headline6!
                           .copyWith(fontSize: 15.0),
                     ),
                     UIHelper.verticalSpaceExtraSmall(),
@@ -158,7 +158,7 @@ class _ListItem extends StatelessWidget {
                       body,
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
+                          .bodyText1!
                           .copyWith(fontSize: 13.0, color: Colors.black),
                     ),
                   ],
@@ -215,7 +215,7 @@ class _PastOrderListView extends StatelessWidget {
             'VIEW MORE ORDERS',
             style: Theme.of(context)
                 .textTheme
-                .subtitle2
+                .subtitle2!
                 .copyWith(color: darkOrange),
           ),
           onPressed: () {},
@@ -232,7 +232,7 @@ class _PastOrderListView extends StatelessWidget {
                 'LOGOUT',
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle2
+                    .subtitle2!
                     .copyWith(fontSize: 16.0),
               ),
             ),
@@ -247,10 +247,10 @@ class _PastOrderListView extends StatelessWidget {
           height: 130.0,
           color: Colors.grey[200],
           child: Text(
-            'App Version v3.0.0',
+            'App Version v3.1.0',
             style: Theme.of(context)
                 .textTheme
-                .bodyText1
+                .bodyText1!
                 .copyWith(color: Colors.grey[700], fontSize: 13.0),
           ),
         )
@@ -261,9 +261,9 @@ class _PastOrderListView extends StatelessWidget {
 
 class _PastOrdersListItemView extends StatelessWidget {
   const _PastOrdersListItemView({
-    Key key,
-    @required this.restaurant,
-    @required this.foodItem,
+    Key? key,
+    required this.restaurant,
+    required this.foodItem,
   })  : assert(restaurant != '', foodItem != ''),
         super(key: key);
 
@@ -296,7 +296,7 @@ class _PastOrdersListItemView extends StatelessWidget {
                       'Medavakkam',
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
+                          .bodyText1!
                           .copyWith(fontSize: 12.0),
                     ),
                     UIHelper.verticalSpaceSmall(),
@@ -342,13 +342,13 @@ class _PastOrdersListItemView extends StatelessWidget {
                       children: <Widget>[
                         OutlinedButton(
                           style: OutlinedButton.styleFrom(
-                            side: BorderSide(width: 1.5, color: darkOrange),
+                            side: BorderSide(width: 1.5, color: darkOrange!),
                           ),
                           child: Text(
                             'REORDER',
                             style: Theme.of(context)
                                 .textTheme
-                                .subtitle2
+                                .subtitle2!
                                 .copyWith(color: darkOrange),
                           ),
                           onPressed: () {},
@@ -372,7 +372,7 @@ class _PastOrdersListItemView extends StatelessWidget {
                             'RATE FOOD',
                             style: Theme.of(context)
                                 .textTheme
-                                .subtitle2
+                                .subtitle2!
                                 .copyWith(color: Colors.black),
                           ),
                           onPressed: () {},

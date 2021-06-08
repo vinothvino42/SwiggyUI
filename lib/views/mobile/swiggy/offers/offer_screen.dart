@@ -16,7 +16,7 @@ class OffersScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             'OFFERS',
-            style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 17.0),
+            style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 17.0),
           ),
           bottom: TabBar(
             indicatorColor: Colors.black,
@@ -52,7 +52,7 @@ class _RestaurantOfferView extends StatelessWidget {
           UIHelper.verticalSpaceSmall(),
           Text(
             'All Offers (18)',
-            style: Theme.of(context).textTheme.headline6.copyWith(fontWeight: FontWeight.bold, fontSize: 19.0),
+            style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.bold, fontSize: 19.0),
           ),
           UIHelper.verticalSpaceMedium(),
           Expanded(
@@ -114,7 +114,7 @@ class _PaymentOffersCouponView extends StatelessWidget {
                       padding: const EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
                         color: Colors.orange[100],
-                        border: Border.all(color: Colors.grey[400]),
+                        border: Border.all(color: Colors.grey[400]!),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -144,13 +144,13 @@ class _PaymentOffersCouponView extends StatelessWidget {
                     UIHelper.verticalSpaceMedium(),
                     Text(
                       coupons[index].desc,
-                      style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 13.0),
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 13.0),
                     ),
                     UIHelper.verticalSpaceMedium(),
                     InkWell(
                       child: Text(
                         '+ MORE',
-                        style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.blue),
+                        style: Theme.of(context).textTheme.subtitle2!.copyWith(color: Colors.blue),
                       ),
                     )
                   ],

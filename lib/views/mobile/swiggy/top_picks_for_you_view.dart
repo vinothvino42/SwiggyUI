@@ -18,7 +18,7 @@ class TopPicksForYouView extends StatelessWidget {
               UIHelper.horizontalSpaceSmall(),
               Text(
                 'Top Picks For You',
-                style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
+                style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
               )
             ],
           ),
@@ -67,7 +67,7 @@ class TopPicksForYouView extends StatelessWidget {
                         child: Text(
                           foods[index].name,
                           maxLines: 2,
-                          style: Theme.of(context).textTheme.subtitle2.copyWith(
+                          style: Theme.of(context).textTheme.subtitle2!.copyWith(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -77,7 +77,7 @@ class TopPicksForYouView extends StatelessWidget {
                       Text(
                         foods[index].minutes,
                         maxLines: 1,
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Colors.grey[700],
                               fontSize: 13.0,
                             ),

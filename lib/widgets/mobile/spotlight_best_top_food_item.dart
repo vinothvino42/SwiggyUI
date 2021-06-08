@@ -6,8 +6,8 @@ import 'package:swiggy_ui/widgets/responsive.dart';
 
 class SpotlightBestTopFoodItem extends StatelessWidget {
   const SpotlightBestTopFoodItem({
-    Key key,
-    @required this.restaurant,
+    Key? key,
+    required this.restaurant,
   }) : super(key: key);
 
   final SpotlightBestTopFood restaurant;
@@ -59,17 +59,17 @@ class SpotlightBestTopFoodItem extends StatelessWidget {
                   Text(
                     restaurant.name,
                     maxLines: 1,
-                    style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+                    style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 18.0),
                   ),
                   Text(
                     restaurant.desc,
                     maxLines: 2,
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey[800], fontSize: 13.5),
+                    style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey[800], fontSize: 13.5),
                   ),
                   UIHelper.verticalSpaceSmall(),
                   Text(
                     restaurant.coupon,
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.red[900], fontSize: 13.0),
+                    style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.red[900], fontSize: 13.0),
                   ),
                   Divider(),
                   FittedBox(

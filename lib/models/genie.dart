@@ -1,9 +1,7 @@
-import 'package:flutter/foundation.dart';
-
 class Genie {
   const Genie({
-    @required this.image,
-    @required this.title,
+    required this.image,
+    required this.title,
   });
 
   final String image;

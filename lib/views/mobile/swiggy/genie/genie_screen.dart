@@ -41,7 +41,7 @@ class GenieScreen extends StatelessWidget {
                                 'Genie',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline4
+                                    .headline4!
                                     .copyWith(color: Colors.white),
                               ),
                               UIHelper.horizontalSpaceSmall(),
@@ -56,7 +56,7 @@ class GenieScreen extends StatelessWidget {
                           Text(
                             'Anything you need, delivered',
                             style:
-                                Theme.of(context).textTheme.bodyText1.copyWith(
+                                Theme.of(context).textTheme.bodyText1!.copyWith(
                                       color: Colors.grey[200],
                                       fontSize: 17.0,
                                     ),
@@ -83,7 +83,7 @@ class GenieScreen extends StatelessWidget {
                               'Some things we can pick or drop for you',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(fontSize: 14.0),
                             ),
                             UIHelper.verticalSpaceMedium(),
@@ -124,7 +124,7 @@ class GenieScreen extends StatelessWidget {
                                         maxLines: 2,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .bodyText1
+                                            .bodyText1!
                                             .copyWith(fontSize: 13.5),
                                       )
                                     ],
@@ -164,9 +164,9 @@ class _HeaderView extends StatelessWidget {
   final String buttonTitle;
 
   const _HeaderView({
-    Key key,
-    @required this.title,
-    @required this.buttonTitle,
+    Key? key,
+    required this.title,
+    required this.buttonTitle,
   }) : super(key: key);
 
   @override
@@ -176,7 +176,7 @@ class _HeaderView extends StatelessWidget {
       children: <Widget>[
         Text(
           title,
-          style: Theme.of(context).textTheme.headline6.copyWith(
+          style: Theme.of(context).textTheme.headline6!.copyWith(
                 fontSize: 17.0,
                 fontWeight: FontWeight.bold,
               ),
@@ -192,7 +192,7 @@ class _HeaderView extends StatelessWidget {
               buttonTitle,
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2
+                  .subtitle2!
                   .copyWith(color: Colors.white, fontSize: 14.0),
             ),
             onPressed: () {},

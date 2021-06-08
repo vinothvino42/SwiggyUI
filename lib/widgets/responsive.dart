@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class Responsive extends StatelessWidget {
   const Responsive({
-    Key key,
-    @required this.mobile,
-    @required this.tablet,
-    @required this.desktop,
+    Key? key,
+    required this.mobile,
+    required this.tablet,
+    required this.desktop,
   }) : super(key: key);
 
   final Widget mobile;
