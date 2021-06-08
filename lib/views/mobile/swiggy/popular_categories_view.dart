@@ -16,7 +16,7 @@ class PopularCategoriesView extends StatelessWidget {
         children: <Widget>[
           Text(
             'Popular Categories',
-            style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
+            style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
           ),
           UIHelper.verticalSpaceMedium(),
           LimitedBox(

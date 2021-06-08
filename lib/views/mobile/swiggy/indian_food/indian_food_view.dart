@@ -36,7 +36,7 @@ class IndianFoodView extends StatelessWidget {
                   restaurants[index].name,
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle2
+                      .subtitle2!
                       .copyWith(color: Colors.grey[700]),
                 )
               ],

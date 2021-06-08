@@ -4,7 +4,7 @@ import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 
 class CartView extends StatelessWidget {
-  const CartView({Key key, this.isTab = false}) : super(key: key);
+  const CartView({Key? key, this.isTab = false}) : super(key: key);
 
   final bool isTab;
 
@@ -75,12 +75,12 @@ class _UserHeader extends StatelessWidget {
                       Text(
                         'Vinoth',
                         style:
-                            Theme.of(context).textTheme.headline6.copyWith(fontSize: 17.0, fontWeight: FontWeight.bold),
+                            Theme.of(context).textTheme.headline6!.copyWith(fontSize: 17.0, fontWeight: FontWeight.bold),
                       ),
                       UIHelper.verticalSpaceExtraSmall(),
                       Text(
                         'User',
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey, fontSize: 13.0),
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey, fontSize: 13.0),
                       ),
                     ],
                   ),
@@ -112,7 +112,7 @@ class _MyOrdersList extends StatelessWidget {
               children: [
                 Text('Order Menu', style: Theme.of(context).textTheme.headline6),
                 Spacer(),
-                Text('See all', style: Theme.of(context).textTheme.subtitle1.copyWith(color: swiggyOrange)),
+                Text('See all', style: Theme.of(context).textTheme.subtitle1!.copyWith(color: swiggyOrange)),
               ],
             ),
             UIHelper.verticalSpaceSmall(),
@@ -149,7 +149,7 @@ class _MyOrdersList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(cartItems[index].title,
-                                  style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 14.0)),
+                                  style: Theme.of(context).textTheme.headline6!.copyWith(fontSize: 14.0)),
                               UIHelper.verticalSpaceMedium(),
                               Row(
                                 children: [
@@ -158,7 +158,7 @@ class _MyOrdersList extends StatelessWidget {
                                   Container(
                                     padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
                                     decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey[300]),
+                                      border: Border.all(color: Colors.grey[300]!),
                                       borderRadius: BorderRadius.circular(8.0),
                                       color: Colors.grey[100],
                                     ),
@@ -179,7 +179,7 @@ class _MyOrdersList extends StatelessWidget {
                           'Rs ${cartItems[index].price}',
                           style: Theme.of(context)
                               .textTheme
-                              .headline6
+                              .headline6!
                               .copyWith(fontSize: 16.0, fontWeight: FontWeight.w800),
                         ),
                       ],
@@ -198,8 +198,8 @@ class _MyOrdersList extends StatelessWidget {
 class _Checkout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final listTileStyle = Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 14.0, fontWeight: FontWeight.w600);
-    final amountStyle = Theme.of(context).textTheme.headline6.copyWith(fontSize: 15.0, fontWeight: FontWeight.bold);
+    final listTileStyle = Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 14.0, fontWeight: FontWeight.w600);
+    final amountStyle = Theme.of(context).textTheme.headline6!.copyWith(fontSize: 15.0, fontWeight: FontWeight.bold);
 
     return Expanded(
       flex: 3,
@@ -221,7 +221,7 @@ class _Checkout extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 15.0),
             padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
             decoration: BoxDecoration(
-              border: Border.all(color: swiggyOrange),
+              border: Border.all(color: swiggyOrange!),
               color: Colors.deepOrange[50],
             ),
             child: Row(

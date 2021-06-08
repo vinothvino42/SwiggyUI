@@ -22,7 +22,7 @@ class GenieView extends StatelessWidget {
                     UIHelper.verticalSpaceSmall(),
                     Text(
                       'Anything you need, deliverd.\nPick-up, Drop or Buy anything,\nfrom anywhere in your city',
-                      style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey),
                     )
                   ],
                 ),
@@ -64,17 +64,17 @@ class GenieView extends StatelessWidget {
 
 class _GenieCardView extends StatelessWidget {
   const _GenieCardView({
-    Key key,
-    @required this.title,
-    @required this.desc,
-    @required this.image,
+    Key? key,
+    required this.title,
+    required this.desc,
+    required this.image,
     this.onTap,
   }) : super(key: key);
 
   final String title;
   final String desc;
   final String image;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class _GenieCardView extends StatelessWidget {
             color: Colors.white,
             boxShadow: <BoxShadow>[
               BoxShadow(
-                color: Colors.grey[200],
+                color: Colors.grey[200]!,
                 blurRadius: 2.0,
                 offset: Offset(1.0, 3.0),
               )
@@ -100,7 +100,7 @@ class _GenieCardView extends StatelessWidget {
             children: <Widget>[
               Text(
                 title,
-                style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 22.0),
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 22.0),
               ),
               UIHelper.verticalSpaceMedium(),
               Row(

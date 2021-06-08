@@ -37,12 +37,17 @@ class _OrderNowView extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     'Namma Veedu Vasanta Bhavan',
-                    style: Theme.of(context).textTheme.subtitle2.copyWith(fontWeight: FontWeight.bold, fontSize: 16.0),
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle2!
+                        .copyWith(fontWeight: FontWeight.bold, fontSize: 16.0),
                   ),
                   UIHelper.verticalSpaceSmall(),
-                  Text('South Indian', style: Theme.of(context).textTheme.bodyText1),
+                  Text('South Indian',
+                      style: Theme.of(context).textTheme.bodyText1),
                   UIHelper.verticalSpaceExtraSmall(),
-                  Text('Velachery Main Road, Madipakkam', style: Theme.of(context).textTheme.bodyText1),
+                  Text('Velachery Main Road, Madipakkam',
+                      style: Theme.of(context).textTheme.bodyText1),
                   UIHelper.verticalSpaceMedium(),
                   CustomDividerView(dividerHeight: 1.0),
                   Row(
@@ -57,9 +62,10 @@ class _OrderNowView extends StatelessWidget {
                   UIHelper.verticalSpaceMedium(),
                   Column(
                     children: <Widget>[
-                      _buildOfferTile(context, '30% off up to Rs75 | Use code SWIGGYIT'),
                       _buildOfferTile(
-                          context, '20% off up to Rs100 with SBI credit cards, once per week | Use code 100SBI')
+                          context, '30% off up to Rs75 | Use code SWIGGYIT'),
+                      _buildOfferTile(context,
+                          '20% off up to Rs100 with SBI credit cards, once per week | Use code 100SBI')
                     ],
                   ),
                   UIHelper.verticalSpaceSmall(),
@@ -77,13 +83,16 @@ class _OrderNowView extends StatelessWidget {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Icon(Icons.filter_vintage, color: Colors.green, size: 12.0),
+                        Icon(Icons.filter_vintage,
+                            color: Colors.green, size: 12.0),
                         UIHelper.horizontalSpaceExtraSmall(),
                         Text('PURE VEG',
                             style: Theme.of(context)
                                 .textTheme
-                                .subtitle2
-                                .copyWith(fontWeight: FontWeight.bold, fontSize: 16.0))
+                                .subtitle2!
+                                .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16.0))
                       ],
                     ),
                   ),
@@ -95,7 +104,10 @@ class _OrderNowView extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Text(
                 'Recommended',
-                style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(fontSize: 18.0),
               ),
             ),
             _RecommendedFoodView(),
@@ -129,14 +141,19 @@ class _OrderNowView extends StatelessWidget {
             Flexible(
               child: Text(
                 desc,
-                style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 13.0),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1!
+                    .copyWith(fontSize: 13.0),
               ),
             )
           ],
         ),
       );
 
-  Expanded _buildVerticalStack(BuildContext context, String title, String subtitle) => Expanded(
+  Expanded _buildVerticalStack(
+          BuildContext context, String title, String subtitle) =>
+      Expanded(
         child: SizedBox(
           height: 60.0,
           child: Column(
@@ -145,10 +162,17 @@ class _OrderNowView extends StatelessWidget {
             children: <Widget>[
               Text(
                 title,
-                style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 15.0),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(fontSize: 15.0),
               ),
               UIHelper.verticalSpaceExtraSmall(),
-              Text(subtitle, style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 13.0))
+              Text(subtitle,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(fontSize: 13.0))
             ],
           ),
         ),
@@ -189,7 +213,7 @@ class _RecommendedFoodView extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         'BREAKFAST',
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               fontSize: 10.0,
                               color: Colors.grey[700],
                             ),
@@ -213,7 +237,10 @@ class _RecommendedFoodView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(foods[index].price,
-                              style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 14.0)),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(fontSize: 14.0)),
                           AddBtnView()
                         ],
                       )
@@ -231,7 +258,7 @@ class _RecommendedFoodView extends StatelessWidget {
 
 class AddBtnView extends StatelessWidget {
   const AddBtnView({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -243,7 +270,10 @@ class AddBtnView extends StatelessWidget {
       ),
       child: Text(
         'ADD',
-        style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.green),
+        style: Theme.of(context)
+            .textTheme
+            .subtitle2!
+            .copyWith(color: Colors.green),
       ),
     );
   }
@@ -251,9 +281,9 @@ class AddBtnView extends StatelessWidget {
 
 class _FoodListView extends StatelessWidget {
   const _FoodListView({
-    Key key,
-    @required this.title,
-    @required this.foods,
+    Key? key,
+    required this.title,
+    required this.foods,
   }) : super(key: key);
 
   final String title;
@@ -270,7 +300,8 @@ class _FoodListView extends StatelessWidget {
           UIHelper.verticalSpaceMedium(),
           Text(
             title,
-            style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0),
+            style:
+                Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 18.0),
           ),
           ListView.builder(
             shrinkWrap: true,
@@ -298,19 +329,24 @@ class _FoodListView extends StatelessWidget {
                             UIHelper.verticalSpaceSmall(),
                             Text(
                               foods[index].price,
-                              style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 14.0),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(fontSize: 14.0),
                             ),
                             UIHelper.verticalSpaceMedium(),
-                            if (foods[index].desc != null)
-                              Text(
-                                foods[index].desc,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: Theme.of(context).textTheme.bodyText1.copyWith(
-                                      fontSize: 12.0,
-                                      color: Colors.grey[500],
-                                    ),
-                              ),
+                            Text(
+                              foods[index].desc,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
+                                    fontSize: 12.0,
+                                    color: Colors.grey[500],
+                                  ),
+                            ),
                           ],
                         ),
                       ),

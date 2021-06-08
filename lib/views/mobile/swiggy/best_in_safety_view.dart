@@ -29,14 +29,14 @@ class BestInSafetyViews extends StatelessWidget {
                     UIHelper.horizontalSpaceExtraSmall(),
                     Text(
                       'Best in Safety',
-                      style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
+                      style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
                     ),
                     Spacer(),
                     Row(
                       children: <Widget>[
                         Text(
                           'SEE ALL',
-                          style: Theme.of(context).textTheme.bodyText1.copyWith(fontWeight: FontWeight.bold),
+                          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),
                         ),
                         UIHelper.horizontalSpaceExtraSmall(),
                         ClipOval(
@@ -59,7 +59,7 @@ class BestInSafetyViews extends StatelessWidget {
                 UIHelper.verticalSpaceExtraSmall(),
                 Text(
                   'Restaurants with best safety standards',
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey),
                 ),
               ],
             ),

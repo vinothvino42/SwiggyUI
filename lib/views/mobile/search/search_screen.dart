@@ -11,7 +11,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  TabController? _tabController;
 
   @override
   void initState() {
@@ -22,7 +22,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
   @override
   void dispose() {
     super.dispose();
-    _tabController.dispose();
+    _tabController!.dispose();
   }
 
   @override
@@ -37,7 +37,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
               Container(
                 padding: const EdgeInsets.only(left: 15.0, top: 2.0, bottom: 2.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey[400]),
+                  border: Border.all(color: Colors.grey[400]!),
                   borderRadius: BorderRadius.circular(2.0),
                 ),
                 child: Row(
@@ -46,7 +46,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Search for restaurants and food',
-                          hintStyle: Theme.of(context).textTheme.subtitle2.copyWith(
+                          hintStyle: Theme.of(context).textTheme.subtitle2!.copyWith(
                                 color: Colors.grey,
                                 fontSize: 17.0,
                                 fontWeight: FontWeight.w600,
@@ -69,8 +69,8 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                 labelColor: Colors.black,
                 controller: _tabController,
                 indicatorColor: darkOrange,
-                labelStyle: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 18.0, color: darkOrange),
-                unselectedLabelStyle: Theme.of(context).textTheme.subtitle2.copyWith(
+                labelStyle: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 18.0, color: darkOrange),
+                unselectedLabelStyle: Theme.of(context).textTheme.subtitle2!.copyWith(
                       fontSize: 18.0,
                       color: Colors.grey[200],
                     ),

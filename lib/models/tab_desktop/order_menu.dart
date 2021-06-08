@@ -1,11 +1,9 @@
-import 'package:flutter/foundation.dart';
-
 class OrderMenu {
   const OrderMenu({
-    @required this.image,
-    @required this.title,
-    @required this.quantity,
-    @required this.price,
+    required this.image,
+    required this.title,
+    required this.quantity,
+    required this.price,
   });
 
   final String image;

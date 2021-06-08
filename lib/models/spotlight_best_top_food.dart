@@ -1,12 +1,10 @@
-import 'package:flutter/foundation.dart';
-
 class SpotlightBestTopFood {
   const SpotlightBestTopFood({
-    @required this.image,
-    @required this.name,
-    @required this.desc,
-    @required this.coupon,
-    @required this.ratingTimePrice,
+    required this.image,
+    required this.name,
+    required this.desc,
+    required this.coupon,
+    required this.ratingTimePrice,
   });
 
   final String image;

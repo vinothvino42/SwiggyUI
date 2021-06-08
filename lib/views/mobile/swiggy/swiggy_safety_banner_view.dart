@@ -25,7 +25,7 @@ class SwiggySafetyBannerView extends StatelessWidget {
               Flexible(
                 child: Text(
                   "SWIGGY's KEY MEASURES TO ENSURE SAFETY",
-                  style: Theme.of(context).textTheme.subtitle2.copyWith(
+                  style: Theme.of(context).textTheme.subtitle2!.copyWith(
                         color: swiggyOrange,
                         fontSize: 15.0,
                         fontWeight: FontWeight.w700,
@@ -52,7 +52,7 @@ class SwiggySafetyBannerView extends StatelessWidget {
                 width: cardWidth,
                 decoration: BoxDecoration(
                   color: Colors.orange[100],
-                  border: Border.all(color: swiggyOrange, width: 2.0),
+                  border: Border.all(color: swiggyOrange!, width: 2.0),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Row(
@@ -87,7 +87,7 @@ class SwiggySafetyBannerView extends StatelessWidget {
                               'Know More',
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline6
+                                  .headline6!
                                   .copyWith(color: darkOrange),
                             ),
                             onPressed: () {},

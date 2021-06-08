@@ -12,9 +12,9 @@ class RestaurantVerticalListView extends StatelessWidget {
   final bool isAllRestaurantNearby;
 
   const RestaurantVerticalListView({
-    Key key,
-    @required this.title,
-    @required this.restaurants,
+    Key? key,
+    required this.title,
+    required this.restaurants,
     this.isAllRestaurantNearby = false,
   })  : assert(title != ''),
         super(key: key);
@@ -31,7 +31,7 @@ class RestaurantVerticalListView extends StatelessWidget {
         children: <Widget>[
           Text(
             title,
-            style: Theme.of(context).textTheme.headline4.copyWith(fontSize: 20.0),
+            style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
           ),
           isAllRestaurantNearby
               ? Column(
@@ -40,7 +40,7 @@ class RestaurantVerticalListView extends StatelessWidget {
                     UIHelper.verticalSpaceExtraSmall(),
                     Text(
                       'Discover unique tastes near you',
-                      style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 14.0),
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 14.0),
                     ),
                   ],
                 )

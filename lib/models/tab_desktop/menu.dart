@@ -1,10 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Menu {
   const Menu({
-    @required this.icon,
-    @required this.title,
+    required this.icon,
+    required this.title,
   });
 
   final IconData icon;
