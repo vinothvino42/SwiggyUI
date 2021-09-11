@@ -8,10 +8,13 @@ import 'package:swiggy_ui/widgets/responsive.dart';
 class BestInSafetyViews extends StatelessWidget {
   final restaurants = SpotlightBestTopFood.getBestRestaurants();
 
+  BestInSafetyViews({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final isTabletDesktop = Responsive.isTabletDesktop(context);
-    final customWidth = MediaQuery.of(context).size.width / (isTabletDesktop ? 3.8 : 1.1);
+    final customWidth =
+        MediaQuery.of(context).size.width / (isTabletDesktop ? 3.8 : 1.1);
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0),
@@ -25,18 +28,24 @@ class BestInSafetyViews extends StatelessWidget {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Icon(Icons.security),
+                    const Icon(Icons.security),
                     UIHelper.horizontalSpaceExtraSmall(),
                     Text(
                       'Best in Safety',
-                      style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(fontSize: 20.0),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       children: <Widget>[
                         Text(
                           'SEE ALL',
-                          style: Theme.of(context).textTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(fontWeight: FontWeight.bold),
                         ),
                         UIHelper.horizontalSpaceExtraSmall(),
                         ClipOval(
@@ -45,7 +54,7 @@ class BestInSafetyViews extends StatelessWidget {
                             color: swiggyOrange,
                             height: 25.0,
                             width: 25.0,
-                            child: Icon(
+                            child: const Icon(
                               Icons.arrow_forward_ios,
                               size: 12.0,
                               color: Colors.white,
@@ -59,7 +68,10 @@ class BestInSafetyViews extends StatelessWidget {
                 UIHelper.verticalSpaceExtraSmall(),
                 Text(
                   'Restaurants with best safety standards',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(color: Colors.grey),
                 ),
               ],
             ),
@@ -71,7 +83,7 @@ class BestInSafetyViews extends StatelessWidget {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: restaurants.length,
-              itemBuilder: (context, index) => Container(
+              itemBuilder: (context, index) => SizedBox(
                 width: customWidth,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

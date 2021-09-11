@@ -6,6 +6,8 @@ import 'package:swiggy_ui/views/mobile/swiggy/restaurants/restaurant_detail_scre
 class TopPicksForYouView extends StatelessWidget {
   final foods = TopPicksFood.getTopPicksfoods();
 
+  TopPicksForYouView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,11 +16,14 @@ class TopPicksForYouView extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(Icons.thumb_up, size: 20.0),
+              const Icon(Icons.thumb_up, size: 20.0),
               UIHelper.horizontalSpaceSmall(),
               Text(
                 'Top Picks For You',
-                style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4!
+                    .copyWith(fontSize: 20.0),
               )
             ],
           ),
@@ -34,7 +39,7 @@ class TopPicksForYouView extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => RestaurantDetailScreen(),
+                      builder: (context) => const RestaurantDetailScreen(),
                     ),
                   );
                 },
@@ -48,7 +53,7 @@ class TopPicksForYouView extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          boxShadow: <BoxShadow>[
+                          boxShadow: const <BoxShadow>[
                             BoxShadow(
                               color: Colors.grey,
                               blurRadius: 2.0,
@@ -67,10 +72,11 @@ class TopPicksForYouView extends StatelessWidget {
                         child: Text(
                           foods[index].name,
                           maxLines: 2,
-                          style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w600,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.subtitle2!.copyWith(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                         ),
                       ),
                       UIHelper.verticalSpaceExtraSmall(),

@@ -7,6 +7,8 @@ import 'package:swiggy_ui/widgets/responsive.dart';
 class PopularBrandsView extends StatelessWidget {
   final brands = PopularBrands.getPopularBrands();
 
+  PopularBrandsView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final isTabletDesktop = Responsive.isTabletDesktop(context);
@@ -33,7 +35,8 @@ class PopularBrandsView extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => RestaurantDetailScreen(),
+                              builder: (context) =>
+                                  const RestaurantDetailScreen(),
                             ),
                           );
                         },
@@ -62,12 +65,18 @@ class PopularBrandsView extends StatelessWidget {
                         UIHelper.verticalSpaceSmall(),
                         Text(
                           brands[index].name,
-                          style: Theme.of(context).textTheme.subtitle2!.copyWith(fontWeight: FontWeight.w500),
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle2!
+                              .copyWith(fontWeight: FontWeight.w500),
                         ),
                         UIHelper.verticalSpace(2.0),
                         Text(
                           brands[index].minutes,
-                          style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey, fontSize: 13.0),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(color: Colors.grey, fontSize: 13.0),
                         )
                       ],
                     ),
@@ -81,20 +90,22 @@ class PopularBrandsView extends StatelessWidget {
     );
   }
 
-  Container _buildPopularHeader(BuildContext context) => Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              'Popular Brands',
-              style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
-            ),
-            UIHelper.verticalSpaceExtraSmall(),
-            Text(
-              'Most ordered from around your locality',
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey),
-            ),
-          ],
-        ),
+  Column _buildPopularHeader(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Text(
+            'Popular Brands',
+            style:
+                Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
+          ),
+          UIHelper.verticalSpaceExtraSmall(),
+          Text(
+            'Most ordered from around your locality',
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1!
+                .copyWith(color: Colors.grey),
+          ),
+        ],
       );
 }

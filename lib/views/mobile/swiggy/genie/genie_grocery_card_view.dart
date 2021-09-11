@@ -32,7 +32,7 @@ class GenieGroceryCardView extends StatelessWidget {
                 height: 120.0,
                 decoration: BoxDecoration(
                   color: swiggyOrange,
-                  boxShadow: <BoxShadow>[
+                  boxShadow: const <BoxShadow>[
                     BoxShadow(
                       color: Colors.grey,
                       blurRadius: 3.0,
@@ -48,7 +48,10 @@ class GenieGroceryCardView extends StatelessWidget {
                     Text(
                       title,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 18.0, color: Colors.white),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(fontSize: 18.0, color: Colors.white),
                     ),
                     UIHelper.verticalSpaceSmall(),
                     Expanded(
@@ -66,7 +69,10 @@ class GenieGroceryCardView extends StatelessWidget {
               subtitle,
               maxLines: 2,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 16.0),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1!
+                  .copyWith(fontSize: 16.0),
             ),
           ],
         ),

@@ -7,17 +7,19 @@ import 'views/mobile/mobile_screen.dart';
 import 'widgets/responsive.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'SwiggyUI',
       debugShowCheckedModeBanner: false,
       theme: appPrimaryTheme(),
-      home: Responsive(
+      home: const Responsive(
         mobile: MobileScreen(),
         tablet: TabScreen(),
         desktop: DesktopScreen(),

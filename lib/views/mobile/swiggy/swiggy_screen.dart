@@ -21,59 +21,59 @@ import 'top_offer_view.dart';
 import 'top_picks_for_you_view.dart';
 
 class SwiggyScreen extends StatelessWidget {
+  const SwiggyScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          child: Column(
-            children: <Widget>[
-              _buildAppBar(context),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      FoodGroceriesAvailabilityView(),
-                      TopPicksForYouView(),
-                      OfferBannerView(),
-                      CustomDividerView(),
-                      IndianFoodView(),
-                      CustomDividerView(),
-                      InTheSpotlightView(),
-                      CustomDividerView(),
-                      PopularBrandsView(),
-                      CustomDividerView(),
-                      SwiggySafetyBannerView(),
-                      BestInSafetyViews(),
-                      CustomDividerView(),
-                      TopOffersViews(),
-                      CustomDividerView(),
-                      GenieView(),
-                      CustomDividerView(),
-                      PopularCategoriesView(),
-                      CustomDividerView(),
-                      RestaurantVerticalListView(
-                        title: 'Popular Restaurants',
-                        restaurants:
-                            SpotlightBestTopFood.getPopularAllRestaurants(),
-                      ),
-                      CustomDividerView(),
-                      RestaurantVerticalListView(
-                        title: 'All Restaurants Nearby',
-                        restaurants:
-                            SpotlightBestTopFood.getPopularAllRestaurants(),
-                        isAllRestaurantNearby: true,
-                      ),
-                      SeeAllRestaurantBtn(),
-                      LiveForFoodView(),
-                    ],
-                  ),
+        child: Column(
+          children: <Widget>[
+            _buildAppBar(context),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const FoodGroceriesAvailabilityView(),
+                    TopPicksForYouView(),
+                    OfferBannerView(),
+                    const CustomDividerView(),
+                    IndianFoodView(),
+                    const CustomDividerView(),
+                    InTheSpotlightView(),
+                    const CustomDividerView(),
+                    PopularBrandsView(),
+                    const CustomDividerView(),
+                    const SwiggySafetyBannerView(),
+                    BestInSafetyViews(),
+                    const CustomDividerView(),
+                    TopOffersViews(),
+                    const CustomDividerView(),
+                    const GenieView(),
+                    const CustomDividerView(),
+                    PopularCategoriesView(),
+                    const CustomDividerView(),
+                    RestaurantVerticalListView(
+                      title: 'Popular Restaurants',
+                      restaurants:
+                          SpotlightBestTopFood.getPopularAllRestaurants(),
+                    ),
+                    const CustomDividerView(),
+                    RestaurantVerticalListView(
+                      title: 'All Restaurants Nearby',
+                      restaurants:
+                          SpotlightBestTopFood.getPopularAllRestaurants(),
+                      isAllRestaurantNearby: true,
+                    ),
+                    const SeeAllRestaurantBtn(),
+                    const LiveForFoodView(),
+                  ],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -92,12 +92,12 @@ class SwiggyScreen extends StatelessWidget {
                   .copyWith(fontSize: 21.0),
             ),
             UIHelper.horizontalSpaceExtraSmall(),
-            Padding(
-              padding: const EdgeInsets.only(top: 4.0),
+            const Padding(
+              padding: EdgeInsets.only(top: 4.0),
               child: Icon(Icons.keyboard_arrow_down),
             ),
-            Spacer(),
-            Icon(Icons.local_offer),
+            const Spacer(),
+            const Icon(Icons.local_offer),
             UIHelper.horizontalSpaceExtraSmall(),
             InkWell(
               child: Container(
@@ -114,7 +114,7 @@ class SwiggyScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => OffersScreen(),
+                    builder: (context) => const OffersScreen(),
                   ),
                 );
               },

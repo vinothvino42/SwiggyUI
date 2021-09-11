@@ -21,7 +21,7 @@ class SearchFoodListItemView extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               color: Colors.white,
-              boxShadow: <BoxShadow>[
+              boxShadow: const <BoxShadow>[
                 BoxShadow(
                   color: Colors.grey,
                   blurRadius: 2.0,
@@ -43,10 +43,16 @@ class SearchFoodListItemView extends StatelessWidget {
               children: <Widget>[
                 Text(
                   food.name,
-                  style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 15.0),
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(fontSize: 15.0),
                 ),
                 Text(food.desc,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey[600], fontSize: 13.5)),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1!
+                        .copyWith(color: Colors.grey[600], fontSize: 13.5)),
                 UIHelper.verticalSpaceSmall(),
                 Row(
                   children: <Widget>[

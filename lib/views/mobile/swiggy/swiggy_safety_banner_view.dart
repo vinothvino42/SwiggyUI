@@ -4,6 +4,8 @@ import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/responsive.dart';
 
 class SwiggySafetyBannerView extends StatelessWidget {
+  const SwiggySafetyBannerView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final isTabletDesktop = Responsive.isTabletDesktop(context);

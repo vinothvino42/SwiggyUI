@@ -7,6 +7,8 @@ import 'indian_delight_screen.dart';
 class IndianFoodView extends StatelessWidget {
   final restaurants = IndianFood.getIndianRestaurants();
 
+  IndianFoodView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,7 +48,7 @@ class IndianFoodView extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => IndianDelightScreen(),
+                builder: (context) => const IndianDelightScreen(),
               ),
             );
           },

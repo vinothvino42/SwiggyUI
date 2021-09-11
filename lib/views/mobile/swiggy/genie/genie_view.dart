@@ -4,6 +4,8 @@ import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/dotted_seperator_view.dart';
 
 class GenieView extends StatelessWidget {
+  const GenieView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +24,10 @@ class GenieView extends StatelessWidget {
                     UIHelper.verticalSpaceSmall(),
                     Text(
                       'Anything you need, deliverd.\nPick-up, Drop or Buy anything,\nfrom anywhere in your city',
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1!
+                          .copyWith(color: Colors.grey),
                     )
                   ],
                 ),
@@ -38,12 +43,12 @@ class GenieView extends StatelessWidget {
             ],
           ),
           UIHelper.verticalSpaceMedium(),
-          DottedSeperatorView(),
+          const DottedSeperatorView(),
           UIHelper.verticalSpaceMedium(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: const <Widget>[
               _GenieCardView(
                 title: 'Buy\nAnything',
                 desc: 'Stationery\nMedicine\nGrocery\n& more',
@@ -91,7 +96,7 @@ class _GenieCardView extends StatelessWidget {
               BoxShadow(
                 color: Colors.grey[200]!,
                 blurRadius: 2.0,
-                offset: Offset(1.0, 3.0),
+                offset: const Offset(1.0, 3.0),
               )
             ],
           ),
@@ -100,7 +105,10 @@ class _GenieCardView extends StatelessWidget {
             children: <Widget>[
               Text(
                 title,
-                style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 22.0),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(fontSize: 22.0),
               ),
               UIHelper.verticalSpaceMedium(),
               Row(
@@ -120,7 +128,7 @@ class _GenieCardView extends StatelessWidget {
                           color: swiggyOrange,
                           height: 25.0,
                           width: 25.0,
-                          child: Icon(
+                          child: const Icon(
                             Icons.arrow_forward_ios,
                             size: 12.0,
                             color: Colors.white,

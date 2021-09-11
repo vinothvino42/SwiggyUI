@@ -53,7 +53,7 @@ class RestaurantDetail {
   }
 
   static List<RestaurantDetail> getAllTimeFavFoods() {
-    return [
+    return const [
       RestaurantDetail(
         title: 'Plain Dosa',
         price: 'Rs30',
@@ -86,7 +86,7 @@ class RestaurantDetail {
   }
 
   static List<RestaurantDetail> getOtherDishes() {
-    return [
+    return const [
       RestaurantDetail(
         title: 'Kuzhi Paniyaram Karam (4Pcs)',
         price: 'Rs70',

@@ -6,11 +6,14 @@ import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 import 'package:swiggy_ui/widgets/mobile/search_food_list_item_view.dart';
 
 class SearchScreen extends StatefulWidget {
+  const SearchScreen({Key? key}) : super(key: key);
+
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderStateMixin {
+class _SearchScreenState extends State<SearchScreen>
+    with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
   @override
@@ -35,7 +38,8 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding: const EdgeInsets.only(left: 15.0, top: 2.0, bottom: 2.0),
+                padding:
+                    const EdgeInsets.only(left: 15.0, top: 2.0, bottom: 2.0),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey[400]!),
                   borderRadius: BorderRadius.circular(2.0),
@@ -46,18 +50,19 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Search for restaurants and food',
-                          hintStyle: Theme.of(context).textTheme.subtitle2!.copyWith(
-                                color: Colors.grey,
-                                fontSize: 17.0,
-                                fontWeight: FontWeight.w600,
-                              ),
+                          hintStyle:
+                              Theme.of(context).textTheme.subtitle2!.copyWith(
+                                    color: Colors.grey,
+                                    fontSize: 17.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                           border: InputBorder.none,
                         ),
                       ),
                     ),
                     UIHelper.horizontalSpaceMedium(),
                     IconButton(
-                      icon: Icon(Icons.search),
+                      icon: const Icon(Icons.search),
                       onPressed: () {},
                     )
                   ],
@@ -69,23 +74,23 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                 labelColor: Colors.black,
                 controller: _tabController,
                 indicatorColor: darkOrange,
-                labelStyle: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 18.0, color: darkOrange),
-                unselectedLabelStyle: Theme.of(context).textTheme.subtitle2!.copyWith(
-                      fontSize: 18.0,
-                      color: Colors.grey[200],
-                    ),
+                labelStyle: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(fontSize: 18.0, color: darkOrange),
+                unselectedLabelStyle:
+                    Theme.of(context).textTheme.subtitle2!.copyWith(
+                          fontSize: 18.0,
+                          color: Colors.grey[200],
+                        ),
                 indicatorSize: TabBarIndicatorSize.tab,
-                tabs: [
-                  Tab(
-                    child: Text('Restaurant'),
-                  ),
-                  Tab(
-                    child: Text('Dishes'),
-                  ),
+                tabs: const [
+                  Tab(child: Text('Restaurant')),
+                  Tab(child: Text('Dishes')),
                 ],
               ),
               UIHelper.verticalSpaceSmall(),
-              CustomDividerView(dividerHeight: 8.0),
+              const CustomDividerView(dividerHeight: 8.0),
               Expanded(
                 child: TabBarView(
                   controller: _tabController,
@@ -104,11 +109,13 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
 }
 
 class _SearchListView extends StatelessWidget {
-  final List<SpotlightBestTopFood> foods = SpotlightBestTopFood.getPopularAllRestaurants();
+  final List<SpotlightBestTopFood> foods = [
+    ...SpotlightBestTopFood.getPopularAllRestaurants(),
+    ...SpotlightBestTopFood.getPopularAllRestaurants()
+  ];
 
   @override
   Widget build(BuildContext context) {
-    foods.addAll(SpotlightBestTopFood.getPopularAllRestaurants());
     foods.shuffle();
 
     return ListView.builder(

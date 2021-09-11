@@ -83,7 +83,7 @@ class SpotlightBestTopFood {
   }
 
   static List<List<SpotlightBestTopFood>> getBestRestaurants() {
-    return [
+    return const [
       [
         SpotlightBestTopFood(
           image: 'assets/images/food6.jpg',
@@ -152,7 +152,7 @@ class SpotlightBestTopFood {
   }
 
   static List<List<SpotlightBestTopFood>> getTopRestaurants() {
-    return [
+    return const [
       [
         SpotlightBestTopFood(
           image: 'assets/images/food3.jpg',
@@ -221,7 +221,7 @@ class SpotlightBestTopFood {
   }
 
   static List<SpotlightBestTopFood> getPopularAllRestaurants() {
-    return [
+    return const [
       SpotlightBestTopFood(
         image: 'assets/images/food5.jpg',
         name: 'Veg King',
@@ -268,7 +268,7 @@ class SpotlightBestTopFood {
   }
 
   static List<SpotlightBestTopFood> getTopGroceryRestaurants() {
-    return [
+    return const [
       SpotlightBestTopFood(
         image: 'assets/images/food3.jpg',
         name: 'A2B Chennai',

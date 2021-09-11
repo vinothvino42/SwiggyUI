@@ -5,6 +5,8 @@ import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 
 class GenieScreen extends StatelessWidget {
+  const GenieScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final services = Genie.getGenieServices();
@@ -20,7 +22,7 @@ class GenieScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.white),
+                icon: const Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -73,11 +75,11 @@ class GenieScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            _HeaderView(
+                            const _HeaderView(
                               title: 'Pickup or Drop any items',
                               buttonTitle: 'ADD PICKUP DROP DETAILS',
                             ),
-                            CustomDividerView(dividerHeight: 3.0),
+                            const CustomDividerView(dividerHeight: 3.0),
                             UIHelper.verticalSpaceMedium(),
                             Text(
                               'Some things we can pick or drop for you',
@@ -92,7 +94,7 @@ class GenieScreen extends StatelessWidget {
                               child: ListView.builder(
                                 itemCount: services.length,
                                 scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) => Container(
+                                itemBuilder: (context, index) => SizedBox(
                                   width: 80.0,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -102,7 +104,7 @@ class GenieScreen extends StatelessWidget {
                                           padding: const EdgeInsets.all(10.0),
                                           decoration: BoxDecoration(
                                             color: Colors.grey[200],
-                                            boxShadow: <BoxShadow>[
+                                            boxShadow: const <BoxShadow>[
                                               BoxShadow(
                                                 color: Colors.grey,
                                                 blurRadius: 3.0,
@@ -142,7 +144,7 @@ class GenieScreen extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                        child: _HeaderView(
+                        child: const _HeaderView(
                           title: 'Buy Anything from any store',
                           buttonTitle: 'FIND A STORE',
                         ),

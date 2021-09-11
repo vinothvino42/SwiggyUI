@@ -7,10 +7,13 @@ import 'package:swiggy_ui/widgets/responsive.dart';
 class InTheSpotlightView extends StatelessWidget {
   final restaurants = SpotlightBestTopFood.getSpotlightRestaurants();
 
+  InTheSpotlightView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final isTabletDesktop = Responsive.isTabletDesktop(context);
-    final customWidth = MediaQuery.of(context).size.width / (isTabletDesktop ? 3.8 : 1.1);
+    final customWidth =
+        MediaQuery.of(context).size.width / (isTabletDesktop ? 3.8 : 1.1);
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 15.0),
@@ -26,7 +29,7 @@ class InTheSpotlightView extends StatelessWidget {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: restaurants.length,
-              itemBuilder: (context, index) => Container(
+              itemBuilder: (context, index) => SizedBox(
                 width: customWidth,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -50,18 +53,24 @@ class InTheSpotlightView extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Icon(Icons.shopping_basket, size: 20.0),
+                const Icon(Icons.shopping_basket, size: 20.0),
                 UIHelper.horizontalSpaceSmall(),
                 Text(
                   'In the Spotlight!',
-                  style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 20.0),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline4!
+                      .copyWith(fontSize: 20.0),
                 )
               ],
             ),
             UIHelper.verticalSpaceExtraSmall(),
             Text(
               'Explore sponsored partner brands',
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1!
+                  .copyWith(color: Colors.grey),
             ),
           ],
         ),

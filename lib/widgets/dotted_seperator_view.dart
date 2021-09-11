@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class DottedSeperatorView extends StatelessWidget {
+  const DottedSeperatorView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 8.0,
       child: ListView.builder(
         shrinkWrap: true,

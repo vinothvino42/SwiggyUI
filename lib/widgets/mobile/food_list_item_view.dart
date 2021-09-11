@@ -21,7 +21,7 @@ class FoodListItemView extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               color: Colors.white,
-              boxShadow: <BoxShadow>[
+              boxShadow: const <BoxShadow>[
                 BoxShadow(
                   color: Colors.grey,
                   blurRadius: 2.0,
@@ -42,14 +42,23 @@ class FoodListItemView extends StatelessWidget {
             children: <Widget>[
               Text(
                 restaurant.name,
-                style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 18.0),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(fontSize: 18.0),
               ),
               Text(restaurant.desc,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey[800], fontSize: 13.5)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(color: Colors.grey[800], fontSize: 13.5)),
               UIHelper.verticalSpaceExtraSmall(),
               Text(
                 restaurant.coupon,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.red[900], fontSize: 13.0),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1!
+                    .copyWith(color: Colors.red[900], fontSize: 13.0),
               ),
               UIHelper.verticalSpaceSmall(),
               Row(

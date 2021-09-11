@@ -5,15 +5,18 @@ import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 import 'package:swiggy_ui/widgets/veg_badge_view.dart';
 
 class RestaurantDetailScreen extends StatelessWidget {
+  const RestaurantDetailScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0.0,
         actions: <Widget>[
-          Icon(Icons.favorite_border),
+          const Icon(Icons.favorite_border),
           UIHelper.horizontalSpaceSmall(),
-          Icon(Icons.search),
+          const Icon(Icons.search),
           UIHelper.horizontalSpaceSmall(),
         ],
       ),
@@ -25,109 +28,109 @@ class RestaurantDetailScreen extends StatelessWidget {
 class _OrderNowView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Namma Veedu Vasanta Bhavan',
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle2!
-                        .copyWith(fontWeight: FontWeight.bold, fontSize: 16.0),
-                  ),
-                  UIHelper.verticalSpaceSmall(),
-                  Text('South Indian',
-                      style: Theme.of(context).textTheme.bodyText1),
-                  UIHelper.verticalSpaceExtraSmall(),
-                  Text('Velachery Main Road, Madipakkam',
-                      style: Theme.of(context).textTheme.bodyText1),
-                  UIHelper.verticalSpaceMedium(),
-                  CustomDividerView(dividerHeight: 1.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Namma Veedu Vasanta Bhavan',
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(fontWeight: FontWeight.bold, fontSize: 16.0),
+                ),
+                UIHelper.verticalSpaceSmall(),
+                Text('South Indian',
+                    style: Theme.of(context).textTheme.bodyText1),
+                UIHelper.verticalSpaceExtraSmall(),
+                Text('Velachery Main Road, Madipakkam',
+                    style: Theme.of(context).textTheme.bodyText1),
+                UIHelper.verticalSpaceMedium(),
+                const CustomDividerView(dividerHeight: 1.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    _buildVerticalStack(context, '4.1', 'Packaging 80%'),
+                    _buildVerticalStack(context, '29 mins', 'Delivery Time'),
+                    _buildVerticalStack(context, 'Rs150', 'For Two'),
+                  ],
+                ),
+                const CustomDividerView(dividerHeight: 1.0),
+                UIHelper.verticalSpaceMedium(),
+                Column(
+                  children: <Widget>[
+                    _buildOfferTile(
+                        context, '30% off up to Rs75 | Use code SWIGGYIT'),
+                    _buildOfferTile(context,
+                        '20% off up to Rs100 with SBI credit cards, once per week | Use code 100SBI')
+                  ],
+                ),
+                UIHelper.verticalSpaceSmall(),
+              ],
+            ),
+          ),
+          const CustomDividerView(dividerHeight: 15.0),
+          Container(
+            height: 80.0,
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      _buildVerticalStack(context, '4.1', 'Packaging 80%'),
-                      _buildVerticalStack(context, '29 mins', 'Delivery Time'),
-                      _buildVerticalStack(context, 'Rs150', 'For Two'),
+                      const Icon(
+                        Icons.filter_vintage,
+                        color: Colors.green,
+                        size: 12.0,
+                      ),
+                      UIHelper.horizontalSpaceExtraSmall(),
+                      Text('PURE VEG',
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle2!
+                              .copyWith(
+                                  fontWeight: FontWeight.bold, fontSize: 16.0))
                     ],
                   ),
-                  CustomDividerView(dividerHeight: 1.0),
-                  UIHelper.verticalSpaceMedium(),
-                  Column(
-                    children: <Widget>[
-                      _buildOfferTile(
-                          context, '30% off up to Rs75 | Use code SWIGGYIT'),
-                      _buildOfferTile(context,
-                          '20% off up to Rs100 with SBI credit cards, once per week | Use code 100SBI')
-                    ],
-                  ),
-                  UIHelper.verticalSpaceSmall(),
-                ],
-              ),
+                ),
+                const CustomDividerView(dividerHeight: 0.5, color: Colors.black)
+              ],
             ),
-            CustomDividerView(dividerHeight: 15.0),
-            Container(
-              height: 80.0,
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(Icons.filter_vintage,
-                            color: Colors.green, size: 12.0),
-                        UIHelper.horizontalSpaceExtraSmall(),
-                        Text('PURE VEG',
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle2!
-                                .copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16.0))
-                      ],
-                    ),
-                  ),
-                  CustomDividerView(dividerHeight: 0.5, color: Colors.black)
-                ],
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              'Recommended',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2!
+                  .copyWith(fontSize: 18.0),
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                'Recommended',
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle2!
-                    .copyWith(fontSize: 18.0),
-              ),
-            ),
-            _RecommendedFoodView(),
-            CustomDividerView(dividerHeight: 15.0),
-            _FoodListView(
-              title: 'Breakfast',
-              foods: RestaurantDetail.getBreakfast(),
-            ),
-            CustomDividerView(dividerHeight: 15.0),
-            _FoodListView(
-              title: 'All Time Favourite',
-              foods: RestaurantDetail.getAllTimeFavFoods(),
-            ),
-            CustomDividerView(dividerHeight: 15.0),
-            _FoodListView(
-              title: 'Kozhukattaiyum & Paniyarams',
-              foods: RestaurantDetail.getOtherDishes(),
-            )
-          ],
-        ),
+          ),
+          _RecommendedFoodView(),
+          const CustomDividerView(dividerHeight: 15.0),
+          _FoodListView(
+            title: 'Breakfast',
+            foods: RestaurantDetail.getBreakfast(),
+          ),
+          const CustomDividerView(dividerHeight: 15.0),
+          _FoodListView(
+            title: 'All Time Favourite',
+            foods: RestaurantDetail.getAllTimeFavFoods(),
+          ),
+          const CustomDividerView(dividerHeight: 15.0),
+          _FoodListView(
+            title: 'Kozhukattaiyum & Paniyarams',
+            foods: RestaurantDetail.getOtherDishes(),
+          )
+        ],
       ),
     );
   }
@@ -190,7 +193,7 @@ class _RecommendedFoodView extends StatelessWidget {
         shrinkWrap: true,
         crossAxisCount: 2,
         childAspectRatio: 0.8,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: List.generate(
           foods.length,
           (index) => Container(
@@ -221,13 +224,14 @@ class _RecommendedFoodView extends StatelessWidget {
                       UIHelper.verticalSpaceExtraSmall(),
                       Row(
                         children: <Widget>[
-                          VegBadgeView(),
+                          const VegBadgeView(),
                           UIHelper.horizontalSpaceExtraSmall(),
                           Flexible(
                             child: Text(
                               foods[index].title,
                               maxLines: 1,
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],
@@ -241,7 +245,7 @@ class _RecommendedFoodView extends StatelessWidget {
                                   .textTheme
                                   .bodyText1!
                                   .copyWith(fontSize: 14.0)),
-                          AddBtnView()
+                          const AddBtnView()
                         ],
                       )
                     ],
@@ -306,7 +310,7 @@ class _FoodListView extends StatelessWidget {
           ListView.builder(
             shrinkWrap: true,
             itemCount: foods.length,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) => Container(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: Column(
@@ -316,7 +320,7 @@ class _FoodListView extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      VegBadgeView(),
+                      const VegBadgeView(),
                       UIHelper.horizontalSpaceMedium(),
                       Expanded(
                         child: Column(
@@ -350,7 +354,7 @@ class _FoodListView extends StatelessWidget {
                           ],
                         ),
                       ),
-                      AddBtnView()
+                      const AddBtnView()
                     ],
                   ),
                 ],

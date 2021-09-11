@@ -18,6 +18,8 @@ class AccountScreen extends StatelessWidget {
     'FAQ & Links',
   ];
 
+  AccountScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,7 @@ class AccountScreen extends StatelessWidget {
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: titles.length,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) => _ListItem(
                   title: titles[index],
                   body: body[index],
@@ -107,7 +109,7 @@ class _AppBar extends StatelessWidget {
             ],
           ),
           UIHelper.verticalSpaceLarge(),
-          CustomDividerView(
+          const CustomDividerView(
             dividerHeight: 1.8,
             color: Colors.black,
           )
@@ -164,15 +166,15 @@ class _ListItem extends StatelessWidget {
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               UIHelper.horizontalSpaceSmall(),
-              Icon(Icons.keyboard_arrow_right)
+              const Icon(Icons.keyboard_arrow_right)
             ],
           ),
           UIHelper.verticalSpaceLarge(),
           isLastItem
-              ? SizedBox()
-              : CustomDividerView(
+              ? const SizedBox()
+              : const CustomDividerView(
                   dividerHeight: 0.8,
                   color: Colors.black26,
                 ),
@@ -204,7 +206,7 @@ class _PastOrderListView extends StatelessWidget {
         ListView.builder(
           shrinkWrap: true,
           itemCount: restaurants.length,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => _PastOrdersListItemView(
             restaurant: restaurants[index],
             foodItem: foods[index],
@@ -221,7 +223,7 @@ class _PastOrderListView extends StatelessWidget {
           onPressed: () {},
         ),
         UIHelper.verticalSpaceSmall(),
-        CustomDividerView(),
+        const CustomDividerView(),
         Row(
           children: <Widget>[
             Container(
@@ -236,8 +238,8 @@ class _PastOrderListView extends StatelessWidget {
                     .copyWith(fontSize: 16.0),
               ),
             ),
-            Spacer(),
-            Icon(Icons.power_settings_new),
+            const Spacer(),
+            const Icon(Icons.power_settings_new),
             UIHelper.horizontalSpaceSmall(),
           ],
         ),
@@ -247,7 +249,7 @@ class _PastOrderListView extends StatelessWidget {
           height: 130.0,
           color: Colors.grey[200],
           child: Text(
-            'App Version v3.1.0',
+            'App Version v3.2.0',
             style: Theme.of(context)
                 .textTheme
                 .bodyText1!
@@ -302,7 +304,7 @@ class _PastOrdersListItemView extends StatelessWidget {
                     UIHelper.verticalSpaceSmall(),
                     Row(
                       children: <Widget>[
-                        Text('Rs112'),
+                        const Text('Rs112'),
                         UIHelper.horizontalSpaceExtraSmall(),
                         Icon(Icons.keyboard_arrow_right,
                             color: Colors.grey[600])
@@ -310,28 +312,29 @@ class _PastOrdersListItemView extends StatelessWidget {
                     )
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Text('Delivered', style: Theme.of(context).textTheme.subtitle2),
                 UIHelper.horizontalSpaceSmall(),
                 ClipOval(
                   child: Container(
                     padding: const EdgeInsets.all(2.2),
                     color: Colors.green,
-                    child: Icon(Icons.check, color: Colors.white, size: 14.0),
+                    child: const Icon(Icons.check,
+                        color: Colors.white, size: 14.0),
                   ),
                 )
               ],
             ),
           ),
           UIHelper.verticalSpaceSmall(),
-          DottedSeperatorView(),
+          const DottedSeperatorView(),
           UIHelper.verticalSpaceMedium(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(foodItem),
               UIHelper.verticalSpaceExtraSmall(),
-              Text('July 14, 2:11 AM'),
+              const Text('July 14, 2:11 AM'),
               UIHelper.verticalSpaceSmall(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -354,8 +357,10 @@ class _PastOrdersListItemView extends StatelessWidget {
                           onPressed: () {},
                         ),
                         UIHelper.verticalSpaceMedium(),
-                        Text('Delivery rating not\napplicable for this order',
-                            maxLines: 2)
+                        const Text(
+                          'Delivery rating not\napplicable for this order',
+                          maxLines: 2,
+                        )
                       ],
                     ),
                   ),
@@ -366,7 +371,10 @@ class _PastOrdersListItemView extends StatelessWidget {
                       children: <Widget>[
                         OutlinedButton(
                           style: OutlinedButton.styleFrom(
-                            side: BorderSide(width: 1.5, color: Colors.black),
+                            side: const BorderSide(
+                              width: 1.5,
+                              color: Colors.black,
+                            ),
                           ),
                           child: Text(
                             'RATE FOOD',
@@ -378,14 +386,14 @@ class _PastOrdersListItemView extends StatelessWidget {
                           onPressed: () {},
                         ),
                         UIHelper.verticalSpaceMedium(),
-                        Text("You haven't rated\nthis food yet")
+                        const Text("You haven't rated\nthis food yet")
                       ],
                     ),
                   )
                 ],
               ),
               UIHelper.verticalSpaceMedium(),
-              CustomDividerView(dividerHeight: 1.5, color: Colors.black)
+              const CustomDividerView(dividerHeight: 1.5, color: Colors.black)
             ],
           )
         ],

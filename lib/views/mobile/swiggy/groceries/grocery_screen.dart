@@ -5,21 +5,21 @@ import 'package:swiggy_ui/widgets/mobile/search_food_list_item_view.dart';
 import 'package:swiggy_ui/widgets/responsive.dart';
 
 class GroceryScreen extends StatelessWidget {
+  const GroceryScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              _GroceryHeaderView(),
-              UIHelper.verticalSpaceMedium(),
-              GroceryListView(
-                title: '156 RESTAURANTS NEARBY',
-              ),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const _GroceryHeaderView(),
+            UIHelper.verticalSpaceMedium(),
+            const GroceryListView(
+              title: '156 RESTAURANTS NEARBY',
+            ),
+          ],
         ),
       ),
     );
@@ -48,7 +48,7 @@ class _GroceryHeaderView extends StatelessWidget {
             top: 40.0,
             left: 0.4,
             child: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 size: 28.0,
                 color: Colors.white,
@@ -75,7 +75,10 @@ class GroceryListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final restaurants = SpotlightBestTopFood.getTopGroceryRestaurants();
 
-    final headerStyle = Theme.of(context).textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w500, fontSize: 13.0);
+    final headerStyle = Theme.of(context)
+        .textTheme
+        .bodyText1!
+        .copyWith(fontWeight: FontWeight.w500, fontSize: 13.0);
 
     return Container(
       padding: const EdgeInsets.all(15.0),
@@ -83,26 +86,24 @@ class GroceryListView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  title,
-                  style: headerStyle,
-                ),
-                Spacer(),
-                Icon(Icons.filter_list),
-                UIHelper.horizontalSpaceSmall(),
-                Text('SORT/FILTER', style: headerStyle)
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                title,
+                style: headerStyle,
+              ),
+              const Spacer(),
+              const Icon(Icons.filter_list),
+              UIHelper.horizontalSpaceSmall(),
+              Text('SORT/FILTER', style: headerStyle)
+            ],
           ),
           UIHelper.verticalSpaceSmall(),
           ListView.builder(
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: restaurants.length,
             itemBuilder: (context, index) => SearchFoodListItemView(
               food: restaurants[index],

@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 
 ThemeData appPrimaryTheme() => ThemeData(
       brightness: Brightness.light,
       primaryColor: Colors.white,
-      accentColor: appColor,
       scaffoldBackgroundColor: Colors.white,
-      buttonColor: appColor,
       cardColor: Colors.white,
-      snackBarTheme: SnackBarThemeData(
+      snackBarTheme: const SnackBarThemeData(
         backgroundColor: appColor,
         contentTextStyle: TextStyle(color: Colors.white),
         actionTextColor: Colors.white,
       ),
-      appBarTheme: AppBarTheme(
-        brightness: Brightness.light,
+      appBarTheme: const AppBarTheme(
+        systemOverlayStyle: SystemUiOverlayStyle.light,
+        color: Colors.white,
         elevation: 1.0,
         actionsIconTheme: IconThemeData(
           color: Colors.black,
         ),
       ),
       dividerColor: Colors.grey[300],
-      dividerTheme: DividerThemeData(thickness: 0.5),
+      dividerTheme: const DividerThemeData(thickness: 0.5),
       tabBarTheme: TabBarTheme(
         labelColor: Colors.black,
         unselectedLabelColor: Colors.grey,

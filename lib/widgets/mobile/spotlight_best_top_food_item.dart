@@ -23,7 +23,7 @@ class SpotlightBestTopFoodItem extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => RestaurantDetailScreen(),
+                  builder: (context) => const RestaurantDetailScreen(),
                 ),
               );
             },
@@ -35,7 +35,7 @@ class SpotlightBestTopFoodItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 color: Colors.white,
-                boxShadow: <BoxShadow>[
+                boxShadow: const <BoxShadow>[
                   BoxShadow(
                     color: Colors.grey,
                     blurRadius: 2.0,
@@ -59,19 +59,28 @@ class SpotlightBestTopFoodItem extends StatelessWidget {
                   Text(
                     restaurant.name,
                     maxLines: 1,
-                    style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 18.0),
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle2!
+                        .copyWith(fontSize: 18.0),
                   ),
                   Text(
                     restaurant.desc,
                     maxLines: 2,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.grey[800], fontSize: 13.5),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1!
+                        .copyWith(color: Colors.grey[800], fontSize: 13.5),
                   ),
                   UIHelper.verticalSpaceSmall(),
                   Text(
                     restaurant.coupon,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.red[900], fontSize: 13.0),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1!
+                        .copyWith(color: Colors.red[900], fontSize: 13.0),
                   ),
-                  Divider(),
+                  const Divider(),
                   FittedBox(
                     child: Row(
                       children: <Widget>[
@@ -80,7 +89,10 @@ class SpotlightBestTopFoodItem extends StatelessWidget {
                           size: 14.0,
                           color: Colors.grey[600],
                         ),
-                        Text(restaurant.ratingTimePrice, style: TextStyle(fontSize: 12.0))
+                        Text(
+                          restaurant.ratingTimePrice,
+                          style: const TextStyle(fontSize: 12.0),
+                        )
                       ],
                     ),
                   )

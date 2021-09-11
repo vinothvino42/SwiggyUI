@@ -129,7 +129,7 @@ class AllRestaurant {
   }
 
   static List<SpotlightBestTopFood> getRestaurantListThree() {
-    return [
+    return const [
       SpotlightBestTopFood(
         image: 'assets/images/food4.jpg',
         name: 'Biryani Expresss',
@@ -226,7 +226,7 @@ class LargeRestaurantBanner {
   }
 
   static List<LargeRestaurantBanner> getPepsiSaveOurRestaurants() {
-    return [
+    return const [
       LargeRestaurantBanner(
         image: 'assets/images/food1.jpg',
         title: 'Faasos',
